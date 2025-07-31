@@ -7,9 +7,9 @@ from ppo.utils.util import get_shape_from_obs_space, get_shape_from_act_space
 from ppo.algorithms.utils.util import check
 from ppo.algorithms.ppo.algorithm.PPO import PPO
 
-class TransformerPolicy:
+class PPO_Policy:
     """
-    MAT Policy  class. Wraps actor and critic networks to compute actions and value function predictions.
+    PPO Policy  class. Wraps actor and critic networks to compute actions and value function predictions.
 
     :param args: (argparse.Namespace) arguments containing relevant model and policy information.
     :param obs_space: (gym.Space) observation space.
@@ -25,7 +25,6 @@ class TransformerPolicy:
         self.opti_eps = args.opti_eps
         self.weight_decay = args.weight_decay
         self._use_policy_active_masks = args.use_policy_active_masks
-        self.num_quants = args.n_quants
         self.n_embd = args.n_embd
         
         if act_space.__class__.__name__ == 'Box':
@@ -49,8 +48,7 @@ class TransformerPolicy:
                                self.act_dim,
                                n_embd=args.n_embd,
                                device=device,
-                               action_type=self.action_type,
-                               num_quants=args.n_quants)
+                               action_type=self.action_type)
 
         self.optimizer = torch.optim.Adam(self.transformer.parameters(),
                                           lr=self.lr, eps=self.opti_eps,
@@ -86,7 +84,7 @@ class TransformerPolicy:
         actions, action_log_probs, values = self.transformer.get_actions(obs)
         actions = actions.view(-1, self.act_num)        
         action_log_probs = action_log_probs.view(-1, self.act_num)
-        values = values.view(-1, self.num_quants)
+        values = values.view(-1, 1)
     
         return values, actions, action_log_probs
 
@@ -102,7 +100,7 @@ class TransformerPolicy:
         obs = obs.reshape(-1, self.obs_dim)
 
         values = self.transformer.get_values(obs)
-        values = values.view(-1, self.num_quants)
+        values = values.view(-1, 1)
 
         return values
 
@@ -129,7 +127,7 @@ class TransformerPolicy:
         action_log_probs, values, entropy = self.transformer(obs, actions)
 
         action_log_probs = action_log_probs.view(-1, self.act_num)
-        values = values.view(-1, self.num_quants)
+        values = values.view(-1, 1)
         entropy = entropy.view(-1, self.act_num)
 
         if self._use_policy_active_masks and active_masks is not None:

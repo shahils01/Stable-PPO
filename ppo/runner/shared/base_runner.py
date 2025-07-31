@@ -4,8 +4,8 @@ import numpy as np
 import torch
 from tensorboardX import SummaryWriter
 from ppo.utils.shared_buffer import SharedReplayBuffer
-from ppo.algorithms.ppo.mat_trainer import PPOTrainer as TrainAlgo
-from ppo.algorithms.ppo.algorithm.transformer_policy import TransformerPolicy as Policy
+from ppo.algorithms.ppo.ppo_trainer import PPOTrainer as TrainAlgo
+from ppo.algorithms.ppo.algorithm.ppo_policy import PPO_Policy as Policy
 from ppo.utils.util import get_shape_from_obs_space
 
 def _t2n(x):
@@ -54,8 +54,6 @@ class Runner(object):
         else:
             self.act_dim = act_space.shape[0]
         
-        self.num_quants = self.all_args.n_quants
-
         # interval
         self.save_interval = self.all_args.save_interval
         self.use_eval = self.all_args.use_eval

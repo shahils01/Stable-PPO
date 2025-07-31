@@ -29,12 +29,10 @@ class MujocoRunner(Runner):
         super(MujocoRunner, self).__init__(config)
         self.reward_list = []
         self.reward_list_training = []
-        self.plt_name = 'smac'
+        self.plt_name = 'ppo'
     
     def run(self):
         self.warmup()
-
-        print('Done with warmup')
 
         start = time.time()
         episodes = int(self.num_env_steps) // self.episode_length // self.n_rollout_threads
@@ -176,9 +174,6 @@ class MujocoRunner(Runner):
                 self.trainer.policy.act(eval_obs,
                                         eval_masks)
             eval_actions = _t2n(eval_actions)
-
-            print('eval_obs shape = ', eval_obs.shape)
-            print('eval_actions shape = ', eval_actions.shape)
 
             # Obser reward and next obs
             eval_obs, eval_rewards, eval_dones, eval_infos = self.eval_envs.step(eval_actions)

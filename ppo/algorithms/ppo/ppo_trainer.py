@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.distributions import Normal
 from torch.autograd import grad
-from ppo.utils.util import get_gard_norm, huber_loss, mse_loss, quantile_huber_loss
+from ppo.utils.util import get_gard_norm, huber_loss, mse_loss
 from ppo.utils.valuenorm import ValueNorm
 from ppo.algorithms.utils.util import check
 
@@ -23,7 +23,6 @@ class PPOTrainer:
         self.device = device
         self.tpdv = dict(dtype=torch.float32, device=device)
         self.policy = policy        
-        self.num_quants = args.n_quants
         self.n_embd = args.n_embd
 
         self.clip_param = args.clip_param
@@ -42,7 +41,7 @@ class PPOTrainer:
         self._use_policy_active_masks = args.use_policy_active_masks
         
         if self._use_valuenorm:
-            self.value_normalizer = ValueNorm(self.num_quants, device=self.device)
+            self.value_normalizer = ValueNorm(1, device=self.device)
         else:
             self.value_normalizer = None
 
@@ -68,22 +67,12 @@ class PPOTrainer:
             error_clipped = return_batch - value_pred_clipped
             error_original = return_batch - values
             
-        if self.num_quants == 1:
-            #print('Loss using MSE')
-            if self._use_huber_loss:
-                value_loss_clipped = huber_loss(error_clipped, self.huber_delta)
-                value_loss_original = huber_loss(error_original, self.huber_delta)
-            else:
-                value_loss_clipped = mse_loss(error_clipped)
-                value_loss_original = mse_loss(error_original)
+        if self._use_huber_loss:
+            value_loss_clipped = huber_loss(error_clipped, self.huber_delta)
+            value_loss_original = huber_loss(error_original, self.huber_delta)
         else:
-            #print('Loss using quantile_huber_loss')
-            if self._use_valuenorm:
-                value_loss_clipped = quantile_huber_loss(self.value_normalizer.normalize(return_batch), value_pred_clipped)
-                value_loss_original = quantile_huber_loss(self.value_normalizer.normalize(return_batch), values)
-            else:
-                value_loss_clipped = quantile_huber_loss(return_batch, value_pred_clipped)
-                value_loss_original = quantile_huber_loss(return_batch, values)
+            value_loss_clipped = mse_loss(error_clipped)
+            value_loss_original = mse_loss(error_original)
 
         if self._use_clipped_value_loss:
             value_loss = torch.max(value_loss_original, value_loss_clipped)

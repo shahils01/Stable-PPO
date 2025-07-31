@@ -66,14 +66,6 @@ def get_config():
             by default True, use Orthogonal initialization for weights and 0 initialization for biases. or else, will use xavier uniform inilialization.
         --gain
             by default 0.01, use the gain # of last action layer
-        --use_naive_recurrent_policy
-            by default False, use the whole trajectory to calculate hidden states.
-        --use_recurrent_policy
-            by default, use Recurrent Policy. If set, do not use.
-        --recurrent_N <int>
-            The number of recurrent layers ( default 1).
-        --data_chunk_length <int>
-            Time length of chunks used to train a recurrent_policy, default 10.
     
     Optimizer parameters:
         --lr <float>
@@ -158,7 +150,7 @@ def get_config():
 
     # prepare parameters
     parser.add_argument("--algorithm_name", type=str,
-                        default='mat', choices=["ppo", "dist-ppo"])
+                        default='ppo', choices=["ppo"])
 
     parser.add_argument("--seed", type=int, default=1, help="Random seed for numpy/torch")
     parser.add_argument("--cuda", action='store_false', default=True, help="by default True, will use GPU to train; or else will use CPU;")
@@ -275,9 +267,6 @@ def get_config():
 
     # pretrained parameters
     parser.add_argument("--model_dir", type=str, default=None, help="by default None. set the path to pretrained model.")
-    
-    #parser.add_argument("--model_dir", type=str, default='/home/shahils/Desktop/marl_ws/Multi-Agent-Transformer/mat/scripts/results/StarCraft2/5m_vs_6m/mat_gnn/single/wandb/run-20250509_193126-3g2yk7i6/files/transformer_3124.pt', help="by default None. set the path to pretrained model.")
-
 
     # add for transformer
     parser.add_argument("--encode_state", action='store_true', default=False)
@@ -291,6 +280,4 @@ def get_config():
     parser.add_argument("--train_maps", type=str, nargs='+', default=None)
     parser.add_argument("--eval_maps", type=str, nargs='+', default=None)
     
-    parser.add_argument("--n_quants", type=int, default=1)
-
     return parser

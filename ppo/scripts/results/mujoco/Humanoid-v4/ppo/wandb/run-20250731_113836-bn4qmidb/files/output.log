@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/ppo/scripts/train/train_mujoco.py", line 132, in main
+    runner = Runner(config)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 29, in __init__
+    super(MujocoRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 57, in __init__
+    self.num_quants = self.all_args.n_quants
+AttributeError: 'Namespace' object has no attribute 'n_quants'

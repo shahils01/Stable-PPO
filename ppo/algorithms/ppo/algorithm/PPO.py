@@ -17,7 +17,7 @@ def init_(m, gain=0.01, activate=False):
 
 class Critic(nn.Module):
 
-    def __init__(self, obs_dim, n_embd, num_quants, device):
+    def __init__(self, obs_dim, n_embd, device):
         super(Critic, self).__init__()
 
         self.obs_dim = obs_dim
@@ -28,14 +28,13 @@ class Critic(nn.Module):
             critic = nn.Sequential(nn.LayerNorm(obs_dim),
                                 init_(nn.Linear(obs_dim, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
                                 init_(nn.Linear(n_embd, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
-                                init_(nn.Linear(n_embd, num_quants)))
+                                init_(nn.Linear(n_embd, 1)))
 
             self.head_.append(critic)
 
     def forward(self, obs):
         # obs: (batch, 1, obs_dim)                
         v_loc = self.head_[0](obs)
-        v_loc, _ = torch.sort(v_loc, dim=-1)
             
         return v_loc
 
@@ -79,7 +78,7 @@ class Actor(nn.Module):
 
 class PPO(nn.Module):
 
-    def __init__(self, obs_dim, action_dim, n_embd, device=torch.device("cpu"), action_type='Discrete', num_quants=50):
+    def __init__(self, obs_dim, action_dim, n_embd, device=torch.device("cpu"), action_type='Discrete'):
         super(PPO, self).__init__()
 
         self.action_dim = action_dim
@@ -89,7 +88,7 @@ class PPO(nn.Module):
         self.n_embd = n_embd
    
         # Actor-Critic Networks
-        self.critic = Critic(obs_dim, n_embd, num_quants, device)
+        self.critic = Critic(obs_dim, n_embd, device)
         self.actor = Actor(obs_dim, action_dim, n_embd, device, self.action_type)
 
         # self.value_entropy_weight = torch.nn.Parameter(torch.ones(1)/2)

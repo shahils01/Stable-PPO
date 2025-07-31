@@ -54,7 +54,7 @@ def make_eval_env(all_args):
 
 
 def parse_args(args, parser):
-    parser.add_argument('--scenario', type=str, default='Hopper-v2', help="Which mujoco task to run on")
+    parser.add_argument('--scenario', type=str, default='Humanoid-v4', help="Which mujoco task to run on")
     all_args = parser.parse_known_args(args)[0]
 
     return all_args
@@ -90,7 +90,7 @@ def main(args):
                          notes=socket.gethostname(),
                          name=str(all_args.algorithm_name) +
                               "_seed_" + str(all_args.seed),
-                         group='DistPPO',
+                         group='PPO',
                          dir=str(run_dir),
                          job_type="training",
                          reinit=True)
@@ -120,7 +120,6 @@ def main(args):
     # env
     envs = make_train_env(all_args)
     eval_envs = make_eval_env(all_args) if all_args.use_eval else None
-    num_agents = 1
 
     config = {
         "all_args": all_args,
