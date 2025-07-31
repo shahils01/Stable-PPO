@@ -1,0 +1,97 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([64, 2048, 1])
+obs dim =  (64, 348)
+Done with warmup
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 4516.
+
+some episodes done, average rewards:  106.08650780862277
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 4507.
+
+some episodes done, average rewards:  135.25922563999202
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 4489.
+
+some episodes done, average rewards:  213.9540557712455
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 4463.
+
+some episodes done, average rewards:  283.16116836565374
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 4444.
+
+some episodes done, average rewards:  315.9265831175278
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 4434.
+
+some episodes done, average rewards:  332.71113246791526
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 4426.
+
+some episodes done, average rewards:  344.8802335932718
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 4422.
+
+some episodes done, average rewards:  352.0379832992798
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 4417.
+
+some episodes done, average rewards:  356.4140106936165
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 4411.
+
+some episodes done, average rewards:  360.5410029342167
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 4405.
+
+some episodes done, average rewards:  364.9256669156032
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 4402.
+
+some episodes done, average rewards:  367.0093257883432
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 60/1525 episodes, total num timesteps 7995392/200000000, FPS 4398.
+
+some episodes done, average rewards:  372.3551043454046
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 65/1525 episodes, total num timesteps 8650752/200000000, FPS 4390.
+
+some episodes done, average rewards:  371.844502561422
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 70/1525 episodes, total num timesteps 9306112/200000000, FPS 4388.
+
+some episodes done, average rewards:  377.1671924665923
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 75/1525 episodes, total num timesteps 9961472/200000000, FPS 4385.
+
+some episodes done, average rewards:  378.3169614940917
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 80/1525 episodes, total num timesteps 10616832/200000000, FPS 4382.
+
+some episodes done, average rewards:  379.84657791795837
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 85/1525 episodes, total num timesteps 11272192/200000000, FPS 4379.
+
+some episodes done, average rewards:  379.4654689821415
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 90/1525 episodes, total num timesteps 11927552/200000000, FPS 4377.
+
+some episodes done, average rewards:  381.6400807003371
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 95/1525 episodes, total num timesteps 12582912/200000000, FPS 4374.
+
+some episodes done, average rewards:  382.7323744770522
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 100/1525 episodes, total num timesteps 13238272/200000000, FPS 4373.
+
+some episodes done, average rewards:  386.73025937082576
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 105/1525 episodes, total num timesteps 13893632/200000000, FPS 4371.
+
+some episodes done, average rewards:  384.29886743253866
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 110/1525 episodes, total num timesteps 14548992/200000000, FPS 4370.
+
+some episodes done, average rewards:  387.7218890515498

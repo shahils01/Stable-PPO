@@ -1,0 +1,19 @@
+{"time":"2025-07-29T16:49:54.324842273-04:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2025-07-29T16:49:54.324850726-04:00","level":"INFO","msg":"created symlink","path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/Humanoid-v5/dist-ppo/wandb/run-20250729_164954-vtbzizgq/logs/debug-core.log"}
+{"time":"2025-07-29T16:49:54.592221193-04:00","level":"INFO","msg":"created new stream","id":"vtbzizgq"}
+{"time":"2025-07-29T16:49:54.592241175-04:00","level":"INFO","msg":"stream: started","id":"vtbzizgq"}
+{"time":"2025-07-29T16:49:54.592260419-04:00","level":"INFO","msg":"handler: started","stream_id":{"value":"vtbzizgq"}}
+{"time":"2025-07-29T16:49:54.595259218-04:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"vtbzizgq"}}
+{"time":"2025-07-29T16:49:54.595261754-04:00","level":"INFO","msg":"sender: started","stream_id":"vtbzizgq"}
+{"time":"2025-07-29T16:49:54.891541177-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-29T16:49:57.356259117-04:00","level":"INFO","msg":"stream: closing","id":"vtbzizgq"}
+{"time":"2025-07-29T16:49:57.356280479-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-29T16:49:57.356852697-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-29T16:49:57.480470045-04:00","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2025-07-29T16:49:57.4808636-04:00","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2025-07-29T16:49:57.480875325-04:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2025-07-29T16:49:57.806801762-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-29T16:49:57.928696644-04:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"vtbzizgq"}}
+{"time":"2025-07-29T16:49:57.928719393-04:00","level":"INFO","msg":"sender: closed","stream_id":"vtbzizgq"}
+{"time":"2025-07-29T16:49:57.928716591-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"vtbzizgq"}}
+{"time":"2025-07-29T16:49:57.930384908-04:00","level":"INFO","msg":"stream: closed","id":"vtbzizgq"}

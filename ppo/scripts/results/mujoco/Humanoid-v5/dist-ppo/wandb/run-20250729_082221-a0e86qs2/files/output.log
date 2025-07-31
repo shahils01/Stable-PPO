@@ -1,0 +1,79 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([128, 1024, 1])
+obs dim =  (128, 348)
+Done with warmup
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 5735.
+
+some episodes done, average rewards:  105.08134776974711
+/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py:188: RuntimeWarning: invalid value encountered in log
+  distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 194, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 124, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/transformer_policy.py", line 129, in evaluate_actions
+    action_log_probs, values, entropy = self.transformer(obs, actions)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 116, in forward
+    action_log, entropy = continuous_parallel_act(self.decoder, obs, action, batch_size, self.action_dim, self.tpdv)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/utils/transformer_act.py", line 80, in continuous_parallel_act
+    distri = Normal(act_mean, action_std)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/distributions/normal.py", line 50, in __init__
+    super(Normal, self).__init__(batch_shape, validate_args=validate_args)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/distributions/distribution.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected parameter loc (Tensor of shape (2048, 17)) of distribution Normal(loc: torch.Size([2048, 17]), scale: torch.Size([2048, 17])) to satisfy the constraint Real(), but found invalid values:
+tensor([[nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan]], device='cuda:0',
+       grad_fn=<TanhBackward0>)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 194, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 124, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/transformer_policy.py", line 129, in evaluate_actions
+    action_log_probs, values, entropy = self.transformer(obs, actions)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 116, in forward
+    action_log, entropy = continuous_parallel_act(self.decoder, obs, action, batch_size, self.action_dim, self.tpdv)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/utils/transformer_act.py", line 80, in continuous_parallel_act
+    distri = Normal(act_mean, action_std)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/distributions/normal.py", line 50, in __init__
+    super(Normal, self).__init__(batch_shape, validate_args=validate_args)
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/distributions/distribution.py", line 55, in __init__
+    raise ValueError(
+ValueError: Expected parameter loc (Tensor of shape (2048, 17)) of distribution Normal(loc: torch.Size([2048, 17]), scale: torch.Size([2048, 17])) to satisfy the constraint Real(), but found invalid values:
+tensor([[nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan]], device='cuda:0',
+       grad_fn=<TanhBackward0>)

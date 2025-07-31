@@ -1,0 +1,65 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([128, 1024, 1])
+obs dim =  (128, 348)
+Done with warmup
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 6064.
+
+some episodes done, average rewards:  105.47540380348154
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 6007.
+
+some episodes done, average rewards:  173.07097446266127
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 5931.
+
+some episodes done, average rewards:  311.02009438185695
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 5891.
+
+some episodes done, average rewards:  344.8499276342366
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 5861.
+
+some episodes done, average rewards:  352.8553897451584
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 5842.
+
+some episodes done, average rewards:  357.38903896755374
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 5831.
+
+some episodes done, average rewards:  359.3442948964686
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 5819.
+
+some episodes done, average rewards:  359.8525127265135
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 191, in train
+    for sample in data_generator:
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 252, in feed_forward_generator_transformer
+    old_action_log_probs_batch = action_log_probs[indices].reshape(-1, *action_log_probs.shape[2:])
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 191, in train
+    for sample in data_generator:
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 252, in feed_forward_generator_transformer
+    old_action_log_probs_batch = action_log_probs[indices].reshape(-1, *action_log_probs.shape[2:])
+KeyboardInterrupt

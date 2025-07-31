@@ -1,0 +1,15 @@
+{"time":"2025-07-29T08:22:21.604967336-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/Humanoid-v5/dist-ppo/wandb/run-20250729_082221-a0e86qs2/logs/debug-core.log"}
+{"time":"2025-07-29T08:22:21.711209427-04:00","level":"INFO","msg":"created new stream","id":"a0e86qs2"}
+{"time":"2025-07-29T08:22:21.711229861-04:00","level":"INFO","msg":"stream: started","id":"a0e86qs2"}
+{"time":"2025-07-29T08:22:21.711250148-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:22:21.71126017-04:00","level":"INFO","msg":"sender: started","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:22:21.711275432-04:00","level":"INFO","msg":"handler: started","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:22:21.974280369-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-29T08:23:04.241818414-04:00","level":"INFO","msg":"stream: closing","id":"a0e86qs2"}
+{"time":"2025-07-29T08:23:04.2418974-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-29T08:23:04.242549345-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-29T08:23:04.711361449-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-29T08:23:04.872174973-04:00","level":"INFO","msg":"handler: closed","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:23:04.872197997-04:00","level":"INFO","msg":"sender: closed","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:23:04.872188379-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":"a0e86qs2"}
+{"time":"2025-07-29T08:23:04.873848112-04:00","level":"INFO","msg":"stream: closed","id":"a0e86qs2"}

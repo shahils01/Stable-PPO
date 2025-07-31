@@ -1,0 +1,137 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([128, 1024, 1])
+obs dim =  (128, 348)
+Done with warmup
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 5770.
+
+some episodes done, average rewards:  104.8705014625368
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 5887.
+
+some episodes done, average rewards:  119.28435606169653
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 5851.
+
+some episodes done, average rewards:  142.46679082918664
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 5826.
+
+some episodes done, average rewards:  168.14833736141344
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 5803.
+
+some episodes done, average rewards:  192.1372701467425
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 5781.
+
+some episodes done, average rewards:  219.3196715752061
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 5767.
+
+some episodes done, average rewards:  235.13513340177366
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 5755.
+
+some episodes done, average rewards:  245.98525100112653
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 5737.
+
+some episodes done, average rewards:  249.67314903813488
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 5730.
+
+some episodes done, average rewards:  251.25355198229113
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 5725.
+
+some episodes done, average rewards:  250.29221926116588
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 5717.
+
+some episodes done, average rewards:  254.32445931149957
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 60/1525 episodes, total num timesteps 7995392/200000000, FPS 5713.
+
+some episodes done, average rewards:  264.61516566210724
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 65/1525 episodes, total num timesteps 8650752/200000000, FPS 5707.
+
+some episodes done, average rewards:  263.7520609297691
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 70/1525 episodes, total num timesteps 9306112/200000000, FPS 5702.
+
+some episodes done, average rewards:  260.970668523628
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 75/1525 episodes, total num timesteps 9961472/200000000, FPS 5698.
+
+some episodes done, average rewards:  260.07838806231047
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 80/1525 episodes, total num timesteps 10616832/200000000, FPS 5694.
+
+some episodes done, average rewards:  260.5100508863948
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 85/1525 episodes, total num timesteps 11272192/200000000, FPS 5690.
+
+some episodes done, average rewards:  261.18251271954415
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 90/1525 episodes, total num timesteps 11927552/200000000, FPS 5687.
+
+some episodes done, average rewards:  258.9384008495423
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 95/1525 episodes, total num timesteps 12582912/200000000, FPS 5684.
+
+some episodes done, average rewards:  257.146808690217
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 100/1525 episodes, total num timesteps 13238272/200000000, FPS 5680.
+
+some episodes done, average rewards:  255.17111440868007
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 105/1525 episodes, total num timesteps 13893632/200000000, FPS 5677.
+
+some episodes done, average rewards:  255.48894561565555
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 110/1525 episodes, total num timesteps 14548992/200000000, FPS 5673.
+
+some episodes done, average rewards:  255.842615437156
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 115/1525 episodes, total num timesteps 15204352/200000000, FPS 5670.
+
+some episodes done, average rewards:  251.28753036818085
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 120/1525 episodes, total num timesteps 15859712/200000000, FPS 5664.
+
+some episodes done, average rewards:  246.13502249170236
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 54, in run
+    obs, rewards, dones, infos = self.envs.step(actions)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 106, in step
+    return self.step_wait()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 310, in step_wait
+    results = [remote.recv() for remote in self.remotes]
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 310, in <listcomp>
+    results = [remote.recv() for remote in self.remotes]
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/multiprocessing/connection.py", line 251, in recv
+    return _ForkingPickler.loads(buf.getbuffer())
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 54, in run
+    obs, rewards, dones, infos = self.envs.step(actions)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 106, in step
+    return self.step_wait()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 310, in step_wait
+    results = [remote.recv() for remote in self.remotes]
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/envs/env_wrappers.py", line 310, in <listcomp>
+    results = [remote.recv() for remote in self.remotes]
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/multiprocessing/connection.py", line 251, in recv
+    return _ForkingPickler.loads(buf.getbuffer())
+KeyboardInterrupt

@@ -1,0 +1,43 @@
+action_dim =  17
+obs_dim =  376
+gamma_normalizer shape =  torch.Size([64, 1024, 1])
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/3051 episodes, total num timesteps 65536/200000000, FPS 4506.
+
+some episodes done, average rewards:  116.83986095643016
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/3051 episodes, total num timesteps 393216/200000000, FPS 4592.
+
+some episodes done, average rewards:  121.00481025272073
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/3051 episodes, total num timesteps 720896/200000000, FPS 4599.
+
+some episodes done, average rewards:  128.48593421264644
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 194, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 124, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/transformer_policy.py", line 129, in evaluate_actions
+    action_log_probs, values, entropy = self.transformer(obs, actions)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 117, in forward
+    action_log, entropy = continuous_parallel_act(self.decoder, obs, action, batch_size, self.action_dim, self.tpdv)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/utils/transformer_act.py", line 82, in continuous_parallel_act
+    action_log = distri.log_prob(action)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/distributions/normal.py", line 91, in log_prob
+    - math.log(math.sqrt(2 * math.pi))
+KeyboardInterrupt

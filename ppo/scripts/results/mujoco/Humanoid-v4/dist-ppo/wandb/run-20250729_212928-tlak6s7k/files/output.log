@@ -1,0 +1,181 @@
+action_dim =  17
+obs_dim =  376
+gamma_normalizer shape =  torch.Size([64, 512, 1])
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/6103 episodes, total num timesteps 32768/200000000, FPS 2887.
+
+some episodes done, average rewards:  114.73042412524835
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/6103 episodes, total num timesteps 196608/200000000, FPS 2900.
+
+some episodes done, average rewards:  213.33766811396075
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/6103 episodes, total num timesteps 360448/200000000, FPS 2897.
+
+some episodes done, average rewards:  375.3511546584299
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 15/6103 episodes, total num timesteps 524288/200000000, FPS 2890.
+
+some episodes done, average rewards:  400.4303142106499
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 20/6103 episodes, total num timesteps 688128/200000000, FPS 2887.
+
+some episodes done, average rewards:  410.4334860827176
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 25/6103 episodes, total num timesteps 851968/200000000, FPS 2883.
+
+some episodes done, average rewards:  421.0805904899107
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 30/6103 episodes, total num timesteps 1015808/200000000, FPS 2878.
+
+some episodes done, average rewards:  431.73904187807716
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 35/6103 episodes, total num timesteps 1179648/200000000, FPS 2866.
+
+some episodes done, average rewards:  435.7951331550784
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 40/6103 episodes, total num timesteps 1343488/200000000, FPS 2865.
+
+some episodes done, average rewards:  454.11257336570367
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 45/6103 episodes, total num timesteps 1507328/200000000, FPS 2863.
+
+some episodes done, average rewards:  477.12400199683657
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 50/6103 episodes, total num timesteps 1671168/200000000, FPS 2862.
+
+some episodes done, average rewards:  481.7721582712634
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 55/6103 episodes, total num timesteps 1835008/200000000, FPS 2861.
+
+some episodes done, average rewards:  482.7540966362289
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 60/6103 episodes, total num timesteps 1998848/200000000, FPS 2860.
+
+some episodes done, average rewards:  485.19945731651313
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 65/6103 episodes, total num timesteps 2162688/200000000, FPS 2858.
+
+some episodes done, average rewards:  472.598370309063
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 70/6103 episodes, total num timesteps 2326528/200000000, FPS 2858.
+
+some episodes done, average rewards:  485.3070602209923
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 75/6103 episodes, total num timesteps 2490368/200000000, FPS 2857.
+
+some episodes done, average rewards:  493.5389380358816
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 80/6103 episodes, total num timesteps 2654208/200000000, FPS 2856.
+
+some episodes done, average rewards:  502.6116763634583
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 85/6103 episodes, total num timesteps 2818048/200000000, FPS 2856.
+
+some episodes done, average rewards:  512.0096042333082
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 90/6103 episodes, total num timesteps 2981888/200000000, FPS 2855.
+
+some episodes done, average rewards:  534.7789673282163
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 95/6103 episodes, total num timesteps 3145728/200000000, FPS 2854.
+
+some episodes done, average rewards:  543.048030191212
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 100/6103 episodes, total num timesteps 3309568/200000000, FPS 2853.
+
+some episodes done, average rewards:  546.4665595717779
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 105/6103 episodes, total num timesteps 3473408/200000000, FPS 2852.
+
+some episodes done, average rewards:  553.5902518269761
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 110/6103 episodes, total num timesteps 3637248/200000000, FPS 2851.
+
+some episodes done, average rewards:  539.5322156877439
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 115/6103 episodes, total num timesteps 3801088/200000000, FPS 2851.
+
+some episodes done, average rewards:  561.6424431552024
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 120/6103 episodes, total num timesteps 3964928/200000000, FPS 2851.
+
+some episodes done, average rewards:  559.4543705641262
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 125/6103 episodes, total num timesteps 4128768/200000000, FPS 2852.
+
+some episodes done, average rewards:  571.7088044172609
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 130/6103 episodes, total num timesteps 4292608/200000000, FPS 2853.
+
+some episodes done, average rewards:  562.3697058633106
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 135/6103 episodes, total num timesteps 4456448/200000000, FPS 2855.
+
+some episodes done, average rewards:  573.1540314313751
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 140/6103 episodes, total num timesteps 4620288/200000000, FPS 2858.
+
+some episodes done, average rewards:  584.1679117685213
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 145/6103 episodes, total num timesteps 4784128/200000000, FPS 2860.
+
+some episodes done, average rewards:  602.8161481305834
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 150/6103 episodes, total num timesteps 4947968/200000000, FPS 2862.
+
+some episodes done, average rewards:  593.9188804656733
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 155/6103 episodes, total num timesteps 5111808/200000000, FPS 2864.
+
+some episodes done, average rewards:  605.6258090433741
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 160/6103 episodes, total num timesteps 5275648/200000000, FPS 2866.
+
+some episodes done, average rewards:  619.457455986529
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 194, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 124, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/transformer_policy.py", line 129, in evaluate_actions
+    action_log_probs, values, entropy = self.transformer(obs, actions)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 117, in forward
+    action_log, entropy = continuous_parallel_act(self.decoder, obs, action, batch_size, self.action_dim, self.tpdv)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/utils/transformer_act.py", line 77, in continuous_parallel_act
+    act_mean = decoder(obs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 78, in forward
+    logit = self.mlp_[0](obs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/normalization.py", line 217, in forward
+    return F.layer_norm(
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/functional.py", line 2910, in layer_norm
+    return torch.layer_norm(
+KeyboardInterrupt

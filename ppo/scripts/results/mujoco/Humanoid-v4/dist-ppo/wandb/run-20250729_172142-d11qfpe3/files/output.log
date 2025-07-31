@@ -1,0 +1,97 @@
+action_dim =  17
+obs_dim =  376
+gamma_normalizer shape =  torch.Size([64, 1024, 1])
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/3051 episodes, total num timesteps 65536/200000000, FPS 4447.
+
+some episodes done, average rewards:  117.41898201005576
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/3051 episodes, total num timesteps 393216/200000000, FPS 4551.
+
+some episodes done, average rewards:  121.37434277988535
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/3051 episodes, total num timesteps 720896/200000000, FPS 4548.
+
+some episodes done, average rewards:  127.0826542311333
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 15/3051 episodes, total num timesteps 1048576/200000000, FPS 4547.
+
+some episodes done, average rewards:  135.214318261974
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 20/3051 episodes, total num timesteps 1376256/200000000, FPS 4545.
+
+some episodes done, average rewards:  143.27273686689492
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 25/3051 episodes, total num timesteps 1703936/200000000, FPS 4542.
+
+some episodes done, average rewards:  151.95319253950186
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 30/3051 episodes, total num timesteps 2031616/200000000, FPS 4541.
+
+some episodes done, average rewards:  161.20125474463248
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 35/3051 episodes, total num timesteps 2359296/200000000, FPS 4542.
+
+some episodes done, average rewards:  170.9240126426047
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 40/3051 episodes, total num timesteps 2686976/200000000, FPS 4541.
+
+some episodes done, average rewards:  182.729511776715
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 45/3051 episodes, total num timesteps 3014656/200000000, FPS 4542.
+
+some episodes done, average rewards:  190.18294583885756
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 50/3051 episodes, total num timesteps 3342336/200000000, FPS 4542.
+
+some episodes done, average rewards:  199.60898034325183
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 55/3051 episodes, total num timesteps 3670016/200000000, FPS 4542.
+
+some episodes done, average rewards:  211.69532716699064
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 60/3051 episodes, total num timesteps 3997696/200000000, FPS 4542.
+
+some episodes done, average rewards:  219.82057241244988
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 65/3051 episodes, total num timesteps 4325376/200000000, FPS 4541.
+
+some episodes done, average rewards:  224.10734452342976
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 70/3051 episodes, total num timesteps 4653056/200000000, FPS 4541.
+
+some episodes done, average rewards:  229.132223025963
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 75/3051 episodes, total num timesteps 4980736/200000000, FPS 4541.
+
+some episodes done, average rewards:  237.84957394885083
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 80/3051 episodes, total num timesteps 5308416/200000000, FPS 4540.
+
+some episodes done, average rewards:  246.28883597906065
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 85/3051 episodes, total num timesteps 5636096/200000000, FPS 4539.
+
+some episodes done, average rewards:  256.43965648130217
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 90/3051 episodes, total num timesteps 5963776/200000000, FPS 4538.
+
+some episodes done, average rewards:  262.1116331821851
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 95/3051 episodes, total num timesteps 6291456/200000000, FPS 4537.
+
+some episodes done, average rewards:  271.8062569233439
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 100/3051 episodes, total num timesteps 6619136/200000000, FPS 4537.
+
+some episodes done, average rewards:  273.6014061675559
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 105/3051 episodes, total num timesteps 6946816/200000000, FPS 4537.
+
+some episodes done, average rewards:  276.9475338090064
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 110/3051 episodes, total num timesteps 7274496/200000000, FPS 4537.
+
+some episodes done, average rewards:  283.7496257766248

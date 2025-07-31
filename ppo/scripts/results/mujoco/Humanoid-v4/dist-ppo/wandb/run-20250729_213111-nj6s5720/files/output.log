@@ -1,0 +1,148 @@
+action_dim =  17
+obs_dim =  376
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/6103 episodes, total num timesteps 32768/200000000, FPS 2795.
+
+some episodes done, average rewards:  116.99995920081346
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/6103 episodes, total num timesteps 196608/200000000, FPS 2815.
+
+some episodes done, average rewards:  225.5963774281356
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/6103 episodes, total num timesteps 360448/200000000, FPS 2807.
+
+some episodes done, average rewards:  371.8414662766968
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 15/6103 episodes, total num timesteps 524288/200000000, FPS 2797.
+
+some episodes done, average rewards:  402.07048010818136
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 20/6103 episodes, total num timesteps 688128/200000000, FPS 2789.
+
+some episodes done, average rewards:  412.62212110526673
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 25/6103 episodes, total num timesteps 851968/200000000, FPS 2788.
+
+some episodes done, average rewards:  428.2966305657539
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 30/6103 episodes, total num timesteps 1015808/200000000, FPS 2786.
+
+some episodes done, average rewards:  438.04119375582434
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 35/6103 episodes, total num timesteps 1179648/200000000, FPS 2783.
+
+some episodes done, average rewards:  447.5339385766559
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 40/6103 episodes, total num timesteps 1343488/200000000, FPS 2782.
+
+some episodes done, average rewards:  472.578402940776
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 45/6103 episodes, total num timesteps 1507328/200000000, FPS 2781.
+
+some episodes done, average rewards:  485.86006531813626
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 50/6103 episodes, total num timesteps 1671168/200000000, FPS 2781.
+
+some episodes done, average rewards:  497.6258285224357
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 55/6103 episodes, total num timesteps 1835008/200000000, FPS 2771.
+
+some episodes done, average rewards:  499.4772514621705
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 60/6103 episodes, total num timesteps 1998848/200000000, FPS 2765.
+
+some episodes done, average rewards:  515.4557582872241
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 65/6103 episodes, total num timesteps 2162688/200000000, FPS 2767.
+
+some episodes done, average rewards:  514.0637721692265
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 70/6103 episodes, total num timesteps 2326528/200000000, FPS 2770.
+
+some episodes done, average rewards:  528.2272362694226
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 75/6103 episodes, total num timesteps 2490368/200000000, FPS 2771.
+
+some episodes done, average rewards:  517.890753117751
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 80/6103 episodes, total num timesteps 2654208/200000000, FPS 2769.
+
+some episodes done, average rewards:  516.9745767587307
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 85/6103 episodes, total num timesteps 2818048/200000000, FPS 2771.
+
+some episodes done, average rewards:  516.6846171989
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 90/6103 episodes, total num timesteps 2981888/200000000, FPS 2773.
+
+some episodes done, average rewards:  525.7688831579225
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 95/6103 episodes, total num timesteps 3145728/200000000, FPS 2776.
+
+some episodes done, average rewards:  530.7901284840801
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 100/6103 episodes, total num timesteps 3309568/200000000, FPS 2777.
+
+some episodes done, average rewards:  532.4043137588028
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 105/6103 episodes, total num timesteps 3473408/200000000, FPS 2780.
+
+some episodes done, average rewards:  546.1942591801618
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 110/6103 episodes, total num timesteps 3637248/200000000, FPS 2782.
+
+some episodes done, average rewards:  570.6886295940474
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 115/6103 episodes, total num timesteps 3801088/200000000, FPS 2771.
+
+some episodes done, average rewards:  572.7816137319368
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 120/6103 episodes, total num timesteps 3964928/200000000, FPS 2773.
+
+some episodes done, average rewards:  569.7135947471436
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 125/6103 episodes, total num timesteps 4128768/200000000, FPS 2772.
+
+some episodes done, average rewards:  565.3154633099263
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 130/6103 episodes, total num timesteps 4292608/200000000, FPS 2770.
+
+some episodes done, average rewards:  579.7187012866358
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 135/6103 episodes, total num timesteps 4456448/200000000, FPS 2773.
+
+some episodes done, average rewards:  589.8835545740716
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 140/6103 episodes, total num timesteps 4620288/200000000, FPS 2776.
+
+some episodes done, average rewards:  611.2003232192487
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 145/6103 episodes, total num timesteps 4784128/200000000, FPS 2778.
+
+some episodes done, average rewards:  621.7366522721011
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 150/6103 episodes, total num timesteps 4947968/200000000, FPS 2781.
+
+some episodes done, average rewards:  629.2332964999416
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 155/6103 episodes, total num timesteps 5111808/200000000, FPS 2780.
+
+some episodes done, average rewards:  629.7918073883706
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 160/6103 episodes, total num timesteps 5275648/200000000, FPS 2777.
+
+some episodes done, average rewards:  631.6720957806266
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 69, in run
+    self.insert(data)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 145, in insert
+    masks[dones_env == True] = np.zeros(((dones_env == True).sum(), 1), dtype=np.float32)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/numpy/core/_methods.py", line 49, in _sum
+    return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+KeyboardInterrupt

@@ -1,0 +1,57 @@
+action_dim =  17
+obs_dim =  376
+gamma_normalizer shape =  torch.Size([64, 2048, 1])
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 5452.
+
+some episodes done, average rewards:  115.72780192140712
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 5818.
+
+some episodes done, average rewards:  119.34537455749548
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 5848.
+
+some episodes done, average rewards:  124.82008524890647
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 5869.
+
+some episodes done, average rewards:  130.4930285493247
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 51, in run
+    values, actions, action_log_probs = self.collect(step)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 129, in collect
+    = self.trainer.policy.get_actions(np.concatenate(self.buffer.obs[step]),
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/transformer_policy.py", line 86, in get_actions
+    actions, action_log_probs, values = self.transformer.get_actions(obs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 130, in get_actions
+    output_action, output_action_log = continuous_autoregreesive_act(self.decoder, obs, batch_size, self.action_dim, self.tpdv)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/utils/transformer_act.py", line 66, in continuous_autoregreesive_act
+    act_mean = decoder(obs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/algorithm/ma_gnn_transformer_new.py", line 78, in forward
+    logit = self.mlp_[0](obs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/shahils/.conda/envs/pytorch/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+KeyboardInterrupt

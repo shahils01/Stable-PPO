@@ -1,0 +1,8 @@
+{"time":"2025-07-29T17:27:03.39517549-04:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2025-07-29T17:27:03.395188242-04:00","level":"INFO","msg":"created symlink","path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/Humanoid-v4/dist-ppo/wandb/run-20250729_172703-fbtxnks7/logs/debug-core.log"}
+{"time":"2025-07-29T17:27:03.512618614-04:00","level":"INFO","msg":"created new stream","id":"fbtxnks7"}
+{"time":"2025-07-29T17:27:03.512646126-04:00","level":"INFO","msg":"stream: started","id":"fbtxnks7"}
+{"time":"2025-07-29T17:27:03.512663193-04:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"fbtxnks7"}}
+{"time":"2025-07-29T17:27:03.512727764-04:00","level":"INFO","msg":"sender: started","stream_id":"fbtxnks7"}
+{"time":"2025-07-29T17:27:03.512763353-04:00","level":"INFO","msg":"handler: started","stream_id":{"value":"fbtxnks7"}}
+{"time":"2025-07-29T17:27:03.832911542-04:00","level":"INFO","msg":"Starting system monitor"}

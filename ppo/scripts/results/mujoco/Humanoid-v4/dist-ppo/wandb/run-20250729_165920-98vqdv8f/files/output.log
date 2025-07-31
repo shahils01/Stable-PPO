@@ -1,0 +1,71 @@
+action_dim =  17
+obs_dim =  376
+gamma_normalizer shape =  torch.Size([64, 2048, 1])
+obs dim =  (64, 376)
+Done with warmup
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 5903.
+
+some episodes done, average rewards:  115.67351607335912
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 5958.
+
+some episodes done, average rewards:  120.53644484969388
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 5981.
+
+some episodes done, average rewards:  128.4226503208672
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 5979.
+
+some episodes done, average rewards:  134.84736024609958
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 5979.
+
+some episodes done, average rewards:  144.24121084358822
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 5988.
+
+some episodes done, average rewards:  154.70551150366694
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 5990.
+
+some episodes done, average rewards:  166.7127388707312
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 5985.
+
+some episodes done, average rewards:  174.5213318691321
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 5983.
+
+some episodes done, average rewards:  184.72390734266088
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 5981.
+
+some episodes done, average rewards:  197.3709545895634
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 5978.
+
+some episodes done, average rewards:  203.72438755441289
+
+ Scenario Humanoid-v4 Algo dist-ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 5979.
+
+some episodes done, average rewards:  215.26655482217234
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 73, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/algorithms/mat/mat_trainer.py", line 191, in train
+    for sample in data_generator:
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 220, in feed_forward_generator_transformer
+    rows, cols = _shuffle_agent_grid(batch_size, 1)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 18, in _shuffle_agent_grid
+    cols = np.stack([np.arange(y) for _ in range(x)])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 18, in <listcomp>
+    cols = np.stack([np.arange(y) for _ in range(x)])
+KeyboardInterrupt

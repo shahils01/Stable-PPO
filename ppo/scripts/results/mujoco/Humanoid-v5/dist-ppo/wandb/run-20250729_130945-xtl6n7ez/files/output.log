@@ -1,0 +1,421 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([64, 2048, 1])
+obs dim =  (64, 348)
+Done with warmup
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 4119.
+
+some episodes done, average rewards:  105.11663141950208
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 4057.
+
+some episodes done, average rewards:  137.5817686937035
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 4060.
+
+some episodes done, average rewards:  247.30020635083358
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 4051.
+
+some episodes done, average rewards:  339.75203482219814
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 4031.
+
+some episodes done, average rewards:  378.4870020047658
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 4033.
+
+some episodes done, average rewards:  399.80812766450725
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 4032.
+
+some episodes done, average rewards:  422.8295601840439
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 4034.
+
+some episodes done, average rewards:  441.17917725565337
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 4037.
+
+some episodes done, average rewards:  462.0796006730317
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 4035.
+
+some episodes done, average rewards:  482.33955181817845
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 4036.
+
+some episodes done, average rewards:  501.4717371385294
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 4033.
+
+some episodes done, average rewards:  524.0527002146152
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 60/1525 episodes, total num timesteps 7995392/200000000, FPS 4033.
+
+some episodes done, average rewards:  544.8026383300166
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 65/1525 episodes, total num timesteps 8650752/200000000, FPS 4039.
+
+some episodes done, average rewards:  570.8772598619619
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 70/1525 episodes, total num timesteps 9306112/200000000, FPS 4045.
+
+some episodes done, average rewards:  597.2333031828647
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 75/1525 episodes, total num timesteps 9961472/200000000, FPS 4050.
+
+some episodes done, average rewards:  635.9114450713495
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 80/1525 episodes, total num timesteps 10616832/200000000, FPS 4054.
+
+some episodes done, average rewards:  667.3876623394856
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 85/1525 episodes, total num timesteps 11272192/200000000, FPS 4057.
+
+some episodes done, average rewards:  712.5271808815854
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 90/1525 episodes, total num timesteps 11927552/200000000, FPS 4059.
+
+some episodes done, average rewards:  746.7173870828154
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 95/1525 episodes, total num timesteps 12582912/200000000, FPS 4062.
+
+some episodes done, average rewards:  802.996635376317
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 100/1525 episodes, total num timesteps 13238272/200000000, FPS 4063.
+
+some episodes done, average rewards:  858.8589456982018
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 105/1525 episodes, total num timesteps 13893632/200000000, FPS 4065.
+
+some episodes done, average rewards:  927.1473502239783
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 110/1525 episodes, total num timesteps 14548992/200000000, FPS 4066.
+
+some episodes done, average rewards:  1011.2683427457963
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 115/1525 episodes, total num timesteps 15204352/200000000, FPS 4067.
+
+some episodes done, average rewards:  1109.4045110761956
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 120/1525 episodes, total num timesteps 15859712/200000000, FPS 4068.
+
+some episodes done, average rewards:  1240.1414876486315
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 125/1525 episodes, total num timesteps 16515072/200000000, FPS 4069.
+
+some episodes done, average rewards:  1379.7168859258215
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 130/1525 episodes, total num timesteps 17170432/200000000, FPS 4069.
+
+some episodes done, average rewards:  1525.7939704576186
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 135/1525 episodes, total num timesteps 17825792/200000000, FPS 4069.
+
+some episodes done, average rewards:  1718.337547449571
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 140/1525 episodes, total num timesteps 18481152/200000000, FPS 4069.
+
+some episodes done, average rewards:  1961.935071899182
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 145/1525 episodes, total num timesteps 19136512/200000000, FPS 4069.
+
+some episodes done, average rewards:  2290.0853399912708
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 150/1525 episodes, total num timesteps 19791872/200000000, FPS 4068.
+
+some episodes done, average rewards:  2623.9109256261563
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 155/1525 episodes, total num timesteps 20447232/200000000, FPS 4066.
+
+some episodes done, average rewards:  2867.681649305697
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 160/1525 episodes, total num timesteps 21102592/200000000, FPS 4065.
+
+some episodes done, average rewards:  3080.332550913105
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 165/1525 episodes, total num timesteps 21757952/200000000, FPS 4065.
+
+some episodes done, average rewards:  3336.288626801129
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 170/1525 episodes, total num timesteps 22413312/200000000, FPS 4065.
+
+some episodes done, average rewards:  3477.340272385866
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 175/1525 episodes, total num timesteps 23068672/200000000, FPS 4064.
+
+some episodes done, average rewards:  3660.5438033294504
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 180/1525 episodes, total num timesteps 23724032/200000000, FPS 4063.
+
+some episodes done, average rewards:  3730.122080412764
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 185/1525 episodes, total num timesteps 24379392/200000000, FPS 4063.
+
+some episodes done, average rewards:  4056.1766789172248
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 190/1525 episodes, total num timesteps 25034752/200000000, FPS 4062.
+
+some episodes done, average rewards:  4119.589737715668
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 195/1525 episodes, total num timesteps 25690112/200000000, FPS 4061.
+
+some episodes done, average rewards:  4097.099920427694
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 200/1525 episodes, total num timesteps 26345472/200000000, FPS 4060.
+
+some episodes done, average rewards:  4225.575850745672
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 205/1525 episodes, total num timesteps 27000832/200000000, FPS 4059.
+
+some episodes done, average rewards:  4380.741715046107
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 210/1525 episodes, total num timesteps 27656192/200000000, FPS 4058.
+
+some episodes done, average rewards:  4379.260321303764
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 215/1525 episodes, total num timesteps 28311552/200000000, FPS 4057.
+
+some episodes done, average rewards:  4365.51445015584
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 220/1525 episodes, total num timesteps 28966912/200000000, FPS 4057.
+
+some episodes done, average rewards:  4452.066817572041
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 225/1525 episodes, total num timesteps 29622272/200000000, FPS 4058.
+
+some episodes done, average rewards:  4290.947137231811
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 230/1525 episodes, total num timesteps 30277632/200000000, FPS 4058.
+
+some episodes done, average rewards:  4134.128108797566
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 235/1525 episodes, total num timesteps 30932992/200000000, FPS 4058.
+
+some episodes done, average rewards:  4165.479056451624
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 240/1525 episodes, total num timesteps 31588352/200000000, FPS 4058.
+
+some episodes done, average rewards:  4146.783598468448
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 245/1525 episodes, total num timesteps 32243712/200000000, FPS 4058.
+
+some episodes done, average rewards:  4203.586191830069
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 250/1525 episodes, total num timesteps 32899072/200000000, FPS 4058.
+
+some episodes done, average rewards:  4364.479159636996
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 255/1525 episodes, total num timesteps 33554432/200000000, FPS 4058.
+
+some episodes done, average rewards:  4338.904599341435
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 260/1525 episodes, total num timesteps 34209792/200000000, FPS 4058.
+
+some episodes done, average rewards:  4363.889111373921
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 265/1525 episodes, total num timesteps 34865152/200000000, FPS 4058.
+
+some episodes done, average rewards:  4409.583787867705
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 270/1525 episodes, total num timesteps 35520512/200000000, FPS 4059.
+
+some episodes done, average rewards:  4380.708642381154
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 275/1525 episodes, total num timesteps 36175872/200000000, FPS 4058.
+
+some episodes done, average rewards:  4398.56636200785
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 280/1525 episodes, total num timesteps 36831232/200000000, FPS 4058.
+
+some episodes done, average rewards:  4331.442946754454
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 285/1525 episodes, total num timesteps 37486592/200000000, FPS 4054.
+
+some episodes done, average rewards:  4265.55128385556
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 290/1525 episodes, total num timesteps 38141952/200000000, FPS 4054.
+
+some episodes done, average rewards:  4445.318811516087
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 295/1525 episodes, total num timesteps 38797312/200000000, FPS 4054.
+
+some episodes done, average rewards:  4305.044608148688
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 300/1525 episodes, total num timesteps 39452672/200000000, FPS 4054.
+
+some episodes done, average rewards:  4421.735097513455
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 305/1525 episodes, total num timesteps 40108032/200000000, FPS 4054.
+
+some episodes done, average rewards:  4381.916864190884
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 310/1525 episodes, total num timesteps 40763392/200000000, FPS 4054.
+
+some episodes done, average rewards:  4307.113742150077
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 315/1525 episodes, total num timesteps 41418752/200000000, FPS 4054.
+
+some episodes done, average rewards:  4407.984212424692
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 320/1525 episodes, total num timesteps 42074112/200000000, FPS 4053.
+
+some episodes done, average rewards:  4247.86887633858
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 325/1525 episodes, total num timesteps 42729472/200000000, FPS 4053.
+
+some episodes done, average rewards:  4380.0609767951555
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 330/1525 episodes, total num timesteps 43384832/200000000, FPS 4053.
+
+some episodes done, average rewards:  4305.674296057774
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 335/1525 episodes, total num timesteps 44040192/200000000, FPS 4053.
+
+some episodes done, average rewards:  4382.039893008294
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 340/1525 episodes, total num timesteps 44695552/200000000, FPS 4053.
+
+some episodes done, average rewards:  4452.995298428319
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 345/1525 episodes, total num timesteps 45350912/200000000, FPS 4053.
+
+some episodes done, average rewards:  4373.513352733558
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 350/1525 episodes, total num timesteps 46006272/200000000, FPS 4053.
+
+some episodes done, average rewards:  4456.230272133124
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 355/1525 episodes, total num timesteps 46661632/200000000, FPS 4053.
+
+some episodes done, average rewards:  4315.314507587547
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 360/1525 episodes, total num timesteps 47316992/200000000, FPS 4053.
+
+some episodes done, average rewards:  4400.234540942139
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 365/1525 episodes, total num timesteps 47972352/200000000, FPS 4054.
+
+some episodes done, average rewards:  4345.417896196043
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 370/1525 episodes, total num timesteps 48627712/200000000, FPS 4054.
+
+some episodes done, average rewards:  4318.821796399614
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 375/1525 episodes, total num timesteps 49283072/200000000, FPS 4054.
+
+some episodes done, average rewards:  4299.89922118903
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 380/1525 episodes, total num timesteps 49938432/200000000, FPS 4053.
+
+some episodes done, average rewards:  4385.398750435386
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 385/1525 episodes, total num timesteps 50593792/200000000, FPS 4053.
+
+some episodes done, average rewards:  4338.88512371838
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 390/1525 episodes, total num timesteps 51249152/200000000, FPS 4053.
+
+some episodes done, average rewards:  4377.391750090967
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 395/1525 episodes, total num timesteps 51904512/200000000, FPS 4054.
+
+some episodes done, average rewards:  4557.806578028063
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 400/1525 episodes, total num timesteps 52559872/200000000, FPS 4054.
+
+some episodes done, average rewards:  4377.378330874131
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 405/1525 episodes, total num timesteps 53215232/200000000, FPS 4054.
+
+some episodes done, average rewards:  4421.334583608082
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 410/1525 episodes, total num timesteps 53870592/200000000, FPS 4054.
+
+some episodes done, average rewards:  4492.579765608202
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 415/1525 episodes, total num timesteps 54525952/200000000, FPS 4054.
+
+some episodes done, average rewards:  4435.696935514569
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 420/1525 episodes, total num timesteps 55181312/200000000, FPS 4054.
+
+some episodes done, average rewards:  4511.267410466747
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 425/1525 episodes, total num timesteps 55836672/200000000, FPS 4054.
+
+some episodes done, average rewards:  4497.596880614162
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 430/1525 episodes, total num timesteps 56492032/200000000, FPS 4054.
+
+some episodes done, average rewards:  4407.493525965323
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 435/1525 episodes, total num timesteps 57147392/200000000, FPS 4054.
+
+some episodes done, average rewards:  4420.688001359607
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 440/1525 episodes, total num timesteps 57802752/200000000, FPS 4055.
+
+some episodes done, average rewards:  4376.7043013923885
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 445/1525 episodes, total num timesteps 58458112/200000000, FPS 4055.
+
+some episodes done, average rewards:  4333.943974492274
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 450/1525 episodes, total num timesteps 59113472/200000000, FPS 4055.
+
+some episodes done, average rewards:  4342.693479284232
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 455/1525 episodes, total num timesteps 59768832/200000000, FPS 4055.
+
+some episodes done, average rewards:  4276.503901929506
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 460/1525 episodes, total num timesteps 60424192/200000000, FPS 4055.
+
+some episodes done, average rewards:  4417.261597246277
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 465/1525 episodes, total num timesteps 61079552/200000000, FPS 4055.
+
+some episodes done, average rewards:  4493.94600570097
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 470/1525 episodes, total num timesteps 61734912/200000000, FPS 4055.
+
+some episodes done, average rewards:  4605.745406396707
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 475/1525 episodes, total num timesteps 62390272/200000000, FPS 4055.
+
+some episodes done, average rewards:  4580.209722291997
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 480/1525 episodes, total num timesteps 63045632/200000000, FPS 4055.
+
+some episodes done, average rewards:  4390.469806717998
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 485/1525 episodes, total num timesteps 63700992/200000000, FPS 4055.
+
+some episodes done, average rewards:  4363.837249296249
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 490/1525 episodes, total num timesteps 64356352/200000000, FPS 4055.
+
+some episodes done, average rewards:  4321.8304313172985
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 495/1525 episodes, total num timesteps 65011712/200000000, FPS 4055.
+
+some episodes done, average rewards:  4271.678551168812
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 500/1525 episodes, total num timesteps 65667072/200000000, FPS 4055.
+
+some episodes done, average rewards:  4273.241003610956
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 505/1525 episodes, total num timesteps 66322432/200000000, FPS 4055.
+
+some episodes done, average rewards:  4318.690666643402
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 510/1525 episodes, total num timesteps 66977792/200000000, FPS 4055.
+
+some episodes done, average rewards:  4340.096082832921
+
+ Scenario Humanoid-v5 Algo dist-ppo updates 515/1525 episodes, total num timesteps 67633152/200000000, FPS 4056.
+
+some episodes done, average rewards:  4333.163460130404

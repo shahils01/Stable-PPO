@@ -1,0 +1,19 @@
+{"time":"2025-07-28T18:59:55.703112277-04:00","level":"INFO","msg":"using version","core version":"0.18.5"}
+{"time":"2025-07-28T18:59:55.703127664-04:00","level":"INFO","msg":"created symlink","path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/HalfCheetah-v4/dist-ppo/wandb/run-20250728_185955-bhu8ah5n/logs/debug-core.log"}
+{"time":"2025-07-28T18:59:55.813216482-04:00","level":"INFO","msg":"created new stream","id":"bhu8ah5n"}
+{"time":"2025-07-28T18:59:55.813242838-04:00","level":"INFO","msg":"stream: started","id":"bhu8ah5n"}
+{"time":"2025-07-28T18:59:55.813256418-04:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"bhu8ah5n"}}
+{"time":"2025-07-28T18:59:55.813320374-04:00","level":"INFO","msg":"sender: started","stream_id":"bhu8ah5n"}
+{"time":"2025-07-28T18:59:55.81337733-04:00","level":"INFO","msg":"handler: started","stream_id":{"value":"bhu8ah5n"}}
+{"time":"2025-07-28T18:59:56.212569213-04:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-07-28T19:00:07.218689552-04:00","level":"INFO","msg":"stream: closing","id":"bhu8ah5n"}
+{"time":"2025-07-28T19:00:07.218860761-04:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-07-28T19:00:07.219401278-04:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-07-28T19:00:07.403168143-04:00","level":"WARN","msg":"No job ingredients found, not creating job artifact"}
+{"time":"2025-07-28T19:00:07.403177037-04:00","level":"WARN","msg":"No source type found, not creating job artifact"}
+{"time":"2025-07-28T19:00:07.403181308-04:00","level":"INFO","msg":"sender: sendDefer: no job artifact to save"}
+{"time":"2025-07-28T19:00:07.738305804-04:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-07-28T19:00:08.05359791-04:00","level":"INFO","msg":"handler: closed","stream_id":{"value":"bhu8ah5n"}}
+{"time":"2025-07-28T19:00:08.053641816-04:00","level":"INFO","msg":"writer: Close: closed","stream_id":{"value":"bhu8ah5n"}}
+{"time":"2025-07-28T19:00:08.053693317-04:00","level":"INFO","msg":"sender: closed","stream_id":"bhu8ah5n"}
+{"time":"2025-07-28T19:00:08.054980778-04:00","level":"INFO","msg":"stream: closed","id":"bhu8ah5n"}

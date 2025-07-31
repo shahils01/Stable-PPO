@@ -1,0 +1,40 @@
+action_dim =  17
+obs_dim =  348
+gamma_normalizer shape =  torch.Size([64, 1000, 1])
+obs dim =  (64, 348)
+Done with warmup
+q shape =  (64,)
+(icdf1_mids - icdf2_mids) shape =  (64, 1, 63)
+(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)) shape =  (64, 1, 63)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 72, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 126, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 136, in compute_returns
+    delta = self.rewards[step] + self.wasserstein_like_distance(self.gamma * value_normalizer.denormalize(
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 192, in wasserstein_like_distance
+    distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*self.gamma_normalizer*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdim=True)
+ValueError: operands could not be broadcast together with shapes (64,) (64,1000,63)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 149, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/train/train_mujoco.py", line 134, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/mujoco_runner.py", line 72, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/aero_env/lib/python3.9/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/runner/shared/base_runner.py", line 126, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 136, in compute_returns
+    delta = self.rewards[step] + self.wasserstein_like_distance(self.gamma * value_normalizer.denormalize(
+  File "/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/../../mat/utils/shared_buffer.py", line 192, in wasserstein_like_distance
+    distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*self.gamma_normalizer*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdim=True)
+ValueError: operands could not be broadcast together with shapes (64,) (64,1000,63)
