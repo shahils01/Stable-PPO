@@ -1,8 +1,0 @@
-{"time":"2025-07-29T22:02:24.393116909-04:00","level":"INFO","msg":"using version","core version":"0.18.5"}
-{"time":"2025-07-29T22:02:24.393126004-04:00","level":"INFO","msg":"created symlink","path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/Humanoid-v4/dist-ppo/wandb/run-20250729_220224-okxvtyms/logs/debug-core.log"}
-{"time":"2025-07-29T22:02:24.502871911-04:00","level":"INFO","msg":"created new stream","id":"okxvtyms"}
-{"time":"2025-07-29T22:02:24.502891819-04:00","level":"INFO","msg":"stream: started","id":"okxvtyms"}
-{"time":"2025-07-29T22:02:24.502912925-04:00","level":"INFO","msg":"sender: started","stream_id":"okxvtyms"}
-{"time":"2025-07-29T22:02:24.502907205-04:00","level":"INFO","msg":"writer: Do: started","stream_id":{"value":"okxvtyms"}}
-{"time":"2025-07-29T22:02:24.502909115-04:00","level":"INFO","msg":"handler: started","stream_id":{"value":"okxvtyms"}}
-{"time":"2025-07-29T22:02:24.713844188-04:00","level":"INFO","msg":"Starting system monitor"}
