@@ -18,7 +18,7 @@ class PPO_Policy:
     :param device: (torch.device) specifies the device to run on (cpu/gpu).
     """
 
-    def __init__(self, args, obs_space, act_space, device=torch.device("cpu")):
+    def __init__(self, args, obs_space, act_space, device=torch.device("cpu"), num_quants=1):
         self.device = device
         self.algorithm_name = args.algorithm_name
         self.lr = args.lr
@@ -32,23 +32,33 @@ class PPO_Policy:
         else:
             self.action_type = 'Discrete'
 
-        self.obs_dim = get_shape_from_obs_space(obs_space)[0]
+        if args.env_name == 'IsaacLab':
+            self.obs_dim = get_shape_from_obs_space(obs_space)[-1]
+        else:
+            self.obs_dim = get_shape_from_obs_space(obs_space)[0]
+
+        self.act_dim = get_shape_from_act_space(act_space)
+
         if self.action_type == 'Discrete':
-            self.act_dim = act_space.n
+            # self.act_dim = act_space.n
             self.act_num = 1
         else:
-            self.act_dim = act_space.shape[0]
+            # self.act_dim = act_space.shape[0]
             self.act_num = self.act_dim
 
         self.tpdv = dict(dtype=torch.float32, device=device)
         
         self.obs_dim_ = self.obs_dim
+        self.num_quants = num_quants
 
         self.transformer = PPO(self.obs_dim, 
                                self.act_dim,
                                n_embd=args.n_embd,
+                               moe_policy=args.moe_policy,
                                device=device,
-                               action_type=self.action_type)
+                               action_type=self.action_type,
+                               num_experts=args.num_experts,
+                               num_quants=num_quants)
 
         self.optimizer = torch.optim.Adam(self.transformer.parameters(),
                                           lr=self.lr, eps=self.opti_eps,
@@ -81,10 +91,11 @@ class PPO_Policy:
         :return rnn_states_critic: (torch.Tensor) updated critic network RNN states.
         """
         obs = obs.reshape(-1, self.obs_dim)
+
         actions, action_log_probs, values = self.transformer.get_actions(obs)
         actions = actions.view(-1, self.act_num)        
         action_log_probs = action_log_probs.view(-1, self.act_num)
-        values = values.view(-1, 1)
+        values = values.view(-1, self.num_quants)
     
         return values, actions, action_log_probs
 
@@ -100,7 +111,7 @@ class PPO_Policy:
         obs = obs.reshape(-1, self.obs_dim)
 
         values = self.transformer.get_values(obs)
-        values = values.view(-1, 1)
+        values = values.view(-1, self.num_quants)
 
         return values
 
@@ -124,10 +135,10 @@ class PPO_Policy:
         obs = obs.reshape(-1, self.obs_dim)
         actions = actions.reshape(-1, self.act_num)
 
-        action_log_probs, values, entropy = self.transformer(obs, actions)
+        action_log_probs, values, entropy, gate_entropy = self.transformer(obs, actions)
 
         action_log_probs = action_log_probs.view(-1, self.act_num)
-        values = values.view(-1, 1)
+        values = values.view(-1, self.num_quants)
         entropy = entropy.view(-1, self.act_num)
 
         if self._use_policy_active_masks and active_masks is not None:
@@ -135,7 +146,10 @@ class PPO_Policy:
         else:
             entropy = entropy.mean()
 
-        return values, action_log_probs, entropy
+        if gate_entropy is not None:
+            return values, action_log_probs, entropy, gate_entropy.mean()
+        else:
+            return values, action_log_probs, entropy, gate_entropy
 
     def act(self, obs, masks):
         """

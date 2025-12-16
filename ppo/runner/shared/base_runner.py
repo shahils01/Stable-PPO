@@ -6,7 +6,7 @@ from tensorboardX import SummaryWriter
 from ppo.utils.shared_buffer import SharedReplayBuffer
 from ppo.algorithms.ppo.ppo_trainer import PPOTrainer as TrainAlgo
 from ppo.algorithms.ppo.algorithm.ppo_policy import PPO_Policy as Policy
-from ppo.utils.util import get_shape_from_obs_space
+from ppo.utils.util import get_shape_from_obs_space, get_shape_from_act_space
 
 def _t2n(x):
     """Convert torch tensor to a numpy array."""
@@ -48,11 +48,17 @@ class Runner(object):
         else:
             self.action_type = 'Discrete'
 
-        self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
-        if self.action_type == 'Discrete':
-            self.act_dim = act_space.n
+        if self.env_name == 'IsaacLab':
+            self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[-1]
         else:
-            self.act_dim = act_space.shape[0]
+            self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
+            
+        self.act_dim = get_shape_from_act_space(act_space)
+
+        # if self.action_type == 'Discrete':
+        #     self.act_dim = act_space.n
+        # else:
+        #     self.act_dim = act_space.shape[0]
         
         # interval
         self.save_interval = self.all_args.save_interval
@@ -80,7 +86,8 @@ class Runner(object):
         self.policy = Policy(self.all_args,
                              self.envs.observation_space,
                              self.envs.action_space,
-                             device=self.device)
+                             device=self.device,
+                             num_quants=self.all_args.num_quants)
 
         if self.model_dir is not None:
             self.restore(self.model_dir)
@@ -121,6 +128,7 @@ class Runner(object):
                                                      np.concatenate(self.buffer.masks[-1]))
         
         next_values = _t2n(next_values)
+        # next_values = next_values.reshape(self.n_rollout_threads, -1)
         self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
     
     def train(self):

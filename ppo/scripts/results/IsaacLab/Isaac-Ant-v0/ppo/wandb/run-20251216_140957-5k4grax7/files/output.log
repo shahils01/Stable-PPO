@@ -1,0 +1,35 @@
+action_dim =  64
+obs_dim =  64
+obs_shape =  (64, 60)
+obs_shape after =  (60,)
+obs dim =  (64, 60)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 49, in run
+    values, actions, action_log_probs = self.collect(step)
+                                        ^^^^^^^^^^^^^^^^^^
+  File "/isaac-sim/exts/omni.isaac.ml_archive/pip_prebundle/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 137, in collect
+    return values, actions, action_log_probs
+                   ^^^^^^^
+NameError: name 'actions' is not defined
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 49, in run
+    values, actions, action_log_probs = self.collect(step)
+                                        ^^^^^^^^^^^^^^^^^^
+  File "/isaac-sim/exts/omni.isaac.ml_archive/pip_prebundle/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 137, in collect
+    return values, actions, action_log_probs
+                   ^^^^^^^
+NameError: name 'actions' is not defined. Did you mean: 'action'?

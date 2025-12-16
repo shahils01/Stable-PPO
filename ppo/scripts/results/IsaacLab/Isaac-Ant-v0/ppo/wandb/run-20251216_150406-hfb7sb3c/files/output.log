@@ -1,0 +1,9 @@
+action_dim =  8
+obs_dim =  60
+act_shape after =  8
+obs dim =  (512, 60)
+
+ Scenario Isaac-Ant-v0 Algo ppo updates 0/762 episodes, total num timesteps 262144/200000000, FPS 14532.
+
+average_step_rewards is 0.009389981627464294.
+some episodes done, average rewards:  0.7201439442894892

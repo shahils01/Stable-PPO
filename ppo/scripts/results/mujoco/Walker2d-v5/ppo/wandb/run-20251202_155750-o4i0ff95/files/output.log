@@ -1,0 +1,104 @@
+action_dim =  6
+obs_dim =  17
+obs dim =  (64, 17)
+
+ Scenario Walker2d-v5 Algo ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 14200.
+
+average_step_rewards is 0.32544800639152527.
+some episodes done, average rewards:  9.046738231217592
+
+ Scenario Walker2d-v5 Algo ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 14226.
+
+average_step_rewards is 1.4167553186416626.
+some episodes done, average rewards:  101.07630532140423
+
+ Scenario Walker2d-v5 Algo ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 14301.
+
+average_step_rewards is 1.7104495763778687.
+some episodes done, average rewards:  290.485440516188
+
+ Scenario Walker2d-v5 Algo ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 14338.
+
+average_step_rewards is 1.7416003942489624.
+some episodes done, average rewards:  282.35459602518324
+
+ Scenario Walker2d-v5 Algo ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 14396.
+
+average_step_rewards is 1.7782726287841797.
+some episodes done, average rewards:  288.0940992323914
+
+ Scenario Walker2d-v5 Algo ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 14433.
+
+average_step_rewards is 1.8273839950561523.
+some episodes done, average rewards:  367.6901549729198
+
+ Scenario Walker2d-v5 Algo ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 14466.
+
+average_step_rewards is 1.914321780204773.
+some episodes done, average rewards:  385.2389227771662
+
+ Scenario Walker2d-v5 Algo ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 14494.
+
+average_step_rewards is 1.9725366830825806.
+some episodes done, average rewards:  386.7572567504034
+
+ Scenario Walker2d-v5 Algo ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 14519.
+
+average_step_rewards is 2.048759937286377.
+some episodes done, average rewards:  420.0273309912532
+
+ Scenario Walker2d-v5 Algo ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 14539.
+
+average_step_rewards is 2.224356174468994.
+some episodes done, average rewards:  469.1225450468166
+
+ Scenario Walker2d-v5 Algo ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 14554.
+
+average_step_rewards is 2.4183602333068848.
+some episodes done, average rewards:  554.2121524757615
+
+ Scenario Walker2d-v5 Algo ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 14551.
+
+average_step_rewards is 2.5995986461639404.
+some episodes done, average rewards:  716.070956848919
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 126, in compute_returns
+    - value_normalizer.denormalize(self.value_preds[step])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 75, in denormalize
+    mean, var = self.running_mean_var()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 35, in running_mean_var
+    debiased_var = (debiased_mean_sq - debiased_mean ** 2).clamp(min=1e-2)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 126, in compute_returns
+    - value_normalizer.denormalize(self.value_preds[step])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 75, in denormalize
+    mean, var = self.running_mean_var()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 35, in running_mean_var
+    debiased_var = (debiased_mean_sq - debiased_mean ** 2).clamp(min=1e-2)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

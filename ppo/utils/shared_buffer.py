@@ -38,20 +38,25 @@ class SharedReplayBuffer(object):
         self._use_proper_time_limits = args.use_proper_time_limits
         self.algo = args.algorithm_name
         self.env_name = env_name
+        self.num_quants = args.num_quants
         
         obs_shape = get_shape_from_obs_space(obs_space)
 
         if type(obs_shape[-1]) == list:
             obs_shape = obs_shape[:1]
 
+        if env_name == 'IsaacLab':
+            obs_shape = (obs_shape[-1],)
+
         self.obs = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_shape), dtype=np.float32)
         self.value_preds = np.zeros(
-            (self.episode_length + 1, self.n_rollout_threads, 1, 1), dtype=np.float32)
+            (self.episode_length + 1, self.n_rollout_threads, 1, self.num_quants), dtype=np.float32)
         self.returns = np.zeros_like(self.value_preds)
         self.advantages = np.zeros(
             (self.episode_length, self.n_rollout_threads, 1, 1), dtype=np.float32)
 
         act_shape = get_shape_from_act_space(act_space)
+        print('act_shape after = ', act_shape)
 
         self.actions = np.zeros(
             (self.episode_length, self.n_rollout_threads, 1, act_shape), dtype=np.float32)
@@ -67,8 +72,12 @@ class SharedReplayBuffer(object):
 
         self.step = 0
         self.use_value_entropy = use_value_entropy
+
         self.gamma_normalizer = ((1/args.gamma) ** torch.arange(args.episode_length, dtype=torch.float32)).unsqueeze(1).repeat(self.n_rollout_threads,1,1)
         self.gamma_normalizer = self.gamma_normalizer.detach().cpu().numpy()
+
+        if self.num_quants > 1:
+            self.quantile_spacing = 1.0 / (self.num_quants - 1)
 
     def insert(self, obs, actions, action_log_probs, value_preds, rewards, masks, bad_masks=None, active_masks=None):
         """
@@ -121,21 +130,72 @@ class SharedReplayBuffer(object):
         gae = 0
         for step in reversed(range(self.rewards.shape[0])):
             if self._use_popart or self._use_valuenorm:
-                delta = self.rewards[step] + self.gamma * value_normalizer.denormalize(
-                        self.value_preds[step + 1]) * self.masks[step + 1] \
-                            - value_normalizer.denormalize(self.value_preds[step])
+                if self.num_quants == 1:
+                    delta = self.rewards[step] + self.gamma * value_normalizer.denormalize(
+                            self.value_preds[step + 1]) * self.masks[step + 1] \
+                                - value_normalizer.denormalize(self.value_preds[step])
+                else:
+                    delta = self.rewards[step] + self.wasserstein_like_distance(self.gamma * value_normalizer.denormalize(
+                        self.value_preds[step + 1]) * self.masks[step + 1], value_normalizer.denormalize(self.value_preds[step]), step)
                 
                 gae = delta + self.gamma * self.gae_lambda * self.masks[step + 1] * gae
 
                 self.advantages[step] = gae
                 self.returns[step] = gae + value_normalizer.denormalize(self.value_preds[step])
             else:
-                delta = self.rewards[step] + self.gamma * self.value_preds[step + 1] * \
-                            self.masks[step + 1] - self.value_preds[step]
+                if self.num_quants == 1:
+                    delta = self.rewards[step] + self.gamma * self.value_preds[step + 1] * \
+                                self.masks[step + 1] - self.value_preds[step]
+                else:
+                    delta = self.wasserstein_like_distance(self.rewards[step] + self.gamma * self.value_preds[step + 1] * \
+                            self.masks[step + 1], self.value_preds[step], step)
+
                 gae = delta + self.gamma * self.gae_lambda * self.masks[step + 1] * gae
 
                 self.advantages[step] = (gae - gae.mean()) / (gae.std() + 1e-8) #gae
                 self.returns[step] = gae + self.value_preds[step]
+
+    def wasserstein_like_distance(self, icdf1, icdf2, k):
+        """
+        Compute the Wasserstein distance between each pair of ICDF functions.
+
+        Parameters:
+        icdf1 (torch.Tensor): Tensor of shape [2048, num_quantiles] representing the first set of ICDFs.
+        icdf2 (torch.Tensor): Tensor of shape [2048, num_quantiles] representing the second set of ICDFs.
+
+        Returns:
+        torch.Tensor: Tensor of shape [2048, 1] representing the Wasserstein distance for each pair of ICDFs.
+        """
+        # Compute the Wasserstein distance
+        # Wasserstein distance between two distributions is the area between their CDFs
+        # For ICDFs, this can be approximated by the average absolute difference between the ICDF values
+        # distances = torch.sum((1/64)*(icdf1 - icdf2), dim=1, keepdim=True)\             
+        if self.use_value_entropy:
+            del_icdf1 = (icdf1[:,:,1:] - icdf1[:,:,:-1])/self.quantile_spacing
+            del_icdf2 = (icdf2[:,:,1:] - icdf2[:,:,:-1])/self.quantile_spacing
+
+            # Guard against non-positive slopes (ICDF must be non-decreasing)
+            # del_icdf1 = np.clamp(del_icdf1, min=1e-6)
+            # del_icdf2 = np.clamp(del_icdf1, min=1e-6)
+                        
+            icdf1_mids = (icdf1[:,:,1:] + icdf1[:,:,:-1])/2
+            icdf2_mids = (icdf2[:,:,1:] + icdf2[:,:,:-1])/2
+            
+            # q = np.exp(np.linspace(0, 1, self.num_quants))
+            # q = q[1:] - q[:-1]
+            # q = np.tile(q, (icdf1.shape[0], 1))
+            # q = q[:, np.newaxis, :]
+            
+            # distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
+            # distances = np.mean((icdf1_mids - icdf2_mids)+0.1*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
+            distances = np.mean((icdf1_mids - icdf2_mids)+1.0*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
+            # distances = np.mean((icdf1_mids - icdf2_mids), axis=-1, keepdims=True)
+        
+        else:
+            distances = np.mean((icdf1 - icdf2), axis=-1, keepdims=True)
+    
+        return distances
+
 
     def feed_forward_generator_transformer(self, advantages, num_mini_batch=None, mini_batch_size=None):
         """

@@ -1,0 +1,19 @@
+action_dim =  21
+obs_dim =  87
+act_shape after =  21
+obs dim =  (1024, 87)
+
+ Scenario Isaac-Humanoid-v0 Algo ppo updates 0/381 episodes, total num timesteps 524288/200000000, FPS 16415.
+
+average_step_rewards is 0.03764195367693901.
+some episodes done, average rewards:  1.0235883975231648
+
+ Scenario Isaac-Humanoid-v0 Algo ppo updates 5/381 episodes, total num timesteps 3145728/200000000, FPS 17151.
+
+average_step_rewards is 0.03968288004398346.
+some episodes done, average rewards:  1.4191685487767534
+
+ Scenario Isaac-Humanoid-v0 Algo ppo updates 10/381 episodes, total num timesteps 5767168/200000000, FPS 17251.
+
+average_step_rewards is 0.03774546459317207.
+some episodes done, average rewards:  1.9264577858131335

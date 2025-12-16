@@ -1,0 +1,32 @@
+action_dim =  64
+obs_dim =  64
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 29, in __init__
+    super(IsaacRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 93, in __init__
+    self.buffer = SharedReplayBuffer(self.all_args,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 61, in __init__
+    act_shape = act_shape[-1]
+                ~~~~~~~~~^^^^
+TypeError: 'int' object is not subscriptable
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 29, in __init__
+    super(IsaacRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 93, in __init__
+    self.buffer = SharedReplayBuffer(self.all_args,
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 61, in __init__
+    act_shape = act_shape[-1]
+                ~~~~~~~~~^^^^
+TypeError: 'int' object is not subscriptable

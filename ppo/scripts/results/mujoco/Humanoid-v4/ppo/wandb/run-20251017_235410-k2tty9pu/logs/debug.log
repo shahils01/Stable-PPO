@@ -1,0 +1,832 @@
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_setup.py:_flush():80] Current SDK version is 0.21.1
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_setup.py:_flush():80] Configure stats pid to 296470
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_setup.py:_flush():80] Loading settings from /home/shahils/.config/wandb/settings
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_setup.py:_flush():80] Loading settings from /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/wandb/settings
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_init.py:setup_run_log_directory():703] Logging user logs to /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/results/mujoco/Humanoid-v4/ppo/wandb/run-20251017_235410-k2tty9pu/logs/debug.log
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_init.py:setup_run_log_directory():704] Logging internal logs to /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/results/mujoco/Humanoid-v4/ppo/wandb/run-20251017_235410-k2tty9pu/logs/debug-internal.log
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_init.py:init():830] calling init triggers
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_init.py:init():835] wandb.init called with sweep_config: {}
+config: {'algorithm_name': 'ppo', 'seed': 0, 'cuda': True, 'cuda_deterministic': True, 'n_training_threads': 32, 'n_rollout_threads': 64, 'n_eval_rollout_threads': 1, 'n_render_rollout_threads': 1, 'num_env_steps': 200000000, 'user_name': 'shahil-shaik7-clemson-university', 'use_wandb': True, 'env_name': 'mujoco', 'use_obs_instead_of_state': False, 'episode_length': 2048, 'share_policy': True, 'use_centralized_V': True, 'stacked_frames': 1, 'use_stacked_frames': False, 'hidden_size': 128, 'layer_N': 2, 'use_ReLU': True, 'use_popart': False, 'use_valuenorm': True, 'use_feature_normalization': True, 'use_orthogonal': True, 'gain': 0.01, 'lr': 3e-05, 'critic_lr': 3e-05, 'opti_eps': 1e-05, 'weight_decay': 0, 'ppo_epoch': 20, 'use_clipped_value_loss': True, 'clip_param': 0.1, 'num_mini_batch': 64, 'entropy_coef': 0.001, 'gnn_loss_coef': 1, 'value_loss_coef': 1, 'use_max_grad_norm': True, 'max_grad_norm': 0.8, 'use_gae': True, 'gamma': 0.99, 'gae_lambda': 0.95, 'use_proper_time_limits': False, 'use_huber_loss': True, 'use_value_active_masks': False, 'use_policy_active_masks': False, 'huber_delta': 10.0, 'use_linear_lr_decay': False, 'save_interval': 100, 'log_interval': 5, 'use_eval': False, 'eval_interval': 25, 'eval_episodes': 2, 'save_gifs': True, 'use_render': False, 'render_episodes': 5, 'ifi': 0.1, 'model_dir': None, 'encode_state': False, 'n_block': 1, 'n_embd': 128, 'n_head': 1, 'dec_actor': False, 'share_actor': False, 'train_maps': None, 'eval_maps': None, 'scenario': 'Humanoid-v4', '_wandb': {}}
+2025-10-17 23:54:10,339 INFO    MainThread:296470 [wandb_init.py:init():871] starting backend
+2025-10-17 23:54:10,997 INFO    MainThread:296470 [wandb_init.py:init():874] sending inform_init request
+2025-10-17 23:54:11,018 INFO    MainThread:296470 [wandb_init.py:init():882] backend started and connected
+2025-10-17 23:54:11,020 INFO    MainThread:296470 [wandb_init.py:init():953] updated telemetry
+2025-10-17 23:54:11,049 INFO    MainThread:296470 [wandb_init.py:init():977] communicating run to backend with 90.0 second timeout
+2025-10-17 23:54:11,585 INFO    MainThread:296470 [wandb_init.py:init():1029] starting run threads in backend
+2025-10-17 23:54:11,781 INFO    MainThread:296470 [wandb_run.py:_console_start():2494] atexit reg
+2025-10-17 23:54:11,781 INFO    MainThread:296470 [wandb_run.py:_redirect():2342] redirect: wrap_raw
+2025-10-17 23:54:11,781 INFO    MainThread:296470 [wandb_run.py:_redirect():2411] Wrapping output streams.
+2025-10-17 23:54:11,782 INFO    MainThread:296470 [wandb_run.py:_redirect():2434] Redirects installed.
+2025-10-17 23:54:11,790 INFO    MainThread:296470 [wandb_init.py:init():1075] run started, returning control to user process
+2025-10-18 00:00:42,883 INFO    MsgRouterThr:296470 [mailbox.py:close():129] [no run ID] Closing mailbox, abandoning 1 handles.
+2025-10-18 00:00:43,369 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,383 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,384 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,388 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,389 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,389 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,389 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,390 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,390 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,390 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,390 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,391 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,391 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,391 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,392 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,393 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,393 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,393 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,393 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,394 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,394 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,394 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,394 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,395 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe
+2025-10-18 00:00:43,395 ERROR   MainThread:296470 [redirect.py:_on_write():664] [all runs] error in stderr callback
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/redirect.py", line 662, in _on_write
+    cb(written_data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 2421, in <lambda>
+    lambda data: self._console_raw_callback("stderr", data),
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 399, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 457, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/wandb_run.py", line 1583, in _console_raw_callback
+    self._backend.interface.publish_output_raw(name, data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface.py", line 771, in publish_output_raw
+    self._publish_output_raw(o)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_shared.py", line 38, in _publish_output_raw
+    self._publish(rec)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/interface/interface_sock.py", line 39, in _publish
+    self._sock_client.send_record_publish(record)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 166, in send_record_publish
+    self.send_server_request(server_req)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 146, in send_server_request
+    self._send_message(msg)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 143, in _send_message
+    self._sendall_with_error_handle(header + data)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/wandb/sdk/lib/sock_client.py", line 122, in _sendall_with_error_handle
+    sent = self._sock.send(data)
+BrokenPipeError: [Errno 32] Broken pipe

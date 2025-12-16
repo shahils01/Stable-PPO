@@ -91,7 +91,7 @@ class MujocoRunner(Runner):
                         fps
                     ))
 
-                #self.log_train(train_infos, total_num_steps)
+                self.log_train(train_infos, total_num_steps)
 
                 if len(done_episodes_rewards) > 0:
                     aver_episode_rewards = np.mean(done_episodes_rewards)
