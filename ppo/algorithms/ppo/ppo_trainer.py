@@ -32,6 +32,7 @@ class PPOTrainer:
         self.entropy_coef = args.entropy_coef
         self.max_grad_norm = args.max_grad_norm       
         self.huber_delta = args.huber_delta
+        self.num_quants = args.num_quants
 
         self._use_max_grad_norm = args.use_max_grad_norm
         self._use_clipped_value_loss = args.use_clipped_value_loss
@@ -41,7 +42,7 @@ class PPOTrainer:
         self._use_policy_active_masks = args.use_policy_active_masks
         
         if self._use_valuenorm:
-            self.value_normalizer = ValueNorm(1, device=self.device)
+            self.value_normalizer = ValueNorm(self.num_quants, device=self.device)
         else:
             self.value_normalizer = None
 
@@ -110,7 +111,7 @@ class PPOTrainer:
         active_masks_batch = check(active_masks_batch).to(**self.tpdv)
         
         # Reshape to do in a single forward pass for all steps
-        values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch, 
+        values, action_log_probs, dist_entropy, gate_entropy  = self.policy.evaluate_actions(obs_batch, 
                                                                               actions_batch, 
                                                                               masks_batch, 
                                                                               active_masks_batch)
@@ -136,9 +137,13 @@ class PPOTrainer:
         next_obs_batch = check(next_obs_batch).to(**self.tpdv)
         masks_batch = masks_batch.reshape(-1, 1)
         masks_batch = check(masks_batch).to(**self.tpdv)
+        
+        if gate_entropy == None:
+            loss = policy_loss - dist_entropy * self.entropy_coef + value_loss * self.value_loss_coef
+        else:
+            loss = policy_loss - dist_entropy * self.entropy_coef + value_loss * self.value_loss_coef  - gate_entropy * self.entropy_coef
 
-        loss = policy_loss - dist_entropy * self.entropy_coef + value_loss * self.value_loss_coef
-
+        
         self.policy.optimizer.zero_grad()
         loss.backward()
 

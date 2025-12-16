@@ -1,0 +1,1256 @@
+action_dim =  6
+obs_dim =  17
+obs dim =  (64, 17)
+
+ Scenario Walker2d-v5 Algo ppo updates 0/1525 episodes, total num timesteps 131072/200000000, FPS 14106.
+
+some episodes done, average rewards:  9.14033891537681
+
+ Scenario Walker2d-v5 Algo ppo updates 5/1525 episodes, total num timesteps 786432/200000000, FPS 14401.
+
+some episodes done, average rewards:  101.18843559494798
+
+ Scenario Walker2d-v5 Algo ppo updates 10/1525 episodes, total num timesteps 1441792/200000000, FPS 14426.
+
+some episodes done, average rewards:  288.0921891085241
+
+ Scenario Walker2d-v5 Algo ppo updates 15/1525 episodes, total num timesteps 2097152/200000000, FPS 14434.
+
+some episodes done, average rewards:  279.6537383389423
+
+ Scenario Walker2d-v5 Algo ppo updates 20/1525 episodes, total num timesteps 2752512/200000000, FPS 14445.
+
+some episodes done, average rewards:  274.83746676597815
+
+ Scenario Walker2d-v5 Algo ppo updates 25/1525 episodes, total num timesteps 3407872/200000000, FPS 14457.
+
+some episodes done, average rewards:  288.0250259027695
+
+ Scenario Walker2d-v5 Algo ppo updates 30/1525 episodes, total num timesteps 4063232/200000000, FPS 14461.
+
+some episodes done, average rewards:  365.74484122213977
+
+ Scenario Walker2d-v5 Algo ppo updates 35/1525 episodes, total num timesteps 4718592/200000000, FPS 14463.
+
+some episodes done, average rewards:  395.92828050643885
+
+ Scenario Walker2d-v5 Algo ppo updates 40/1525 episodes, total num timesteps 5373952/200000000, FPS 14466.
+
+some episodes done, average rewards:  394.1204626161348
+
+ Scenario Walker2d-v5 Algo ppo updates 45/1525 episodes, total num timesteps 6029312/200000000, FPS 14469.
+
+some episodes done, average rewards:  418.5047887953875
+
+ Scenario Walker2d-v5 Algo ppo updates 50/1525 episodes, total num timesteps 6684672/200000000, FPS 14467.
+
+some episodes done, average rewards:  493.0024207222432
+
+ Scenario Walker2d-v5 Algo ppo updates 55/1525 episodes, total num timesteps 7340032/200000000, FPS 14469.
+
+some episodes done, average rewards:  598.0144834387512
+
+ Scenario Walker2d-v5 Algo ppo updates 60/1525 episodes, total num timesteps 7995392/200000000, FPS 14471.
+
+some episodes done, average rewards:  785.5645125662215
+
+ Scenario Walker2d-v5 Algo ppo updates 65/1525 episodes, total num timesteps 8650752/200000000, FPS 14469.
+
+some episodes done, average rewards:  989.3610816382118
+
+ Scenario Walker2d-v5 Algo ppo updates 70/1525 episodes, total num timesteps 9306112/200000000, FPS 14469.
+
+some episodes done, average rewards:  1063.4693273279702
+
+ Scenario Walker2d-v5 Algo ppo updates 75/1525 episodes, total num timesteps 9961472/200000000, FPS 14471.
+
+some episodes done, average rewards:  1142.4761341912372
+
+ Scenario Walker2d-v5 Algo ppo updates 80/1525 episodes, total num timesteps 10616832/200000000, FPS 14472.
+
+some episodes done, average rewards:  1143.152687098326
+
+ Scenario Walker2d-v5 Algo ppo updates 85/1525 episodes, total num timesteps 11272192/200000000, FPS 14476.
+
+some episodes done, average rewards:  1163.7212300924825
+
+ Scenario Walker2d-v5 Algo ppo updates 90/1525 episodes, total num timesteps 11927552/200000000, FPS 14480.
+
+some episodes done, average rewards:  1283.562956151508
+
+ Scenario Walker2d-v5 Algo ppo updates 95/1525 episodes, total num timesteps 12582912/200000000, FPS 14484.
+
+some episodes done, average rewards:  1192.3988482821821
+
+ Scenario Walker2d-v5 Algo ppo updates 100/1525 episodes, total num timesteps 13238272/200000000, FPS 14488.
+
+some episodes done, average rewards:  1206.158718153525
+
+ Scenario Walker2d-v5 Algo ppo updates 105/1525 episodes, total num timesteps 13893632/200000000, FPS 14492.
+
+some episodes done, average rewards:  1439.5468817689339
+
+ Scenario Walker2d-v5 Algo ppo updates 110/1525 episodes, total num timesteps 14548992/200000000, FPS 14495.
+
+some episodes done, average rewards:  1535.0057543750029
+
+ Scenario Walker2d-v5 Algo ppo updates 115/1525 episodes, total num timesteps 15204352/200000000, FPS 14499.
+
+some episodes done, average rewards:  1714.5091227018709
+
+ Scenario Walker2d-v5 Algo ppo updates 120/1525 episodes, total num timesteps 15859712/200000000, FPS 14501.
+
+some episodes done, average rewards:  1858.1275765368732
+
+ Scenario Walker2d-v5 Algo ppo updates 125/1525 episodes, total num timesteps 16515072/200000000, FPS 14502.
+
+some episodes done, average rewards:  1788.2871576397608
+
+ Scenario Walker2d-v5 Algo ppo updates 130/1525 episodes, total num timesteps 17170432/200000000, FPS 14504.
+
+some episodes done, average rewards:  1883.7110485788255
+
+ Scenario Walker2d-v5 Algo ppo updates 135/1525 episodes, total num timesteps 17825792/200000000, FPS 14506.
+
+some episodes done, average rewards:  1880.2970836757672
+
+ Scenario Walker2d-v5 Algo ppo updates 140/1525 episodes, total num timesteps 18481152/200000000, FPS 14507.
+
+some episodes done, average rewards:  1993.1448693686623
+
+ Scenario Walker2d-v5 Algo ppo updates 145/1525 episodes, total num timesteps 19136512/200000000, FPS 14509.
+
+some episodes done, average rewards:  2004.7866330900663
+
+ Scenario Walker2d-v5 Algo ppo updates 150/1525 episodes, total num timesteps 19791872/200000000, FPS 14510.
+
+some episodes done, average rewards:  2042.9318210319045
+
+ Scenario Walker2d-v5 Algo ppo updates 155/1525 episodes, total num timesteps 20447232/200000000, FPS 14511.
+
+some episodes done, average rewards:  1967.4727896162874
+
+ Scenario Walker2d-v5 Algo ppo updates 160/1525 episodes, total num timesteps 21102592/200000000, FPS 14513.
+
+some episodes done, average rewards:  2077.3662151978856
+
+ Scenario Walker2d-v5 Algo ppo updates 165/1525 episodes, total num timesteps 21757952/200000000, FPS 14515.
+
+some episodes done, average rewards:  2007.141098754002
+
+ Scenario Walker2d-v5 Algo ppo updates 170/1525 episodes, total num timesteps 22413312/200000000, FPS 14515.
+
+some episodes done, average rewards:  2027.9647363233148
+
+ Scenario Walker2d-v5 Algo ppo updates 175/1525 episodes, total num timesteps 23068672/200000000, FPS 14517.
+
+some episodes done, average rewards:  2200.136453704246
+
+ Scenario Walker2d-v5 Algo ppo updates 180/1525 episodes, total num timesteps 23724032/200000000, FPS 14518.
+
+some episodes done, average rewards:  2165.579020625104
+
+ Scenario Walker2d-v5 Algo ppo updates 185/1525 episodes, total num timesteps 24379392/200000000, FPS 14518.
+
+some episodes done, average rewards:  2206.1854263685855
+
+ Scenario Walker2d-v5 Algo ppo updates 190/1525 episodes, total num timesteps 25034752/200000000, FPS 14518.
+
+some episodes done, average rewards:  2095.9333935139134
+
+ Scenario Walker2d-v5 Algo ppo updates 195/1525 episodes, total num timesteps 25690112/200000000, FPS 14519.
+
+some episodes done, average rewards:  2180.811297950348
+
+ Scenario Walker2d-v5 Algo ppo updates 200/1525 episodes, total num timesteps 26345472/200000000, FPS 14520.
+
+some episodes done, average rewards:  2157.309182042591
+
+ Scenario Walker2d-v5 Algo ppo updates 205/1525 episodes, total num timesteps 27000832/200000000, FPS 14520.
+
+some episodes done, average rewards:  2264.030276716662
+
+ Scenario Walker2d-v5 Algo ppo updates 210/1525 episodes, total num timesteps 27656192/200000000, FPS 14521.
+
+some episodes done, average rewards:  2214.9740461965876
+
+ Scenario Walker2d-v5 Algo ppo updates 215/1525 episodes, total num timesteps 28311552/200000000, FPS 14520.
+
+some episodes done, average rewards:  2253.6528404996775
+
+ Scenario Walker2d-v5 Algo ppo updates 220/1525 episodes, total num timesteps 28966912/200000000, FPS 14520.
+
+some episodes done, average rewards:  2127.7624046952656
+
+ Scenario Walker2d-v5 Algo ppo updates 225/1525 episodes, total num timesteps 29622272/200000000, FPS 14521.
+
+some episodes done, average rewards:  2097.3243996938536
+
+ Scenario Walker2d-v5 Algo ppo updates 230/1525 episodes, total num timesteps 30277632/200000000, FPS 14522.
+
+some episodes done, average rewards:  2090.0969116016618
+
+ Scenario Walker2d-v5 Algo ppo updates 235/1525 episodes, total num timesteps 30932992/200000000, FPS 14518.
+
+some episodes done, average rewards:  2350.185292328161
+
+ Scenario Walker2d-v5 Algo ppo updates 240/1525 episodes, total num timesteps 31588352/200000000, FPS 14514.
+
+some episodes done, average rewards:  2214.9773809997973
+
+ Scenario Walker2d-v5 Algo ppo updates 245/1525 episodes, total num timesteps 32243712/200000000, FPS 14511.
+
+some episodes done, average rewards:  2585.2295444217907
+
+ Scenario Walker2d-v5 Algo ppo updates 250/1525 episodes, total num timesteps 32899072/200000000, FPS 14508.
+
+some episodes done, average rewards:  2599.5843523965095
+
+ Scenario Walker2d-v5 Algo ppo updates 255/1525 episodes, total num timesteps 33554432/200000000, FPS 14507.
+
+some episodes done, average rewards:  2737.919054757592
+
+ Scenario Walker2d-v5 Algo ppo updates 260/1525 episodes, total num timesteps 34209792/200000000, FPS 14505.
+
+some episodes done, average rewards:  2641.704231108704
+
+ Scenario Walker2d-v5 Algo ppo updates 265/1525 episodes, total num timesteps 34865152/200000000, FPS 14502.
+
+some episodes done, average rewards:  2565.2268213260254
+
+ Scenario Walker2d-v5 Algo ppo updates 270/1525 episodes, total num timesteps 35520512/200000000, FPS 14503.
+
+some episodes done, average rewards:  2284.3289544557488
+
+ Scenario Walker2d-v5 Algo ppo updates 275/1525 episodes, total num timesteps 36175872/200000000, FPS 14504.
+
+some episodes done, average rewards:  2503.477394171181
+
+ Scenario Walker2d-v5 Algo ppo updates 280/1525 episodes, total num timesteps 36831232/200000000, FPS 14503.
+
+some episodes done, average rewards:  2736.63112123416
+
+ Scenario Walker2d-v5 Algo ppo updates 285/1525 episodes, total num timesteps 37486592/200000000, FPS 14502.
+
+some episodes done, average rewards:  2856.535558097783
+
+ Scenario Walker2d-v5 Algo ppo updates 290/1525 episodes, total num timesteps 38141952/200000000, FPS 14503.
+
+some episodes done, average rewards:  2322.7405968397643
+
+ Scenario Walker2d-v5 Algo ppo updates 295/1525 episodes, total num timesteps 38797312/200000000, FPS 14506.
+
+some episodes done, average rewards:  2775.782675698588
+
+ Scenario Walker2d-v5 Algo ppo updates 300/1525 episodes, total num timesteps 39452672/200000000, FPS 14509.
+
+some episodes done, average rewards:  2537.9194389272216
+
+ Scenario Walker2d-v5 Algo ppo updates 305/1525 episodes, total num timesteps 40108032/200000000, FPS 14513.
+
+some episodes done, average rewards:  2788.0938047949016
+
+ Scenario Walker2d-v5 Algo ppo updates 310/1525 episodes, total num timesteps 40763392/200000000, FPS 14518.
+
+some episodes done, average rewards:  2773.4664061610706
+
+ Scenario Walker2d-v5 Algo ppo updates 315/1525 episodes, total num timesteps 41418752/200000000, FPS 14522.
+
+some episodes done, average rewards:  2821.4791352782763
+
+ Scenario Walker2d-v5 Algo ppo updates 320/1525 episodes, total num timesteps 42074112/200000000, FPS 14527.
+
+some episodes done, average rewards:  2293.385096991833
+
+ Scenario Walker2d-v5 Algo ppo updates 325/1525 episodes, total num timesteps 42729472/200000000, FPS 14531.
+
+some episodes done, average rewards:  2710.919267184574
+
+ Scenario Walker2d-v5 Algo ppo updates 330/1525 episodes, total num timesteps 43384832/200000000, FPS 14535.
+
+some episodes done, average rewards:  2667.5190534382727
+
+ Scenario Walker2d-v5 Algo ppo updates 335/1525 episodes, total num timesteps 44040192/200000000, FPS 14539.
+
+some episodes done, average rewards:  2951.787369677495
+
+ Scenario Walker2d-v5 Algo ppo updates 340/1525 episodes, total num timesteps 44695552/200000000, FPS 14542.
+
+some episodes done, average rewards:  3119.4618207057706
+
+ Scenario Walker2d-v5 Algo ppo updates 345/1525 episodes, total num timesteps 45350912/200000000, FPS 14547.
+
+some episodes done, average rewards:  3179.28540592979
+
+ Scenario Walker2d-v5 Algo ppo updates 350/1525 episodes, total num timesteps 46006272/200000000, FPS 14550.
+
+some episodes done, average rewards:  3049.928781271504
+
+ Scenario Walker2d-v5 Algo ppo updates 355/1525 episodes, total num timesteps 46661632/200000000, FPS 14552.
+
+some episodes done, average rewards:  3022.8719412850505
+
+ Scenario Walker2d-v5 Algo ppo updates 360/1525 episodes, total num timesteps 47316992/200000000, FPS 14554.
+
+some episodes done, average rewards:  2591.592543062126
+
+ Scenario Walker2d-v5 Algo ppo updates 365/1525 episodes, total num timesteps 47972352/200000000, FPS 14555.
+
+some episodes done, average rewards:  2632.8156304955105
+
+ Scenario Walker2d-v5 Algo ppo updates 370/1525 episodes, total num timesteps 48627712/200000000, FPS 14557.
+
+some episodes done, average rewards:  2474.1766913806623
+
+ Scenario Walker2d-v5 Algo ppo updates 375/1525 episodes, total num timesteps 49283072/200000000, FPS 14558.
+
+some episodes done, average rewards:  3083.732000274079
+
+ Scenario Walker2d-v5 Algo ppo updates 380/1525 episodes, total num timesteps 49938432/200000000, FPS 14559.
+
+some episodes done, average rewards:  2990.197733933396
+
+ Scenario Walker2d-v5 Algo ppo updates 385/1525 episodes, total num timesteps 50593792/200000000, FPS 14562.
+
+some episodes done, average rewards:  2989.038963614411
+
+ Scenario Walker2d-v5 Algo ppo updates 390/1525 episodes, total num timesteps 51249152/200000000, FPS 14565.
+
+some episodes done, average rewards:  2746.174396685781
+
+ Scenario Walker2d-v5 Algo ppo updates 395/1525 episodes, total num timesteps 51904512/200000000, FPS 14569.
+
+some episodes done, average rewards:  2539.1873443356517
+
+ Scenario Walker2d-v5 Algo ppo updates 400/1525 episodes, total num timesteps 52559872/200000000, FPS 14571.
+
+some episodes done, average rewards:  2525.2913884205946
+
+ Scenario Walker2d-v5 Algo ppo updates 405/1525 episodes, total num timesteps 53215232/200000000, FPS 14573.
+
+some episodes done, average rewards:  2706.3261132880484
+
+ Scenario Walker2d-v5 Algo ppo updates 410/1525 episodes, total num timesteps 53870592/200000000, FPS 14576.
+
+some episodes done, average rewards:  2754.926456818126
+
+ Scenario Walker2d-v5 Algo ppo updates 415/1525 episodes, total num timesteps 54525952/200000000, FPS 14578.
+
+some episodes done, average rewards:  2571.759776551357
+
+ Scenario Walker2d-v5 Algo ppo updates 420/1525 episodes, total num timesteps 55181312/200000000, FPS 14581.
+
+some episodes done, average rewards:  2855.8648546176073
+
+ Scenario Walker2d-v5 Algo ppo updates 425/1525 episodes, total num timesteps 55836672/200000000, FPS 14583.
+
+some episodes done, average rewards:  2852.9483987227213
+
+ Scenario Walker2d-v5 Algo ppo updates 430/1525 episodes, total num timesteps 56492032/200000000, FPS 14585.
+
+some episodes done, average rewards:  3040.3431976054317
+
+ Scenario Walker2d-v5 Algo ppo updates 435/1525 episodes, total num timesteps 57147392/200000000, FPS 14587.
+
+some episodes done, average rewards:  3083.3869771138143
+
+ Scenario Walker2d-v5 Algo ppo updates 440/1525 episodes, total num timesteps 57802752/200000000, FPS 14589.
+
+some episodes done, average rewards:  3354.440996009136
+
+ Scenario Walker2d-v5 Algo ppo updates 445/1525 episodes, total num timesteps 58458112/200000000, FPS 14591.
+
+some episodes done, average rewards:  3112.4186522283417
+
+ Scenario Walker2d-v5 Algo ppo updates 450/1525 episodes, total num timesteps 59113472/200000000, FPS 14593.
+
+some episodes done, average rewards:  3072.521360063102
+
+ Scenario Walker2d-v5 Algo ppo updates 455/1525 episodes, total num timesteps 59768832/200000000, FPS 14595.
+
+some episodes done, average rewards:  3223.3833168884626
+
+ Scenario Walker2d-v5 Algo ppo updates 460/1525 episodes, total num timesteps 60424192/200000000, FPS 14597.
+
+some episodes done, average rewards:  3068.958067918233
+
+ Scenario Walker2d-v5 Algo ppo updates 465/1525 episodes, total num timesteps 61079552/200000000, FPS 14599.
+
+some episodes done, average rewards:  3118.1090852341463
+
+ Scenario Walker2d-v5 Algo ppo updates 470/1525 episodes, total num timesteps 61734912/200000000, FPS 14601.
+
+some episodes done, average rewards:  3285.0475804715397
+
+ Scenario Walker2d-v5 Algo ppo updates 475/1525 episodes, total num timesteps 62390272/200000000, FPS 14603.
+
+some episodes done, average rewards:  3236.858654927909
+
+ Scenario Walker2d-v5 Algo ppo updates 480/1525 episodes, total num timesteps 63045632/200000000, FPS 14605.
+
+some episodes done, average rewards:  3164.0457411140405
+
+ Scenario Walker2d-v5 Algo ppo updates 485/1525 episodes, total num timesteps 63700992/200000000, FPS 14606.
+
+some episodes done, average rewards:  3202.1049566493325
+
+ Scenario Walker2d-v5 Algo ppo updates 490/1525 episodes, total num timesteps 64356352/200000000, FPS 14606.
+
+some episodes done, average rewards:  2951.9094395490765
+
+ Scenario Walker2d-v5 Algo ppo updates 495/1525 episodes, total num timesteps 65011712/200000000, FPS 14607.
+
+some episodes done, average rewards:  3356.7343915635847
+
+ Scenario Walker2d-v5 Algo ppo updates 500/1525 episodes, total num timesteps 65667072/200000000, FPS 14607.
+
+some episodes done, average rewards:  2725.488695875169
+
+ Scenario Walker2d-v5 Algo ppo updates 505/1525 episodes, total num timesteps 66322432/200000000, FPS 14609.
+
+some episodes done, average rewards:  2974.5585093769864
+
+ Scenario Walker2d-v5 Algo ppo updates 510/1525 episodes, total num timesteps 66977792/200000000, FPS 14610.
+
+some episodes done, average rewards:  3559.2882729486687
+
+ Scenario Walker2d-v5 Algo ppo updates 515/1525 episodes, total num timesteps 67633152/200000000, FPS 14611.
+
+some episodes done, average rewards:  3570.164785058791
+
+ Scenario Walker2d-v5 Algo ppo updates 520/1525 episodes, total num timesteps 68288512/200000000, FPS 14612.
+
+some episodes done, average rewards:  3042.992415192996
+
+ Scenario Walker2d-v5 Algo ppo updates 525/1525 episodes, total num timesteps 68943872/200000000, FPS 14612.
+
+some episodes done, average rewards:  2970.976607013304
+
+ Scenario Walker2d-v5 Algo ppo updates 530/1525 episodes, total num timesteps 69599232/200000000, FPS 14613.
+
+some episodes done, average rewards:  2753.868006865984
+
+ Scenario Walker2d-v5 Algo ppo updates 535/1525 episodes, total num timesteps 70254592/200000000, FPS 14614.
+
+some episodes done, average rewards:  2858.2650975157935
+
+ Scenario Walker2d-v5 Algo ppo updates 540/1525 episodes, total num timesteps 70909952/200000000, FPS 14616.
+
+some episodes done, average rewards:  2860.95447516393
+
+ Scenario Walker2d-v5 Algo ppo updates 545/1525 episodes, total num timesteps 71565312/200000000, FPS 14617.
+
+some episodes done, average rewards:  2829.0351898619747
+
+ Scenario Walker2d-v5 Algo ppo updates 550/1525 episodes, total num timesteps 72220672/200000000, FPS 14618.
+
+some episodes done, average rewards:  2667.785586181223
+
+ Scenario Walker2d-v5 Algo ppo updates 555/1525 episodes, total num timesteps 72876032/200000000, FPS 14619.
+
+some episodes done, average rewards:  2437.0489265284264
+
+ Scenario Walker2d-v5 Algo ppo updates 560/1525 episodes, total num timesteps 73531392/200000000, FPS 14620.
+
+some episodes done, average rewards:  2520.4255672776835
+
+ Scenario Walker2d-v5 Algo ppo updates 565/1525 episodes, total num timesteps 74186752/200000000, FPS 14621.
+
+some episodes done, average rewards:  2805.6907454400243
+
+ Scenario Walker2d-v5 Algo ppo updates 570/1525 episodes, total num timesteps 74842112/200000000, FPS 14621.
+
+some episodes done, average rewards:  3181.7012871182505
+
+ Scenario Walker2d-v5 Algo ppo updates 575/1525 episodes, total num timesteps 75497472/200000000, FPS 14623.
+
+some episodes done, average rewards:  3338.7007948251808
+
+ Scenario Walker2d-v5 Algo ppo updates 580/1525 episodes, total num timesteps 76152832/200000000, FPS 14623.
+
+some episodes done, average rewards:  3510.2431221248175
+
+ Scenario Walker2d-v5 Algo ppo updates 585/1525 episodes, total num timesteps 76808192/200000000, FPS 14624.
+
+some episodes done, average rewards:  3274.9032472585427
+
+ Scenario Walker2d-v5 Algo ppo updates 590/1525 episodes, total num timesteps 77463552/200000000, FPS 14626.
+
+some episodes done, average rewards:  2942.895745677051
+
+ Scenario Walker2d-v5 Algo ppo updates 595/1525 episodes, total num timesteps 78118912/200000000, FPS 14627.
+
+some episodes done, average rewards:  2868.4806121439633
+
+ Scenario Walker2d-v5 Algo ppo updates 600/1525 episodes, total num timesteps 78774272/200000000, FPS 14628.
+
+some episodes done, average rewards:  3046.01081514721
+
+ Scenario Walker2d-v5 Algo ppo updates 605/1525 episodes, total num timesteps 79429632/200000000, FPS 14629.
+
+some episodes done, average rewards:  2317.7682513311925
+
+ Scenario Walker2d-v5 Algo ppo updates 610/1525 episodes, total num timesteps 80084992/200000000, FPS 14630.
+
+some episodes done, average rewards:  2424.5558597509867
+
+ Scenario Walker2d-v5 Algo ppo updates 615/1525 episodes, total num timesteps 80740352/200000000, FPS 14631.
+
+some episodes done, average rewards:  2694.699716955647
+
+ Scenario Walker2d-v5 Algo ppo updates 620/1525 episodes, total num timesteps 81395712/200000000, FPS 14632.
+
+some episodes done, average rewards:  2711.328425852094
+
+ Scenario Walker2d-v5 Algo ppo updates 625/1525 episodes, total num timesteps 82051072/200000000, FPS 14633.
+
+some episodes done, average rewards:  3311.792285702095
+
+ Scenario Walker2d-v5 Algo ppo updates 630/1525 episodes, total num timesteps 82706432/200000000, FPS 14634.
+
+some episodes done, average rewards:  3233.97890907554
+
+ Scenario Walker2d-v5 Algo ppo updates 635/1525 episodes, total num timesteps 83361792/200000000, FPS 14635.
+
+some episodes done, average rewards:  2799.5391335204295
+
+ Scenario Walker2d-v5 Algo ppo updates 640/1525 episodes, total num timesteps 84017152/200000000, FPS 14636.
+
+some episodes done, average rewards:  2712.684081053527
+
+ Scenario Walker2d-v5 Algo ppo updates 645/1525 episodes, total num timesteps 84672512/200000000, FPS 14637.
+
+some episodes done, average rewards:  2780.658266222223
+
+ Scenario Walker2d-v5 Algo ppo updates 650/1525 episodes, total num timesteps 85327872/200000000, FPS 14638.
+
+some episodes done, average rewards:  2899.3265918391367
+
+ Scenario Walker2d-v5 Algo ppo updates 655/1525 episodes, total num timesteps 85983232/200000000, FPS 14638.
+
+some episodes done, average rewards:  3102.5623287650765
+
+ Scenario Walker2d-v5 Algo ppo updates 660/1525 episodes, total num timesteps 86638592/200000000, FPS 14639.
+
+some episodes done, average rewards:  3090.2072614624453
+
+ Scenario Walker2d-v5 Algo ppo updates 665/1525 episodes, total num timesteps 87293952/200000000, FPS 14640.
+
+some episodes done, average rewards:  2860.3518592143314
+
+ Scenario Walker2d-v5 Algo ppo updates 670/1525 episodes, total num timesteps 87949312/200000000, FPS 14640.
+
+some episodes done, average rewards:  2940.0279082140833
+
+ Scenario Walker2d-v5 Algo ppo updates 675/1525 episodes, total num timesteps 88604672/200000000, FPS 14641.
+
+some episodes done, average rewards:  3050.3690581670917
+
+ Scenario Walker2d-v5 Algo ppo updates 680/1525 episodes, total num timesteps 89260032/200000000, FPS 14641.
+
+some episodes done, average rewards:  3170.519194500301
+
+ Scenario Walker2d-v5 Algo ppo updates 685/1525 episodes, total num timesteps 89915392/200000000, FPS 14642.
+
+some episodes done, average rewards:  2979.3981137788155
+
+ Scenario Walker2d-v5 Algo ppo updates 690/1525 episodes, total num timesteps 90570752/200000000, FPS 14643.
+
+some episodes done, average rewards:  2774.415086748432
+
+ Scenario Walker2d-v5 Algo ppo updates 695/1525 episodes, total num timesteps 91226112/200000000, FPS 14644.
+
+some episodes done, average rewards:  3712.742542668189
+
+ Scenario Walker2d-v5 Algo ppo updates 700/1525 episodes, total num timesteps 91881472/200000000, FPS 14645.
+
+some episodes done, average rewards:  3289.3566701166856
+
+ Scenario Walker2d-v5 Algo ppo updates 705/1525 episodes, total num timesteps 92536832/200000000, FPS 14645.
+
+some episodes done, average rewards:  2915.302431743194
+
+ Scenario Walker2d-v5 Algo ppo updates 710/1525 episodes, total num timesteps 93192192/200000000, FPS 14646.
+
+some episodes done, average rewards:  2596.2967122961018
+
+ Scenario Walker2d-v5 Algo ppo updates 715/1525 episodes, total num timesteps 93847552/200000000, FPS 14646.
+
+some episodes done, average rewards:  2496.630890027344
+
+ Scenario Walker2d-v5 Algo ppo updates 720/1525 episodes, total num timesteps 94502912/200000000, FPS 14647.
+
+some episodes done, average rewards:  2549.6832971967115
+
+ Scenario Walker2d-v5 Algo ppo updates 725/1525 episodes, total num timesteps 95158272/200000000, FPS 14647.
+
+some episodes done, average rewards:  2550.4506909344514
+
+ Scenario Walker2d-v5 Algo ppo updates 730/1525 episodes, total num timesteps 95813632/200000000, FPS 14648.
+
+some episodes done, average rewards:  2383.820339873271
+
+ Scenario Walker2d-v5 Algo ppo updates 735/1525 episodes, total num timesteps 96468992/200000000, FPS 14648.
+
+some episodes done, average rewards:  2590.475408318475
+
+ Scenario Walker2d-v5 Algo ppo updates 740/1525 episodes, total num timesteps 97124352/200000000, FPS 14649.
+
+some episodes done, average rewards:  3295.797240170287
+
+ Scenario Walker2d-v5 Algo ppo updates 745/1525 episodes, total num timesteps 97779712/200000000, FPS 14650.
+
+some episodes done, average rewards:  2708.044377306942
+
+ Scenario Walker2d-v5 Algo ppo updates 750/1525 episodes, total num timesteps 98435072/200000000, FPS 14651.
+
+some episodes done, average rewards:  2441.5067171982814
+
+ Scenario Walker2d-v5 Algo ppo updates 755/1525 episodes, total num timesteps 99090432/200000000, FPS 14651.
+
+some episodes done, average rewards:  2636.7268125368587
+
+ Scenario Walker2d-v5 Algo ppo updates 760/1525 episodes, total num timesteps 99745792/200000000, FPS 14651.
+
+some episodes done, average rewards:  2960.8963960541
+
+ Scenario Walker2d-v5 Algo ppo updates 765/1525 episodes, total num timesteps 100401152/200000000, FPS 14651.
+
+some episodes done, average rewards:  2973.348245109101
+
+ Scenario Walker2d-v5 Algo ppo updates 770/1525 episodes, total num timesteps 101056512/200000000, FPS 14652.
+
+some episodes done, average rewards:  2499.1478009216225
+
+ Scenario Walker2d-v5 Algo ppo updates 775/1525 episodes, total num timesteps 101711872/200000000, FPS 14652.
+
+some episodes done, average rewards:  2664.709245273148
+
+ Scenario Walker2d-v5 Algo ppo updates 780/1525 episodes, total num timesteps 102367232/200000000, FPS 14652.
+
+some episodes done, average rewards:  2619.3290588645373
+
+ Scenario Walker2d-v5 Algo ppo updates 785/1525 episodes, total num timesteps 103022592/200000000, FPS 14652.
+
+some episodes done, average rewards:  2758.261027908931
+
+ Scenario Walker2d-v5 Algo ppo updates 790/1525 episodes, total num timesteps 103677952/200000000, FPS 14652.
+
+some episodes done, average rewards:  2601.573674388447
+
+ Scenario Walker2d-v5 Algo ppo updates 795/1525 episodes, total num timesteps 104333312/200000000, FPS 14652.
+
+some episodes done, average rewards:  2893.408836839823
+
+ Scenario Walker2d-v5 Algo ppo updates 800/1525 episodes, total num timesteps 104988672/200000000, FPS 14652.
+
+some episodes done, average rewards:  2989.8944068225005
+
+ Scenario Walker2d-v5 Algo ppo updates 805/1525 episodes, total num timesteps 105644032/200000000, FPS 14653.
+
+some episodes done, average rewards:  2827.938216284042
+
+ Scenario Walker2d-v5 Algo ppo updates 810/1525 episodes, total num timesteps 106299392/200000000, FPS 14654.
+
+some episodes done, average rewards:  2913.066636337141
+
+ Scenario Walker2d-v5 Algo ppo updates 815/1525 episodes, total num timesteps 106954752/200000000, FPS 14655.
+
+some episodes done, average rewards:  3002.346570233174
+
+ Scenario Walker2d-v5 Algo ppo updates 820/1525 episodes, total num timesteps 107610112/200000000, FPS 14655.
+
+some episodes done, average rewards:  2787.9429029048392
+
+ Scenario Walker2d-v5 Algo ppo updates 825/1525 episodes, total num timesteps 108265472/200000000, FPS 14655.
+
+some episodes done, average rewards:  2649.7652904342513
+
+ Scenario Walker2d-v5 Algo ppo updates 830/1525 episodes, total num timesteps 108920832/200000000, FPS 14655.
+
+some episodes done, average rewards:  2377.864220485012
+
+ Scenario Walker2d-v5 Algo ppo updates 835/1525 episodes, total num timesteps 109576192/200000000, FPS 14656.
+
+some episodes done, average rewards:  2228.8169706020603
+
+ Scenario Walker2d-v5 Algo ppo updates 840/1525 episodes, total num timesteps 110231552/200000000, FPS 14657.
+
+some episodes done, average rewards:  2369.97138421598
+
+ Scenario Walker2d-v5 Algo ppo updates 845/1525 episodes, total num timesteps 110886912/200000000, FPS 14657.
+
+some episodes done, average rewards:  2624.9743325616014
+
+ Scenario Walker2d-v5 Algo ppo updates 850/1525 episodes, total num timesteps 111542272/200000000, FPS 14657.
+
+some episodes done, average rewards:  2363.125964082211
+
+ Scenario Walker2d-v5 Algo ppo updates 855/1525 episodes, total num timesteps 112197632/200000000, FPS 14657.
+
+some episodes done, average rewards:  2488.7577882208248
+
+ Scenario Walker2d-v5 Algo ppo updates 860/1525 episodes, total num timesteps 112852992/200000000, FPS 14658.
+
+some episodes done, average rewards:  2377.236638256462
+
+ Scenario Walker2d-v5 Algo ppo updates 865/1525 episodes, total num timesteps 113508352/200000000, FPS 14659.
+
+some episodes done, average rewards:  2444.9124075223763
+
+ Scenario Walker2d-v5 Algo ppo updates 870/1525 episodes, total num timesteps 114163712/200000000, FPS 14660.
+
+some episodes done, average rewards:  2425.38518720025
+
+ Scenario Walker2d-v5 Algo ppo updates 875/1525 episodes, total num timesteps 114819072/200000000, FPS 14661.
+
+some episodes done, average rewards:  2388.369690858491
+
+ Scenario Walker2d-v5 Algo ppo updates 880/1525 episodes, total num timesteps 115474432/200000000, FPS 14662.
+
+some episodes done, average rewards:  2320.3791716488295
+
+ Scenario Walker2d-v5 Algo ppo updates 885/1525 episodes, total num timesteps 116129792/200000000, FPS 14662.
+
+some episodes done, average rewards:  2463.534213827385
+
+ Scenario Walker2d-v5 Algo ppo updates 890/1525 episodes, total num timesteps 116785152/200000000, FPS 14663.
+
+some episodes done, average rewards:  2441.546031601365
+
+ Scenario Walker2d-v5 Algo ppo updates 895/1525 episodes, total num timesteps 117440512/200000000, FPS 14664.
+
+some episodes done, average rewards:  2594.6535759094636
+
+ Scenario Walker2d-v5 Algo ppo updates 900/1525 episodes, total num timesteps 118095872/200000000, FPS 14665.
+
+some episodes done, average rewards:  2387.10675403487
+
+ Scenario Walker2d-v5 Algo ppo updates 905/1525 episodes, total num timesteps 118751232/200000000, FPS 14666.
+
+some episodes done, average rewards:  2473.8505917028106
+
+ Scenario Walker2d-v5 Algo ppo updates 910/1525 episodes, total num timesteps 119406592/200000000, FPS 14666.
+
+some episodes done, average rewards:  2467.9612973678654
+
+ Scenario Walker2d-v5 Algo ppo updates 915/1525 episodes, total num timesteps 120061952/200000000, FPS 14667.
+
+some episodes done, average rewards:  2810.7265734114353
+
+ Scenario Walker2d-v5 Algo ppo updates 920/1525 episodes, total num timesteps 120717312/200000000, FPS 14668.
+
+some episodes done, average rewards:  2975.4154314690027
+
+ Scenario Walker2d-v5 Algo ppo updates 925/1525 episodes, total num timesteps 121372672/200000000, FPS 14668.
+
+some episodes done, average rewards:  2819.0688770362244
+
+ Scenario Walker2d-v5 Algo ppo updates 930/1525 episodes, total num timesteps 122028032/200000000, FPS 14668.
+
+some episodes done, average rewards:  2565.2651268635227
+
+ Scenario Walker2d-v5 Algo ppo updates 935/1525 episodes, total num timesteps 122683392/200000000, FPS 14669.
+
+some episodes done, average rewards:  2356.7157370771283
+
+ Scenario Walker2d-v5 Algo ppo updates 940/1525 episodes, total num timesteps 123338752/200000000, FPS 14669.
+
+some episodes done, average rewards:  2394.468736451313
+
+ Scenario Walker2d-v5 Algo ppo updates 945/1525 episodes, total num timesteps 123994112/200000000, FPS 14669.
+
+some episodes done, average rewards:  2479.0596622271223
+
+ Scenario Walker2d-v5 Algo ppo updates 950/1525 episodes, total num timesteps 124649472/200000000, FPS 14669.
+
+some episodes done, average rewards:  2440.1070807819647
+
+ Scenario Walker2d-v5 Algo ppo updates 955/1525 episodes, total num timesteps 125304832/200000000, FPS 14670.
+
+some episodes done, average rewards:  2466.9653049085196
+
+ Scenario Walker2d-v5 Algo ppo updates 960/1525 episodes, total num timesteps 125960192/200000000, FPS 14670.
+
+some episodes done, average rewards:  2374.552704188791
+
+ Scenario Walker2d-v5 Algo ppo updates 965/1525 episodes, total num timesteps 126615552/200000000, FPS 14671.
+
+some episodes done, average rewards:  2401.7604262364707
+
+ Scenario Walker2d-v5 Algo ppo updates 970/1525 episodes, total num timesteps 127270912/200000000, FPS 14671.
+
+some episodes done, average rewards:  2379.0396129100113
+
+ Scenario Walker2d-v5 Algo ppo updates 975/1525 episodes, total num timesteps 127926272/200000000, FPS 14671.
+
+some episodes done, average rewards:  2886.8899373534637
+
+ Scenario Walker2d-v5 Algo ppo updates 980/1525 episodes, total num timesteps 128581632/200000000, FPS 14671.
+
+some episodes done, average rewards:  2996.676688894901
+
+ Scenario Walker2d-v5 Algo ppo updates 985/1525 episodes, total num timesteps 129236992/200000000, FPS 14671.
+
+some episodes done, average rewards:  2884.343660718678
+
+ Scenario Walker2d-v5 Algo ppo updates 990/1525 episodes, total num timesteps 129892352/200000000, FPS 14671.
+
+some episodes done, average rewards:  2839.3597862976058
+
+ Scenario Walker2d-v5 Algo ppo updates 995/1525 episodes, total num timesteps 130547712/200000000, FPS 14671.
+
+some episodes done, average rewards:  2714.6459499770112
+
+ Scenario Walker2d-v5 Algo ppo updates 1000/1525 episodes, total num timesteps 131203072/200000000, FPS 14672.
+
+some episodes done, average rewards:  2947.352363144987
+
+ Scenario Walker2d-v5 Algo ppo updates 1005/1525 episodes, total num timesteps 131858432/200000000, FPS 14672.
+
+some episodes done, average rewards:  3060.396986535901
+
+ Scenario Walker2d-v5 Algo ppo updates 1010/1525 episodes, total num timesteps 132513792/200000000, FPS 14672.
+
+some episodes done, average rewards:  3238.2186067483485
+
+ Scenario Walker2d-v5 Algo ppo updates 1015/1525 episodes, total num timesteps 133169152/200000000, FPS 14672.
+
+some episodes done, average rewards:  3408.163005113929
+
+ Scenario Walker2d-v5 Algo ppo updates 1020/1525 episodes, total num timesteps 133824512/200000000, FPS 14673.
+
+some episodes done, average rewards:  3396.7287036191183
+
+ Scenario Walker2d-v5 Algo ppo updates 1025/1525 episodes, total num timesteps 134479872/200000000, FPS 14673.
+
+some episodes done, average rewards:  3409.675374547792
+
+ Scenario Walker2d-v5 Algo ppo updates 1030/1525 episodes, total num timesteps 135135232/200000000, FPS 14673.
+
+some episodes done, average rewards:  3481.4512042559627
+
+ Scenario Walker2d-v5 Algo ppo updates 1035/1525 episodes, total num timesteps 135790592/200000000, FPS 14673.
+
+some episodes done, average rewards:  3266.662669937144
+
+ Scenario Walker2d-v5 Algo ppo updates 1040/1525 episodes, total num timesteps 136445952/200000000, FPS 14674.
+
+some episodes done, average rewards:  3218.8178637786395
+
+ Scenario Walker2d-v5 Algo ppo updates 1045/1525 episodes, total num timesteps 137101312/200000000, FPS 14674.
+
+some episodes done, average rewards:  2941.742021649998
+
+ Scenario Walker2d-v5 Algo ppo updates 1050/1525 episodes, total num timesteps 137756672/200000000, FPS 14674.
+
+some episodes done, average rewards:  3116.790825593181
+
+ Scenario Walker2d-v5 Algo ppo updates 1055/1525 episodes, total num timesteps 138412032/200000000, FPS 14674.
+
+some episodes done, average rewards:  3013.693444675425
+
+ Scenario Walker2d-v5 Algo ppo updates 1060/1525 episodes, total num timesteps 139067392/200000000, FPS 14674.
+
+some episodes done, average rewards:  2766.7392814453474
+
+ Scenario Walker2d-v5 Algo ppo updates 1065/1525 episodes, total num timesteps 139722752/200000000, FPS 14674.
+
+some episodes done, average rewards:  2934.651853643467
+
+ Scenario Walker2d-v5 Algo ppo updates 1070/1525 episodes, total num timesteps 140378112/200000000, FPS 14674.
+
+some episodes done, average rewards:  2832.525404922084
+
+ Scenario Walker2d-v5 Algo ppo updates 1075/1525 episodes, total num timesteps 141033472/200000000, FPS 14674.
+
+some episodes done, average rewards:  2803.8866455374273
+
+ Scenario Walker2d-v5 Algo ppo updates 1080/1525 episodes, total num timesteps 141688832/200000000, FPS 14674.
+
+some episodes done, average rewards:  2610.85911966879
+
+ Scenario Walker2d-v5 Algo ppo updates 1085/1525 episodes, total num timesteps 142344192/200000000, FPS 14675.
+
+some episodes done, average rewards:  2429.7458057429053
+
+ Scenario Walker2d-v5 Algo ppo updates 1090/1525 episodes, total num timesteps 142999552/200000000, FPS 14675.
+
+some episodes done, average rewards:  2347.036571549902
+
+ Scenario Walker2d-v5 Algo ppo updates 1095/1525 episodes, total num timesteps 143654912/200000000, FPS 14675.
+
+some episodes done, average rewards:  2590.0428300522767
+
+ Scenario Walker2d-v5 Algo ppo updates 1100/1525 episodes, total num timesteps 144310272/200000000, FPS 14675.
+
+some episodes done, average rewards:  2579.734939845354
+
+ Scenario Walker2d-v5 Algo ppo updates 1105/1525 episodes, total num timesteps 144965632/200000000, FPS 14675.
+
+some episodes done, average rewards:  2606.008752397002
+
+ Scenario Walker2d-v5 Algo ppo updates 1110/1525 episodes, total num timesteps 145620992/200000000, FPS 14675.
+
+some episodes done, average rewards:  2523.10909130717
+
+ Scenario Walker2d-v5 Algo ppo updates 1115/1525 episodes, total num timesteps 146276352/200000000, FPS 14675.
+
+some episodes done, average rewards:  2330.118550433209
+
+ Scenario Walker2d-v5 Algo ppo updates 1120/1525 episodes, total num timesteps 146931712/200000000, FPS 14675.
+
+some episodes done, average rewards:  2450.0166157901044
+
+ Scenario Walker2d-v5 Algo ppo updates 1125/1525 episodes, total num timesteps 147587072/200000000, FPS 14675.
+
+some episodes done, average rewards:  2798.2823268836814
+
+ Scenario Walker2d-v5 Algo ppo updates 1130/1525 episodes, total num timesteps 148242432/200000000, FPS 14675.
+
+some episodes done, average rewards:  2881.7344890487298
+
+ Scenario Walker2d-v5 Algo ppo updates 1135/1525 episodes, total num timesteps 148897792/200000000, FPS 14675.
+
+some episodes done, average rewards:  2567.336876858202
+
+ Scenario Walker2d-v5 Algo ppo updates 1140/1525 episodes, total num timesteps 149553152/200000000, FPS 14675.
+
+some episodes done, average rewards:  2920.3683648758984
+
+ Scenario Walker2d-v5 Algo ppo updates 1145/1525 episodes, total num timesteps 150208512/200000000, FPS 14675.
+
+some episodes done, average rewards:  2960.3791081708528
+
+ Scenario Walker2d-v5 Algo ppo updates 1150/1525 episodes, total num timesteps 150863872/200000000, FPS 14675.
+
+some episodes done, average rewards:  3424.7055628030716
+
+ Scenario Walker2d-v5 Algo ppo updates 1155/1525 episodes, total num timesteps 151519232/200000000, FPS 14676.
+
+some episodes done, average rewards:  3461.733944340585
+
+ Scenario Walker2d-v5 Algo ppo updates 1160/1525 episodes, total num timesteps 152174592/200000000, FPS 14676.
+
+some episodes done, average rewards:  3465.396287612633
+
+ Scenario Walker2d-v5 Algo ppo updates 1165/1525 episodes, total num timesteps 152829952/200000000, FPS 14676.
+
+some episodes done, average rewards:  3461.4968945885757
+
+ Scenario Walker2d-v5 Algo ppo updates 1170/1525 episodes, total num timesteps 153485312/200000000, FPS 14676.
+
+some episodes done, average rewards:  3509.9448190999274
+
+ Scenario Walker2d-v5 Algo ppo updates 1175/1525 episodes, total num timesteps 154140672/200000000, FPS 14677.
+
+some episodes done, average rewards:  3374.4946040504497
+
+ Scenario Walker2d-v5 Algo ppo updates 1180/1525 episodes, total num timesteps 154796032/200000000, FPS 14677.
+
+some episodes done, average rewards:  3183.760524413624
+
+ Scenario Walker2d-v5 Algo ppo updates 1185/1525 episodes, total num timesteps 155451392/200000000, FPS 14678.
+
+some episodes done, average rewards:  2991.794253523777
+
+ Scenario Walker2d-v5 Algo ppo updates 1190/1525 episodes, total num timesteps 156106752/200000000, FPS 14678.
+
+some episodes done, average rewards:  2977.333209128864
+
+ Scenario Walker2d-v5 Algo ppo updates 1195/1525 episodes, total num timesteps 156762112/200000000, FPS 14679.
+
+some episodes done, average rewards:  3184.6349448027695
+
+ Scenario Walker2d-v5 Algo ppo updates 1200/1525 episodes, total num timesteps 157417472/200000000, FPS 14680.
+
+some episodes done, average rewards:  3193.8525500895103
+
+ Scenario Walker2d-v5 Algo ppo updates 1205/1525 episodes, total num timesteps 158072832/200000000, FPS 14680.
+
+some episodes done, average rewards:  3366.69563322367
+
+ Scenario Walker2d-v5 Algo ppo updates 1210/1525 episodes, total num timesteps 158728192/200000000, FPS 14680.
+
+some episodes done, average rewards:  3355.4031050158364
+
+ Scenario Walker2d-v5 Algo ppo updates 1215/1525 episodes, total num timesteps 159383552/200000000, FPS 14680.
+
+some episodes done, average rewards:  2963.4693818298438
+
+ Scenario Walker2d-v5 Algo ppo updates 1220/1525 episodes, total num timesteps 160038912/200000000, FPS 14680.
+
+some episodes done, average rewards:  2606.1139640332003
+
+ Scenario Walker2d-v5 Algo ppo updates 1225/1525 episodes, total num timesteps 160694272/200000000, FPS 14680.
+
+some episodes done, average rewards:  2653.3527599793965
+
+ Scenario Walker2d-v5 Algo ppo updates 1230/1525 episodes, total num timesteps 161349632/200000000, FPS 14680.
+
+some episodes done, average rewards:  2652.4616627230776
+
+ Scenario Walker2d-v5 Algo ppo updates 1235/1525 episodes, total num timesteps 162004992/200000000, FPS 14681.
+
+some episodes done, average rewards:  2882.348791658849
+
+ Scenario Walker2d-v5 Algo ppo updates 1240/1525 episodes, total num timesteps 162660352/200000000, FPS 14681.
+
+some episodes done, average rewards:  3073.9594163719185
+
+ Scenario Walker2d-v5 Algo ppo updates 1245/1525 episodes, total num timesteps 163315712/200000000, FPS 14681.
+
+some episodes done, average rewards:  2858.2628500783985
+
+ Scenario Walker2d-v5 Algo ppo updates 1250/1525 episodes, total num timesteps 163971072/200000000, FPS 14681.
+
+some episodes done, average rewards:  2753.9817620304784
+
+ Scenario Walker2d-v5 Algo ppo updates 1255/1525 episodes, total num timesteps 164626432/200000000, FPS 14681.
+
+some episodes done, average rewards:  3118.1913786103732
+
+ Scenario Walker2d-v5 Algo ppo updates 1260/1525 episodes, total num timesteps 165281792/200000000, FPS 14680.
+
+some episodes done, average rewards:  3319.4523743181803
+
+ Scenario Walker2d-v5 Algo ppo updates 1265/1525 episodes, total num timesteps 165937152/200000000, FPS 14680.
+
+some episodes done, average rewards:  3401.579164928173
+
+ Scenario Walker2d-v5 Algo ppo updates 1270/1525 episodes, total num timesteps 166592512/200000000, FPS 14680.
+
+some episodes done, average rewards:  2927.7498823393685
+
+ Scenario Walker2d-v5 Algo ppo updates 1275/1525 episodes, total num timesteps 167247872/200000000, FPS 14680.
+
+some episodes done, average rewards:  2862.9988447116043
+
+ Scenario Walker2d-v5 Algo ppo updates 1280/1525 episodes, total num timesteps 167903232/200000000, FPS 14679.
+
+some episodes done, average rewards:  3143.552039957995
+
+ Scenario Walker2d-v5 Algo ppo updates 1285/1525 episodes, total num timesteps 168558592/200000000, FPS 14679.
+
+some episodes done, average rewards:  2826.750271091322
+
+ Scenario Walker2d-v5 Algo ppo updates 1290/1525 episodes, total num timesteps 169213952/200000000, FPS 14679.
+
+some episodes done, average rewards:  2956.6476187697353
+
+ Scenario Walker2d-v5 Algo ppo updates 1295/1525 episodes, total num timesteps 169869312/200000000, FPS 14679.
+
+some episodes done, average rewards:  3074.7718718165484
+
+ Scenario Walker2d-v5 Algo ppo updates 1300/1525 episodes, total num timesteps 170524672/200000000, FPS 14679.
+
+some episodes done, average rewards:  3003.7480946455903
+
+ Scenario Walker2d-v5 Algo ppo updates 1305/1525 episodes, total num timesteps 171180032/200000000, FPS 14679.
+
+some episodes done, average rewards:  2946.421020002542
+
+ Scenario Walker2d-v5 Algo ppo updates 1310/1525 episodes, total num timesteps 171835392/200000000, FPS 14678.
+
+some episodes done, average rewards:  2923.8426273691953
+
+ Scenario Walker2d-v5 Algo ppo updates 1315/1525 episodes, total num timesteps 172490752/200000000, FPS 14678.
+
+some episodes done, average rewards:  2849.040431482679
+
+ Scenario Walker2d-v5 Algo ppo updates 1320/1525 episodes, total num timesteps 173146112/200000000, FPS 14678.
+
+some episodes done, average rewards:  3194.56527312905
+
+ Scenario Walker2d-v5 Algo ppo updates 1325/1525 episodes, total num timesteps 173801472/200000000, FPS 14678.
+
+some episodes done, average rewards:  3199.5252218566425
+
+ Scenario Walker2d-v5 Algo ppo updates 1330/1525 episodes, total num timesteps 174456832/200000000, FPS 14677.
+
+some episodes done, average rewards:  3339.1722356051287
+
+ Scenario Walker2d-v5 Algo ppo updates 1335/1525 episodes, total num timesteps 175112192/200000000, FPS 14677.
+
+some episodes done, average rewards:  3141.1485758724916
+
+ Scenario Walker2d-v5 Algo ppo updates 1340/1525 episodes, total num timesteps 175767552/200000000, FPS 14677.
+
+some episodes done, average rewards:  2845.629366415214
+
+ Scenario Walker2d-v5 Algo ppo updates 1345/1525 episodes, total num timesteps 176422912/200000000, FPS 14676.
+
+some episodes done, average rewards:  3109.1514186346326
+
+ Scenario Walker2d-v5 Algo ppo updates 1350/1525 episodes, total num timesteps 177078272/200000000, FPS 14676.
+
+some episodes done, average rewards:  3292.954934221211
+
+ Scenario Walker2d-v5 Algo ppo updates 1355/1525 episodes, total num timesteps 177733632/200000000, FPS 14676.
+
+some episodes done, average rewards:  3198.16522298889
+
+ Scenario Walker2d-v5 Algo ppo updates 1360/1525 episodes, total num timesteps 178388992/200000000, FPS 14677.
+
+some episodes done, average rewards:  3251.916187303538
+
+ Scenario Walker2d-v5 Algo ppo updates 1365/1525 episodes, total num timesteps 179044352/200000000, FPS 14677.
+
+some episodes done, average rewards:  3320.3147511513907
+
+ Scenario Walker2d-v5 Algo ppo updates 1370/1525 episodes, total num timesteps 179699712/200000000, FPS 14677.
+
+some episodes done, average rewards:  3292.534567944432
+
+ Scenario Walker2d-v5 Algo ppo updates 1375/1525 episodes, total num timesteps 180355072/200000000, FPS 14677.
+
+some episodes done, average rewards:  3196.471222866991
+
+ Scenario Walker2d-v5 Algo ppo updates 1380/1525 episodes, total num timesteps 181010432/200000000, FPS 14677.
+
+some episodes done, average rewards:  3187.458046210324
+
+ Scenario Walker2d-v5 Algo ppo updates 1385/1525 episodes, total num timesteps 181665792/200000000, FPS 14677.
+
+some episodes done, average rewards:  3114.8940133666065
+
+ Scenario Walker2d-v5 Algo ppo updates 1390/1525 episodes, total num timesteps 182321152/200000000, FPS 14677.
+
+some episodes done, average rewards:  3205.8054001311198
+
+ Scenario Walker2d-v5 Algo ppo updates 1395/1525 episodes, total num timesteps 182976512/200000000, FPS 14677.
+
+some episodes done, average rewards:  3595.02427299859
+
+ Scenario Walker2d-v5 Algo ppo updates 1400/1525 episodes, total num timesteps 183631872/200000000, FPS 14677.
+
+some episodes done, average rewards:  3481.086140610546
+
+ Scenario Walker2d-v5 Algo ppo updates 1405/1525 episodes, total num timesteps 184287232/200000000, FPS 14678.
+
+some episodes done, average rewards:  3414.937789274167
+
+ Scenario Walker2d-v5 Algo ppo updates 1410/1525 episodes, total num timesteps 184942592/200000000, FPS 14678.
+
+some episodes done, average rewards:  3302.9319144489914
+
+ Scenario Walker2d-v5 Algo ppo updates 1415/1525 episodes, total num timesteps 185597952/200000000, FPS 14678.
+
+some episodes done, average rewards:  3005.0764307543063
+
+ Scenario Walker2d-v5 Algo ppo updates 1420/1525 episodes, total num timesteps 186253312/200000000, FPS 14678.
+
+some episodes done, average rewards:  3060.6404161555724
+
+ Scenario Walker2d-v5 Algo ppo updates 1425/1525 episodes, total num timesteps 186908672/200000000, FPS 14678.
+
+some episodes done, average rewards:  3130.5788437295923
+
+ Scenario Walker2d-v5 Algo ppo updates 1430/1525 episodes, total num timesteps 187564032/200000000, FPS 14678.
+
+some episodes done, average rewards:  3600.225627896869
+
+ Scenario Walker2d-v5 Algo ppo updates 1435/1525 episodes, total num timesteps 188219392/200000000, FPS 14679.
+
+some episodes done, average rewards:  3498.114392723129
+
+ Scenario Walker2d-v5 Algo ppo updates 1440/1525 episodes, total num timesteps 188874752/200000000, FPS 14679.
+
+some episodes done, average rewards:  3403.967241242334
+
+ Scenario Walker2d-v5 Algo ppo updates 1445/1525 episodes, total num timesteps 189530112/200000000, FPS 14679.
+
+some episodes done, average rewards:  3631.3225080746765
+
+ Scenario Walker2d-v5 Algo ppo updates 1450/1525 episodes, total num timesteps 190185472/200000000, FPS 14679.
+
+some episodes done, average rewards:  3617.474481346663
+
+ Scenario Walker2d-v5 Algo ppo updates 1455/1525 episodes, total num timesteps 190840832/200000000, FPS 14679.
+
+some episodes done, average rewards:  3856.987181228728
+
+ Scenario Walker2d-v5 Algo ppo updates 1460/1525 episodes, total num timesteps 191496192/200000000, FPS 14679.
+
+some episodes done, average rewards:  3502.764855250881
+
+ Scenario Walker2d-v5 Algo ppo updates 1465/1525 episodes, total num timesteps 192151552/200000000, FPS 14679.
+
+some episodes done, average rewards:  3143.1089438175927
+
+ Scenario Walker2d-v5 Algo ppo updates 1470/1525 episodes, total num timesteps 192806912/200000000, FPS 14680.
+
+some episodes done, average rewards:  2857.5607358073144
+
+ Scenario Walker2d-v5 Algo ppo updates 1475/1525 episodes, total num timesteps 193462272/200000000, FPS 14680.
+
+some episodes done, average rewards:  2694.183602095066
+
+ Scenario Walker2d-v5 Algo ppo updates 1480/1525 episodes, total num timesteps 194117632/200000000, FPS 14680.
+
+some episodes done, average rewards:  2455.713893384926
+
+ Scenario Walker2d-v5 Algo ppo updates 1485/1525 episodes, total num timesteps 194772992/200000000, FPS 14680.
+
+some episodes done, average rewards:  2498.5253064775898
+
+ Scenario Walker2d-v5 Algo ppo updates 1490/1525 episodes, total num timesteps 195428352/200000000, FPS 14680.
+
+some episodes done, average rewards:  2719.551740318858
+
+ Scenario Walker2d-v5 Algo ppo updates 1495/1525 episodes, total num timesteps 196083712/200000000, FPS 14680.
+
+some episodes done, average rewards:  2741.520072703987
+
+ Scenario Walker2d-v5 Algo ppo updates 1500/1525 episodes, total num timesteps 196739072/200000000, FPS 14680.
+
+some episodes done, average rewards:  2648.0453345416636
+
+ Scenario Walker2d-v5 Algo ppo updates 1505/1525 episodes, total num timesteps 197394432/200000000, FPS 14680.
+
+some episodes done, average rewards:  2730.9861698912246
+
+ Scenario Walker2d-v5 Algo ppo updates 1510/1525 episodes, total num timesteps 198049792/200000000, FPS 14681.
+
+some episodes done, average rewards:  2709.744800212667
+
+ Scenario Walker2d-v5 Algo ppo updates 1515/1525 episodes, total num timesteps 198705152/200000000, FPS 14681.
+
+some episodes done, average rewards:  2827.9100311162983
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 126, in compute_returns
+    - value_normalizer.denormalize(self.value_preds[step])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 77, in denormalize
+    out, _ = torch.sort(out, dim=-1)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 126, in compute_returns
+    - value_normalizer.denormalize(self.value_preds[step])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 77, in denormalize
+    out, _ = torch.sort(out, dim=-1)
+KeyboardInterrupt
+Error in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/threading.py", line 1080, in _wait_for_tstate_lock
+    if lock.acquire(block, timeout):
+KeyboardInterrupt

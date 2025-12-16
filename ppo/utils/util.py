@@ -34,6 +34,15 @@ def get_shape_from_obs_space(obs_space):
         obs_shape = obs_space.shape
     elif obs_space.__class__.__name__ == 'list':
         obs_shape = obs_space
+    elif obs_space.__class__.__name__ == 'Dict':
+        # Isaac Lab environments typically store the policy observations in the "policy" key
+        if "policy" in obs_space.keys():
+            obs_shape = obs_space["policy"].shape
+        else:
+            # Fallback: Use the first key if "policy" is not found (or raise specific error)
+            key = list(obs_space.keys())[0]
+            print(f"Warning: 'policy' key not found in Dict obs_space. Using key: '{key}'")
+            obs_shape = obs_space[key].shape
     else:
         raise NotImplementedError
     return obs_shape
@@ -44,11 +53,11 @@ def get_shape_from_act_space(act_space):
     elif act_space.__class__.__name__ == "MultiDiscrete":
         act_shape = act_space.shape
     elif act_space.__class__.__name__ == "Box":
-        act_shape = act_space.shape[0]
+        act_shape = act_space.shape[-1]
     elif act_space.__class__.__name__ == "MultiBinary":
-        act_shape = act_space.shape[0]
+        act_shape = act_space.shape[-1]
     else:  # agar
-        act_shape = act_space[0].shape[0] + 1  
+        act_shape = act_space[0].shape[-1] + 1  
     return act_shape
 
 

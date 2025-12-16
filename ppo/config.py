@@ -279,5 +279,12 @@ def get_config():
     # add for online multi-task
     parser.add_argument("--train_maps", type=str, nargs='+', default=None)
     parser.add_argument("--eval_maps", type=str, nargs='+', default=None)
+
+    # add for distributional citic
+    parser.add_argument("--num_quants", type=int, default=64)
     
+    # add for MoE GMM Policy
+    parser.add_argument("--moe_policy", action='store_true', default=False)
+    parser.add_argument("--num_experts", type=int, default=3)
+
     return parser

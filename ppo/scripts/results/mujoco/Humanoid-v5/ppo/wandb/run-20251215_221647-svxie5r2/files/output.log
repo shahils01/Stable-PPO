@@ -1,0 +1,35 @@
+action_dim =  17
+obs_dim =  348
+obs dim =  (64, 348)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 134, in compute_returns
+    delta = self.rewards[step] + self.wasserstein_like_distance(self.gamma * value_normalizer.denormalize(
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/_tensor.py", line 1083, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 70, in run
+    self.compute()
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 124, in compute
+    self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/shared_buffer.py", line 134, in compute_returns
+    delta = self.rewards[step] + self.wasserstein_like_distance(self.gamma * value_normalizer.denormalize(
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/_tensor.py", line 1083, in __array__
+    return self.numpy()
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.

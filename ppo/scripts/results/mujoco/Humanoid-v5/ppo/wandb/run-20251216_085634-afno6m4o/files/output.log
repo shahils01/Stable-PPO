@@ -1,0 +1,43 @@
+action_dim =  17
+obs_dim =  348
+obs dim =  (64, 348)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 71, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 187, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 131, in ppo_update
+    value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 63, in cal_value_loss
+    self.value_normalizer.update(return_batch)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 53, in update
+    self.running_mean.mul_(weight).add_(batch_mean * (1.0 - weight))
+RuntimeError: output with shape [1] doesn't match the broadcast shape [16]
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 71, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 131, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 187, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 131, in ppo_update
+    value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 63, in cal_value_loss
+    self.value_normalizer.update(return_batch)
+  File "/home/shahils/.conda/envs/deepseek_env/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/valuenorm.py", line 53, in update
+    self.running_mean.mul_(weight).add_(batch_mean * (1.0 - weight))
+RuntimeError: output with shape [1] doesn't match the broadcast shape [16]

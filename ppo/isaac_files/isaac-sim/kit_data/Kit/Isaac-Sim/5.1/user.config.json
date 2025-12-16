@@ -1,0 +1,201 @@
+{
+    "persistent": {
+        "simulation": {
+            "minFrameRate": 60,
+            "defaultMetersPerUnit": 1.0
+        },
+        "omnigraph": {
+            "updateToUsd": false,
+            "useSchemaPrims": true,
+            "disablePrimNodes": true
+        },
+        "omni": {
+            "replicator": {
+                "captureOnPlay": true
+            }
+        },
+        "omnihydra": {
+            "useSceneGraphInstancing": true
+        },
+        "isaac": {
+            "asset_root": {
+                "default": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1",
+                "cloud": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1",
+                "nvidia": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.1",
+                "timeout": 5.0
+            }
+        },
+        "UJITSO": {
+            "geometry": false
+        },
+        "resourcemonitor": {
+            "timeBetweenQueries": -1.0,
+            "sendDeviceMemoryWarning": true,
+            "deviceMemoryWarnMB": 1,
+            "deviceMemoryWarnFraction": 0.10000000149011612,
+            "sendHostMemoryWarning": true,
+            "hostMemoryWarnMB": 1,
+            "hostMemoryWarnFraction": 0.10000000149011612
+        },
+        "physics": {
+            "useActiveCudaContext": false,
+            "visualizationQueryUsdrtForTraversal": false,
+            "visualizationDisplayAttachmentsHideActor0": false,
+            "visualizationDisplayParticlesShowDeformableMesh": false,
+            "visualizationDisplayParticlesShowFluidSurface": false,
+            "visualizationDisplayParticlesShowParticleSetParticles": true,
+            "visualizationDisplayParticlesClothMeshLines": false,
+            "visualizationDisplayColliderNormals": false,
+            "visualizationDisplayParticlesShowDiffuseParticles": false,
+            "autocreatePhysicsScene": true,
+            "visualizationDisplayAttachmentsHideActor1": false,
+            "pvdProfile": true,
+            "visualizationDisplayParticlesShowDeformableParticles": true,
+            "visualizationDisplayJoints": true,
+            "visualizationSimulationDataVisualizer": false,
+            "useLocalMeshCache": true,
+            "pvdDebug": true,
+            "pvdEnabled": false,
+            "pvdStreamToFile": false,
+            "pvdMemory": true,
+            "massDistributionManipulator": false,
+            "visualizationSimulationOutput": true,
+            "visualizationDisplayParticlesParticleRadius": 2,
+            "visualizationDisplayParticlesParticlePositions": 0,
+            "enableDeformableBeta": 0,
+            "visualizationDisplayDeformableAttachments": 0,
+            "visualizationDisplayDeformableMeshType": 0,
+            "overrideGPUSettings": -1,
+            "numThreads": 8,
+            "visualizationDisplayDeformableSurfaces": 0,
+            "visualizationDisplayParticles": 0,
+            "visualizationDisplayMassProperties": 0,
+            "visualizationDisplayColliders": 0,
+            "visualizationDisplayAttachments": 0,
+            "localMeshCacheSizeMB": 1024,
+            "visualizationDisplayTendons": 0,
+            "visualizationDisplayDeformableBodies": 0,
+            "visualizationDisplayDeformableBodyType": 0,
+            "cooking": {
+                "ujitsoCookingMaxProcessCount": 16
+            },
+            "visualizationDisplayDeformables": 0,
+            "visualizationSimplifyAtDistance": 2500.0,
+            "visualizationGap": 0.20000000298023224,
+            "omniPvdOvdRecordingDirectory": "",
+            "testRunnerFilter": "",
+            "pvdOutputDirectory": "",
+            "pvdIP": "127.0.0.1",
+            "testRunnerSelection": {}
+        },
+        "rtx": {
+            "modes": {
+                "rt": {
+                    "enabled": false
+                },
+                "pt": {
+                    "enabled": false
+                },
+                "rt2": {
+                    "enabled": false
+                }
+            }
+        },
+        "renderer": {
+            "startupMessageDisplayed": true,
+            "raytracingOmm": {
+                "enabled": false
+            }
+        },
+        "app": {
+            "file": {
+                "recentFiles": {}
+            },
+            "transform": {
+                "gizmoUseSRT": true
+            },
+            "window": {
+                "uiStyle": "NvidiaDark"
+            },
+            "primCreation": {
+                "DefaultXformOpType": "Scale, Orient, Translate",
+                "DefaultXformOpOrder": "xformOp:translate, xformOp:orient, xformOp:scale",
+                "typedDefaults": {
+                    "camera": {
+                        "clippingRange": [
+                            0.01,
+                            10000000.0
+                        ],
+                        "focalLength": 18.147562,
+                        "focusDistance": 400
+                    },
+                    "orthoCamera": {
+                        "clippingRange": [
+                            20000.0,
+                            10000000.0
+                        ]
+                    }
+                },
+                "DefaultRotationOrder": "XYZ",
+                "DefaultCameraRotationOrder": "YXZ",
+                "highQuality": true
+            },
+            "omniverse": {
+                "content_browser": {
+                    "options_menu": {
+                        "show_details": true
+                    }
+                },
+                "filepicker": {
+                    "options_menu": {
+                        "show_details": true
+                    }
+                }
+            },
+            "newStage": {
+                "defaultTemplate": "sunlight",
+                "templatePath": [
+                    "${app_documents}/scripts/new_stage"
+                ]
+            },
+            "camera": {
+                "controllerUseSRT": false
+            },
+            "rendering": {
+                "whiteModeExceptions": "GizmoTex, Gizmo, OmniGlass, SunsetSkyMat"
+            },
+            "stage": {
+                "upAxis": "Z",
+                "movePrimInPlace": false,
+                "instanceableOnCreatingReference": false,
+                "materialStrength": "weakerThanDescendants",
+                "timeCodeRange": [
+                    0,
+                    100
+                ],
+                "interpolationType": "Linear",
+                "timeCodesPerSecond": 60.0,
+                "defaultPrimName": "World"
+            },
+            "usd": {
+                "usdLuxUnprefixedCompat": true,
+                "muteUsdCodingError": false
+            },
+            "viewport": {
+                "grid": {
+                    "scale": 1.0
+                },
+                "pickingMode": "kind:model.ALL",
+                "camMoveVelocity": 0.05,
+                "gizmo": {
+                    "scale": 0.01
+                },
+                "previewOnPeek": false,
+                "snapToSurface": false,
+                "pickingModeNoKinds": true,
+                "pickingModeIncludeRef": true,
+                "displayOptions": 3094
+            }
+        }
+    }
+}

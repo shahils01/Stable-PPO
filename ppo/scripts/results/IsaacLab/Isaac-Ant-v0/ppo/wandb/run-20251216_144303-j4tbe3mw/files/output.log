@@ -1,0 +1,30 @@
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 29, in __init__
+    super(IsaacRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 86, in __init__
+    self.policy = Policy(self.all_args,
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/algorithm/ppo_policy.py", line 35, in __init__
+    if self.env_name == 'IsaacLab':
+       ^^^^^^^^^^^^^
+AttributeError: 'PPO_Policy' object has no attribute 'env_name'
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 29, in __init__
+    super(IsaacRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 86, in __init__
+    self.policy = Policy(self.all_args,
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/algorithm/ppo_policy.py", line 35, in __init__
+    if self.env_name == 'IsaacLab':
+       ^^^^^^^^^^^^^
+AttributeError: 'PPO_Policy' object has no attribute 'env_name'

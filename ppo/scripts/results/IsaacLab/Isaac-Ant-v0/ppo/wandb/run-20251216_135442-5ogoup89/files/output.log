@@ -1,0 +1,25 @@
+action_dim =  64
+obs_dim =  64
+obs dim =  (64, 60)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 35, in run
+    self.warmup()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 124, in warmup
+    self.buffer.obs[0] = np.expand_dims(obs, axis=1).copy()
+    ~~~~~~~~~~~~~~~^^^
+ValueError: could not broadcast input array from shape (64,1,60) into shape (64,1,64,60)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 35, in run
+    self.warmup()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/isaac_runner.py", line 124, in warmup
+    self.buffer.obs[0] = np.expand_dims(obs, axis=1).copy()
+    ~~~~~~~~~~~~~~~^^^
+ValueError: could not broadcast input array from shape (64,1,60) into shape (64,1,64,60)

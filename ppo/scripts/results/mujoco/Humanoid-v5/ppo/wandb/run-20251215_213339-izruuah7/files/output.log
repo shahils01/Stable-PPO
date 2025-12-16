@@ -1,0 +1,29 @@
+obs dim =  (64, 348)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 71, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 129, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 183, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 113, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+ValueError: too many values to unpack (expected 3)
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 148, in <module>
+    main(sys.argv[1:])
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_mujoco.py", line 133, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 71, in run
+    train_infos = self.train()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 129, in train
+    train_infos = self.trainer.train(self.buffer, self.obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 183, in train
+    = self.ppo_update(sample, obs_dim)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/algorithms/ppo/ppo_trainer.py", line 113, in ppo_update
+    values, action_log_probs, dist_entropy = self.policy.evaluate_actions(obs_batch,
+ValueError: too many values to unpack (expected 3)

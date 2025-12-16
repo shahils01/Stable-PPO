@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 29, in __init__
+    super(MujocoRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 51, in __init__
+    self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/util.py", line 38, in get_shape_from_obs_space
+    raise NotImplementedError
+NotImplementedError
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 108, in main
+    runner = Runner(config)
+             ^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 29, in __init__
+    super(MujocoRunner, self).__init__(config)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/base_runner.py", line 51, in __init__
+    self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/utils/util.py", line 38, in get_shape_from_obs_space
+    raise NotImplementedError
+NotImplementedError

@@ -1,0 +1,35 @@
+obs dim =  torch.Size([16, 60])
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 35, in run
+    self.warmup()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 121, in warmup
+    self.buffer.obs[0] = np.expand_dims(obs, axis=1).copy()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/IsaacLab/_isaac_sim/extscache/omni.kit.pip_archive-0.0.0+69cbf6ad.lx64.cp311/pip_prebundle/numpy/lib/shape_base.py", line 591, in expand_dims
+    a = asanyarray(a)
+        ^^^^^^^^^^^^^
+  File "/isaac-sim/exts/omni.isaac.ml_archive/pip_prebundle/torch/_tensor.py", line 1225, in __array__
+    return self.numpy()
+           ^^^^^^^^^^^^
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
+Traceback (most recent call last):
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 116, in <module>
+    main(extras)
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/train/train_isaac.py", line 109, in main
+    runner.run()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 35, in run
+    self.warmup()
+  File "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/../../ppo/runner/shared/mujoco_runner.py", line 121, in warmup
+    self.buffer.obs[0] = np.expand_dims(obs, axis=1).copy()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/IsaacLab/_isaac_sim/extscache/omni.kit.pip_archive-0.0.0+69cbf6ad.lx64.cp311/pip_prebundle/numpy/lib/shape_base.py", line 591, in expand_dims
+    a = asanyarray(a)
+        ^^^^^^^^^^^^^
+  File "/isaac-sim/exts/omni.isaac.ml_archive/pip_prebundle/torch/_tensor.py", line 1225, in __array__
+    return self.numpy()
+           ^^^^^^^^^^^^
+TypeError: can't convert cuda:0 device type tensor to numpy. Use Tensor.cpu() to copy the tensor to host memory first.
