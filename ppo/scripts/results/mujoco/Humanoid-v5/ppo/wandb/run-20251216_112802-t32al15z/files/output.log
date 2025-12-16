@@ -461,3 +461,13 @@ some episodes done, average rewards:  4978.037493743868
 
 average_step_rewards is 6.1638569831848145.
 some episodes done, average rewards:  5011.366190617772
+
+ Scenario Humanoid-v5 Algo ppo updates 460/1525 episodes, total num timesteps 60424192/200000000, FPS 4440.
+
+average_step_rewards is 6.173384666442871.
+some episodes done, average rewards:  5028.555883668212
+
+ Scenario Humanoid-v5 Algo ppo updates 465/1525 episodes, total num timesteps 61079552/200000000, FPS 4440.
+
+average_step_rewards is 6.172051906585693.
+some episodes done, average rewards:  5003.153962680602
