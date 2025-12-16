@@ -1,8 +1,0 @@
-{"time":"2025-07-29T13:09:45.58105834-04:00","level":"INFO","msg":"stream: starting","core version":"0.19.8","symlink path":"/home/shahils/Desktop/gitBackupRepo/DistributionalPPO/mat/scripts/results/mujoco/Humanoid-v5/dist-ppo/wandb/run-20250729_130945-xtl6n7ez/logs/debug-core.log"}
-{"time":"2025-07-29T13:09:45.692211962-04:00","level":"INFO","msg":"created new stream","id":"xtl6n7ez"}
-{"time":"2025-07-29T13:09:45.692241061-04:00","level":"INFO","msg":"stream: started","id":"xtl6n7ez"}
-{"time":"2025-07-29T13:09:45.692314574-04:00","level":"INFO","msg":"writer: Do: started","stream_id":"xtl6n7ez"}
-{"time":"2025-07-29T13:09:45.692380799-04:00","level":"INFO","msg":"handler: started","stream_id":"xtl6n7ez"}
-{"time":"2025-07-29T13:09:45.692416738-04:00","level":"INFO","msg":"sender: started","stream_id":"xtl6n7ez"}
-{"time":"2025-07-29T13:09:45.934458899-04:00","level":"INFO","msg":"Starting system monitor"}
-{"time":"2025-07-29T15:29:46.404630963-04:00","level":"INFO","msg":"api: retrying HTTP error","status":502,"url":"https://api.wandb.ai/files/shahil-shaik7-clemson-university/Humanoid-v5/xtl6n7ez/file_stream","body":"\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>502 Server Error</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Server Error</h1>\n<h2>The server encountered a temporary error and could not complete your request.<p>Please try again in 30 seconds.</h2>\n<h2></h2>\n</body></html>\n"}
