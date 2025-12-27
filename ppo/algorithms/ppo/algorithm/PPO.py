@@ -72,7 +72,6 @@ class Actor(nn.Module):
 
     # state, action, and return
     def forward(self, obs):
-
         logit = self.mlp_[0](obs)
         return logit
 
@@ -126,12 +125,12 @@ class MoE_GaussianPolicies(nn.Module):
             nn.Linear(n_embd, num_experts)
         )
 
-    def forward(self, obs):
+    def forward(self, obs, temperature=2):
         """
         Returns a Mean and Std of all expert Gaussians.
         """
         gate_logits = self.gate(obs)
-        gate_weights = torch.softmax(gate_logits, dim=-1) # [batch, num_experts]
+        gate_weights = torch.softmax(gate_logits/temperature, dim=-1) # [batch, num_experts]
 
         # --- B. Get Expert Parameters ---
         mus = []

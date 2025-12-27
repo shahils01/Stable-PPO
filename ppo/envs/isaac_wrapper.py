@@ -63,7 +63,7 @@ class IsaacLabVecEnvWrapper(ShareVecEnv):
         # modify your runner to handle tensors. For compatibility, we can leave as tensors
         # because your PPO.py uses 'check(obs)' which handles tensors.
         
-        return obs, rews, dones, infos
+        return obs, rews, terminated, truncated, infos
 
     def close(self):
         self.env.close()

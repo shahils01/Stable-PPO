@@ -257,7 +257,7 @@ def shareworker(remote, parent_remote, env_fn_wrapper):
                 if np.all(done):
                     ob, _ = env.reset()
 
-            remote.send((ob, reward, done, info))   
+            remote.send((ob, reward, terminated, truncated, info))   
         elif cmd == 'reset':
             ob, _ = env.reset()
             remote.send((ob))
@@ -313,8 +313,8 @@ class ShareSubprocVecEnv(ShareVecEnv):
     def step_wait(self):
         results = [remote.recv() for remote in self.remotes]
         self.waiting = False
-        obs, rews, dones, infos = zip(*results)   
-        return np.stack(obs), np.stack(rews), np.stack(dones), infos
+        obs, rews, terminated, truncated, infos = zip(*results)   
+        return np.stack(obs), np.stack(rews), np.stack(terminated), np.stack(truncated), infos
 
     def reset(self):
         for remote in self.remotes:
@@ -494,7 +494,7 @@ class ShareDummyVecEnv(ShareVecEnv):
         obs, rews, terminated, truncated, infos = map(
             np.array, zip(*results))
 
-        done = terminated or truncated
+        dones = terminated or truncated
 
         for (i, done) in enumerate(dones):
             if 'bool' in done.__class__.__name__:
@@ -505,7 +505,7 @@ class ShareDummyVecEnv(ShareVecEnv):
                     obs[i], _ = self.envs[i].reset()
         self.actions = None
 
-        return obs, rews, dones, infos
+        return obs, rews, terminated, truncated, infos
 
     def reset(self):
         results = [env.reset() for env in self.envs]

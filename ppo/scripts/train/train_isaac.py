@@ -60,6 +60,7 @@ def main(ppo_args_list):
     # It is safer to use one source of truth.
     task_name = all_args.scenario if all_args.scenario else args_cli.task
     
+    # Training env config
     env_cfg = parse_env_cfg(task_name, num_envs=all_args.n_rollout_threads)
     
     # 2. Create the Isaac Lab Environment
@@ -99,7 +100,7 @@ def main(ppo_args_list):
     config = {
         "all_args": all_args,
         "envs": vec_env,
-        "eval_envs": None,
+        "eval_envs": vec_env,
         "device": torch.device("cuda:0"),
         "run_dir": run_dir
     }
