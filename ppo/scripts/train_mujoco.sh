@@ -26,12 +26,13 @@ python train/train_mujoco.py \
  --num_env_steps 200000000 \
  --ppo_epoch 20 \
  --clip_param 0.1 \
+ --use_eval \
  --add_center_xy \
  --use_state_agent \
  --use_value_active_masks \
  --use_policy_active_masks \
- --use_wandb True \
- --wandb_name "xxx" \
- --user_name "shahil-shaik7-clemson-university" \
- --num_quants 16 \
+ --num_quants 1 \
+#  --use_wandb True \
+#  --wandb_name "xxx" \
+#  --user_name "shahil-shaik7-clemson-university" \
 #  --moe_policy True

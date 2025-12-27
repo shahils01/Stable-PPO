@@ -49,9 +49,10 @@ class MujocoRunner(Runner):
                 values, actions, action_log_probs = self.collect(step)
 
                 # Obser reward and next obs
-                obs, rewards, dones, infos = self.envs.step(actions)
+                obs, rewards, terminated, truncated, infos = self.envs.step(actions)
                 rewards = rewards.reshape(-1, 1)
-                dones = dones.reshape(-1, 1)
+                dones = terminated.reshape(-1, 1)
+                truncated = truncated.reshape(-1, 1)
                                 
                 dones_env = np.all(dones, axis=1)
                 reward_env = np.mean(rewards).flatten()
@@ -60,6 +61,9 @@ class MujocoRunner(Runner):
                     if dones_env[t]:
                         done_episodes_rewards.append(train_episode_rewards[t])
                         train_episode_rewards[t] = 0
+
+                # Bootstrap reward for truncated episodes (Done after computing train_episode_rewards)
+                rewards += self.all_args.gamma * np.mean(values, axis=-1,keepdims=True) * truncated
 
                 data = obs, rewards, dones, infos, \
                        values, actions, action_log_probs
@@ -161,10 +165,10 @@ class MujocoRunner(Runner):
     def eval(self, total_num_steps):
         eval_episode = 0
         eval_episode_rewards = []
-        one_episode_rewards = [0 for _ in range(self.all_args.eval_episodes)]
+        one_episode_rewards = [0 for _ in range(self.all_args.n_eval_rollout_threads)]
 
-        eval_obs, _ = self.eval_envs.reset()
-        eval_masks = np.ones((self.all_args.eval_episodes, 1), dtype=np.float32)
+        eval_obs = self.eval_envs.reset()
+        eval_masks = np.ones((self.all_args.n_eval_rollout_threads, 1), dtype=np.float32)
         
         all_frames = []
 
@@ -176,17 +180,19 @@ class MujocoRunner(Runner):
             eval_actions = _t2n(eval_actions)
 
             # Obser reward and next obs
-            eval_obs, eval_rewards, eval_dones, eval_infos = self.eval_envs.step(eval_actions)
+            eval_obs, eval_rewards, eval_terminated, eval_truncated, eval_infos = self.eval_envs.step(eval_actions)
+            eval_rewards = eval_rewards.reshape(-1, 1)
+            eval_dones = eval_terminated or eval_truncated
             eval_dones = eval_dones.reshape(-1,1)
             eval_rewards = np.mean(eval_rewards, axis=1).flatten()
             one_episode_rewards += eval_rewards
 
             eval_dones_env = np.all(eval_dones, axis=1)
-            eval_masks = np.ones((self.all_args.eval_episodes, 1), dtype=np.float32)
+            eval_masks = np.ones((self.all_args.n_eval_rollout_threads, 1), dtype=np.float32)
             eval_masks[eval_dones_env == True] = np.zeros(((eval_dones_env == True).sum(), 1),
                                                           dtype=np.float32)
 
-            for eval_i in range(self.all_args.eval_episodes):
+            for eval_i in range(self.all_args.n_eval_rollout_threads):
                 if eval_dones_env[eval_i]:
                     eval_episode += 1
                     eval_episode_rewards.append(one_episode_rewards[eval_i])

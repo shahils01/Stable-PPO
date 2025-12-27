@@ -47,10 +47,10 @@ def make_eval_env(all_args):
 
         return init_env
 
-    if all_args.eval_episodes == 1:
+    if all_args.n_eval_rollout_threads == 1:
         return ShareDummyVecEnv([get_env_fn(0)])
     else:
-        return ShareSubprocVecEnv([get_env_fn(i) for i in range(all_args.eval_episodes)])
+        return ShareSubprocVecEnv([get_env_fn(i) for i in range(all_args.n_eval_rollout_threads)])
 
 
 def parse_args(args, parser):

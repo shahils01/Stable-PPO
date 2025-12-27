@@ -1,6 +1,6 @@
 #!/bin/sh
 env="IsaacLab"
-scenario="Isaac-Humanoid-v0"
+scenario="Isaac-Ant-v0"
 algo="ppo"
 seed=3
 
@@ -18,29 +18,30 @@ CUDA_VISIBLE_DEVICES=0 HEADLESS=1 apptainer exec --nv \
  --algorithm_name ${algo} \
  --experiment_name ${exp} \
  --scenario ${scenario} \
- --critic_lr 3e-5 \
- --lr 3e-5 \
- --entropy_coef 0.01 \
+ --critic_lr 3e-4 \
+ --lr 3e-4 \
+ --num_quants 1 \
+ --entropy_coef 0.0 \
  --gamma 0.99 \
  --gae_lambda 0.95 \
- --max_grad_norm 0.8 \
- --eval_episodes 2 \
+ --max_grad_norm 1.0 \
  --n_training_threads 32 \
- --n_rollout_threads 1024 \
- --num_mini_batch 5 \
- --episode_length 512 \
+ --n_rollout_threads 512 \
+ --num_mini_batch 4 \
+ --episode_length 1000 \
  --eval_interval 25 \
  --num_env_steps 200000000 \
- --ppo_epoch 20 \
+ --ppo_epoch 8 \
  --clip_param 0.2 \
  --add_center_xy \
  --use_state_agent \
  --use_value_active_masks \
  --use_policy_active_masks \
- --use_wandb True \
- --wandb_name "xxx" \
- --user_name "shahil-shaik7-clemson-university" \
- --num_quants 16 \
+#  --use_wandb True \
+#  --wandb_name "xxx" \
+#  --user_name "shahil-shaik7-clemson-university" \
+#  --moe_policy True \
+#  --num_experts 4 \
 
 
 # Do the following when running on Apptainer:
