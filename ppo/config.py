@@ -282,6 +282,8 @@ def get_config():
 
     # add for distributional citic
     parser.add_argument("--num_quants", type=int, default=64)
+    parser.add_argument("--use_value_entropy", action='store_true', default=False)
+    parser.add_argument("--dgae_epsilon", type=float, default=1.0, help=" coefficience of entropy term in Wasserstein-like directional metric.")
     
     # add for MoE GMM Policy
     parser.add_argument("--moe_policy", action='store_true', default=False)
