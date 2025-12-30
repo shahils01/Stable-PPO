@@ -23,7 +23,7 @@ class Critic(nn.Module):
 
         self.obs_dim = obs_dim
         self.n_embd = n_embd
-        
+
         self.head_ = nn.ModuleList()
         for n in range(1):
             critic = nn.Sequential(nn.LayerNorm(obs_dim),

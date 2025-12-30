@@ -74,6 +74,11 @@ class SharedReplayBuffer(object):
 
         self.step = 0
 
+        self.q = np.exp(np.linspace(0, 1, self.num_quants))
+        self.q = self.q[1:] - self.q[:-1]
+        self.q = np.tile(self.q, (self.n_rollout_threads, 1))
+        self.q = self.q[:, np.newaxis, :]
+
         self.gamma_normalizer = ((1/args.gamma) ** torch.arange(args.episode_length, dtype=torch.float32)).unsqueeze(1).repeat(self.n_rollout_threads,1,1)
         self.gamma_normalizer = self.gamma_normalizer.detach().cpu().numpy()
 
@@ -178,15 +183,8 @@ class SharedReplayBuffer(object):
             icdf1_mids = (icdf1[:,:,1:] + icdf1[:,:,:-1])/2
             icdf2_mids = (icdf2[:,:,1:] + icdf2[:,:,:-1])/2
             
-            # q = np.exp(np.linspace(0, 1, self.num_quants))
-            # q = q[1:] - q[:-1]
-            # q = np.tile(q, (icdf1.shape[0], 1))
-            # q = q[:, np.newaxis, :]
-            
-            # distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
-            # distances = np.mean((icdf1_mids - icdf2_mids)+0.1*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
-            distances = np.mean((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
-            # distances = np.mean((icdf1_mids - icdf2_mids), axis=-1, keepdims=True)
+            distances = np.sum(self.q*((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
+            # distances = np.mean((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
         
         else:
             distances = np.mean((icdf1 - icdf2), axis=-1, keepdims=True)
