@@ -11,6 +11,7 @@ python train/train_mujoco.py \
  --algorithm_name ${algo} \
  --experiment_name ${exp} \
  --scenario ${scenario} \
+ --use_value_entropy True \
  --critic_lr 3e-5 \
  --lr 3e-5 \
  --entropy_coef 0.01 \
@@ -20,8 +21,8 @@ python train/train_mujoco.py \
  --eval_episodes 2 \
  --n_training_threads 32 \
  --n_rollout_threads 64 \
- --num_mini_batch 32 \
- --episode_length 2048 \
+ --num_mini_batch 1 \
+ --episode_length 500 \
  --eval_interval 25 \
  --num_env_steps 200000000 \
  --ppo_epoch 20 \
@@ -31,8 +32,8 @@ python train/train_mujoco.py \
  --use_state_agent \
  --use_value_active_masks \
  --use_policy_active_masks \
- --num_quants 1 \
-#  --use_wandb True \
-#  --wandb_name "xxx" \
-#  --user_name "shahil-shaik7-clemson-university" \
+ --num_quants 64 \
+ --use_wandb True \
+ --wandb_name "xxx" \
+ --user_name "shahil-shaik7-clemson-university" \
 #  --moe_policy True

@@ -39,6 +39,8 @@ class SharedReplayBuffer(object):
         self.algo = args.algorithm_name
         self.env_name = env_name
         self.num_quants = args.num_quants
+        self.dgae_epsilon = args.dgae_epsilon
+        self.use_value_entropy = args.use_value_entropy
         
         obs_shape = get_shape_from_obs_space(obs_space)
 
@@ -71,7 +73,6 @@ class SharedReplayBuffer(object):
         self.active_masks = np.ones_like(self.masks)
 
         self.step = 0
-        self.use_value_entropy = use_value_entropy
 
         self.gamma_normalizer = ((1/args.gamma) ** torch.arange(args.episode_length, dtype=torch.float32)).unsqueeze(1).repeat(self.n_rollout_threads,1,1)
         self.gamma_normalizer = self.gamma_normalizer.detach().cpu().numpy()
@@ -155,7 +156,7 @@ class SharedReplayBuffer(object):
                 self.advantages[step] = (gae - gae.mean()) / (gae.std() + 1e-8) #gae
                 self.returns[step] = gae + self.value_preds[step]
 
-    def wasserstein_like_distance(self, icdf1, icdf2, k):
+    def wasserstein_like_distance(self, icdf1, icdf2, step):
         """
         Compute the Wasserstein distance between each pair of ICDF functions.
 
@@ -173,10 +174,6 @@ class SharedReplayBuffer(object):
         if self.use_value_entropy:
             del_icdf1 = (icdf1[:,:,1:] - icdf1[:,:,:-1])/self.quantile_spacing
             del_icdf2 = (icdf2[:,:,1:] - icdf2[:,:,:-1])/self.quantile_spacing
-
-            # Guard against non-positive slopes (ICDF must be non-decreasing)
-            # del_icdf1 = np.clamp(del_icdf1, min=1e-6)
-            # del_icdf2 = np.clamp(del_icdf1, min=1e-6)
                         
             icdf1_mids = (icdf1[:,:,1:] + icdf1[:,:,:-1])/2
             icdf2_mids = (icdf2[:,:,1:] + icdf2[:,:,:-1])/2
@@ -188,7 +185,7 @@ class SharedReplayBuffer(object):
             
             # distances = np.sum(q*((icdf1_mids - icdf2_mids)+0.5*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
             # distances = np.mean((icdf1_mids - icdf2_mids)+0.1*(self.gamma**(-k))*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
-            distances = np.mean((icdf1_mids - icdf2_mids)+1.0*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
+            distances = np.mean((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
             # distances = np.mean((icdf1_mids - icdf2_mids), axis=-1, keepdims=True)
         
         else:
