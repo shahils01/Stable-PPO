@@ -41,13 +41,14 @@ class SharedReplayBuffer(object):
         self.num_quants = args.num_quants
         self.dgae_epsilon = args.dgae_epsilon
         self.use_value_entropy = args.use_value_entropy
+        self.true_integration = args.true_integration
         
         obs_shape = get_shape_from_obs_space(obs_space)
 
         if type(obs_shape[-1]) == list:
             obs_shape = obs_shape[:1]
 
-        if env_name == 'IsaacLab':
+        if env_name == 'IsaacLab' and len(obs_shape) == 1:
             obs_shape = (obs_shape[-1],)
 
         self.obs = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_shape), dtype=np.float32)
@@ -183,8 +184,10 @@ class SharedReplayBuffer(object):
             icdf1_mids = (icdf1[:,:,1:] + icdf1[:,:,:-1])/2
             icdf2_mids = (icdf2[:,:,1:] + icdf2[:,:,:-1])/2
             
-            distances = np.sum(self.q*((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
-            # distances = np.mean((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
+            if self.true_integration:
+                distances = np.sum(self.q*((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6))), axis=-1, keepdims=True)
+            else:
+                distances = np.mean((icdf1_mids - icdf2_mids) + (self.dgae_epsilon/self.gamma**step)*(np.log(del_icdf1+1e-6)-np.log(del_icdf2+1e-6)), axis=-1, keepdims=True)
         
         else:
             distances = np.mean((icdf1 - icdf2), axis=-1, keepdims=True)

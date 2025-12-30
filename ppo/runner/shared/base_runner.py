@@ -48,11 +48,9 @@ class Runner(object):
         else:
             self.action_type = 'Discrete'
 
-        if self.env_name == 'IsaacLab':
-            self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[-1]
-        else:
-            self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
-            
+        self.obs_shape = get_shape_from_obs_space(self.envs.observation_space)
+        self.obs_dim = self.obs_shape[0] if len(self.obs_shape) == 1 else None
+        
         self.act_dim = get_shape_from_act_space(act_space)
 
         # if self.action_type == 'Discrete':
@@ -134,7 +132,7 @@ class Runner(object):
     def train(self):
         """Train policies with data in buffer. """
         self.trainer.prep_training()
-        train_infos = self.trainer.train(self.buffer, self.obs_dim)      
+        train_infos = self.trainer.train(self.buffer, self.obs_shape)      
         self.buffer.after_update()
         return train_infos
 

@@ -12,6 +12,7 @@ python train/train_mujoco.py \
  --experiment_name ${exp} \
  --scenario ${scenario} \
  --use_value_entropy True \
+ --true_integration True \
  --critic_lr 3e-5 \
  --lr 3e-5 \
  --entropy_coef 0.01 \

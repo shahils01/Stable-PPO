@@ -32,10 +32,8 @@ class PPO_Policy:
         else:
             self.action_type = 'Discrete'
 
-        if args.env_name == 'IsaacLab':
-            self.obs_dim = get_shape_from_obs_space(obs_space)[-1]
-        else:
-            self.obs_dim = get_shape_from_obs_space(obs_space)[0]
+        self.obs_shape = get_shape_from_obs_space(obs_space)
+        self.obs_dim = self.obs_shape[0] if len(self.obs_shape) == 1 else None
 
         self.act_dim = get_shape_from_act_space(act_space)
 
@@ -51,7 +49,7 @@ class PPO_Policy:
         self.obs_dim_ = self.obs_dim
         self.num_quants = num_quants
 
-        self.transformer = PPO(self.obs_dim, 
+        self.transformer = PPO(self.obs_shape, 
                                self.act_dim,
                                n_embd=args.n_embd,
                                moe_policy=args.moe_policy,
@@ -90,7 +88,7 @@ class PPO_Policy:
         :return rnn_states_actor: (torch.Tensor) updated actor network RNN states.
         :return rnn_states_critic: (torch.Tensor) updated critic network RNN states.
         """
-        obs = obs.reshape(-1, self.obs_dim)
+        obs = obs.reshape(-1, *self.obs_shape)
 
         actions, action_log_probs, values = self.transformer.get_actions(obs)
         actions = actions.view(-1, self.act_num)        
@@ -108,7 +106,7 @@ class PPO_Policy:
 
         :return values: (torch.Tensor) value function predictions.
         """
-        obs = obs.reshape(-1, self.obs_dim)
+        obs = obs.reshape(-1, *self.obs_shape)
 
         values = self.transformer.get_values(obs)
         values = values.view(-1, self.num_quants)
@@ -132,7 +130,7 @@ class PPO_Policy:
         :return action_log_probs: (torch.Tensor) log probabilities of the input actions.
         :return dist_entropy: (torch.Tensor) action distribution entropy for the given inputs.
         """
-        obs = obs.reshape(-1, self.obs_dim)
+        obs = obs.reshape(-1, *self.obs_shape)
         actions = actions.reshape(-1, self.act_num)
 
         action_log_probs, values, entropy, gate_entropy = self.transformer(obs, actions)
@@ -180,4 +178,3 @@ class PPO_Policy:
 
     def eval(self):
         self.transformer.eval()
-

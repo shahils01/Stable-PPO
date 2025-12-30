@@ -11,23 +11,93 @@ from ppo.algorithms.utils.transformer_act import continuous_autoregreesive_act
 from ppo.algorithms.utils.transformer_act import continuous_parallel_act
 from ppo.algorithms.utils.transformer_act import continuous_moe_act, continuous_moe_eval
 
+
 def init_(m, gain=0.01, activate=False):
     if activate:
         gain = nn.init.calculate_gain('relu')
     return init(m, nn.init.orthogonal_, lambda x: nn.init.constant_(x, 0), gain=gain)
 
+
+class ObservationEncoder(nn.Module):
+    """Small helper that turns either vector or image observations into feature vectors."""
+
+    def __init__(self, obs_shape, n_embd):
+        super().__init__()
+        self.is_image = len(obs_shape) == 3
+        self.obs_shape = obs_shape
+        self.n_embd = n_embd
+
+        if self.is_image:
+            c, h, w = self._infer_chw(obs_shape)
+            self.image_shape = (c, h, w)
+            self.cnn = nn.Sequential(
+                nn.Conv2d(c, 32, kernel_size=8, stride=4),
+                nn.ReLU(),
+                nn.Conv2d(32, 64, kernel_size=4, stride=2),
+                nn.ReLU(),
+                nn.Conv2d(64, 64, kernel_size=3, stride=1),
+                nn.ReLU(),
+                nn.Flatten()
+            )
+            conv_out_dim = self._get_conv_out_dim(self.image_shape)
+            self.proj = nn.Sequential(
+                nn.LayerNorm(conv_out_dim),
+                init_(nn.Linear(conv_out_dim, n_embd), activate=True),
+                nn.GELU()
+            )
+            self.output_dim = n_embd
+        else:
+            self.cnn = None
+            self.proj = None
+            self.output_dim = obs_shape[0]
+
+    def _infer_chw(self, obs_shape):
+        # Assume channel-first if first dimension looks like a channel count.
+        if obs_shape[0] <= 4:
+            return obs_shape[0], obs_shape[1], obs_shape[2]
+        return obs_shape[2], obs_shape[0], obs_shape[1]
+
+    def _format_obs(self, obs):
+        # Accept HWC or CHW; always return NCHW.
+        if obs.dim() == 3:
+            obs = obs.unsqueeze(0)
+        if obs.shape[1] in (1, 3, 4):
+            return obs
+        return obs.permute(0, 3, 1, 2)
+
+    def _get_conv_out_dim(self, image_shape):
+        with torch.no_grad():
+            dummy_input = torch.zeros(1, *image_shape)
+            return self.cnn(dummy_input).view(1, -1).size(1)
+
+    def forward(self, obs):
+        if not self.is_image:
+            return obs
+
+        x = obs
+        if x.dtype == torch.uint8:
+            x = x.float() / 255.0
+        x = self._format_obs(x)
+        x = self.cnn(x)
+        x = self.proj(x)
+        return x
+
+
 class Critic(nn.Module):
 
-    def __init__(self, obs_dim, n_embd, device, num_quants):
+    def __init__(self, obs_shape, n_embd, device, num_quants):
         super(Critic, self).__init__()
 
-        self.obs_dim = obs_dim
+        self.obs_shape = obs_shape
         self.n_embd = n_embd
+
+        self.encoder = ObservationEncoder(obs_shape, n_embd)
+        critic_input_dim = self.encoder.output_dim
 
         self.head_ = nn.ModuleList()
         for n in range(1):
-            critic = nn.Sequential(nn.LayerNorm(obs_dim),
-                                init_(nn.Linear(obs_dim, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
+            critic = nn.Sequential(nn.LayerNorm(critic_input_dim),
+                                init_(nn.Linear(critic_input_dim, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
                                 init_(nn.Linear(n_embd, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
                                 init_(nn.Linear(n_embd, num_quants)))
 
@@ -35,31 +105,34 @@ class Critic(nn.Module):
 
     def forward(self, obs):
         # obs: (batch, 1, obs_dim)                
-        v_loc = self.head_[0](obs)
+        features = self.encoder(obs)
+        v_loc = self.head_[0](features)
             
         return v_loc
 
 
 class Actor(nn.Module):
 
-    def __init__(self, obs_dim, action_dim, n_embd, device, action_type='Discrete'):
+    def __init__(self, obs_shape, action_dim, n_embd, device, action_type='Discrete'):
         super(Actor, self).__init__()
 
         self.action_dim = action_dim
         self.n_embd = n_embd
         self.action_type = action_type
+        self.encoder = ObservationEncoder(obs_shape, n_embd)
+        actor_input_dim = self.encoder.output_dim
 
         if action_type != 'Discrete':
             log_std = torch.ones(action_dim)
             self.log_std = torch.nn.Parameter(log_std)
                         
         print('action_dim = ', action_dim)
-        print('obs_dim = ', obs_dim)
+        print('obs_shape = ', obs_shape)
         
         self.mlp_ = nn.ModuleList()
         for n in range(1):
-            actor = nn.Sequential(nn.LayerNorm(obs_dim),
-                                init_(nn.Linear(obs_dim, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
+            actor = nn.Sequential(nn.LayerNorm(actor_input_dim),
+                                init_(nn.Linear(actor_input_dim, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
                                 init_(nn.Linear(n_embd, n_embd), activate=True), nn.GELU(), nn.LayerNorm(n_embd),
                                 init_(nn.Linear(n_embd, action_dim)))
 
@@ -72,7 +145,8 @@ class Actor(nn.Module):
 
     # state, action, and return
     def forward(self, obs):
-        logit = self.mlp_[0](obs)
+        features = self.encoder(obs)
+        logit = self.mlp_[0](features)
         return logit
 
 
@@ -102,16 +176,18 @@ class GaussianExpert(nn.Module):
 
 
 class MoE_GaussianPolicies(nn.Module):
-    def __init__(self, obs_dim, action_dim, n_embd, num_experts):
+    def __init__(self, obs_shape, action_dim, n_embd, num_experts):
         super().__init__()
 
         self.num_experts = num_experts
         self.action_dim = action_dim
+        self.encoder = ObservationEncoder(obs_shape, n_embd)
+        expert_input_dim = self.encoder.output_dim
 
         # Initialize Multiple Gaussian Policy Experts
         # We use nn.ModuleList to register them properly
         self.experts = nn.ModuleList([
-            GaussianExpert(obs_dim, action_dim, n_embd) 
+            GaussianExpert(expert_input_dim, action_dim, n_embd) 
             for _ in range(num_experts)
         ])
         
@@ -120,7 +196,7 @@ class MoE_GaussianPolicies(nn.Module):
         # to a weight vector (logits) for combining policies.
         # Gating Network (The Router)
         self.gate = nn.Sequential(
-            nn.Linear(obs_dim, n_embd), # Added a hidden layer for better routing
+            nn.Linear(expert_input_dim, n_embd), # Added a hidden layer for better routing
             nn.ReLU(),
             nn.Linear(n_embd, num_experts)
         )
@@ -129,14 +205,15 @@ class MoE_GaussianPolicies(nn.Module):
         """
         Returns a Mean and Std of all expert Gaussians.
         """
-        gate_logits = self.gate(obs)
+        features = self.encoder(obs)
+        gate_logits = self.gate(features)
         gate_weights = torch.softmax(gate_logits/temperature, dim=-1) # [batch, num_experts]
 
         # --- B. Get Expert Parameters ---
         mus = []
         sigmas = []
         for expert in self.experts:
-            mu = expert(obs)
+            mu = expert(features)
             sigma = torch.sigmoid(expert.log_std) * 0.5
             mus.append(mu)
             sigmas.append(sigma)
@@ -153,7 +230,7 @@ class MoE_GaussianPolicies(nn.Module):
 
 class PPO(nn.Module):
 
-    def __init__(self, obs_dim, action_dim, n_embd, moe_policy, device=torch.device("cpu"), action_type='Discrete', num_experts=5, num_quants=1):
+    def __init__(self, obs_shape, action_dim, n_embd, moe_policy, device=torch.device("cpu"), action_type='Discrete', num_experts=5, num_quants=1):
         super(PPO, self).__init__()
 
         self.action_dim = action_dim
@@ -163,14 +240,15 @@ class PPO(nn.Module):
         self.n_embd = n_embd
         self.num_experts = num_experts
         self.moe_policy = moe_policy
+        self.obs_shape = obs_shape
    
         # Actor-Critic Networks
-        self.critic = Critic(obs_dim, n_embd, device, num_quants)
+        self.critic = Critic(obs_shape, n_embd, device, num_quants)
 
         if moe_policy:
-            self.gmm_MoE_policy = MoE_GaussianPolicies(obs_dim, action_dim, n_embd, num_experts)
+            self.gmm_MoE_policy = MoE_GaussianPolicies(obs_shape, action_dim, n_embd, num_experts)
         else:
-            self.actor = Actor(obs_dim, action_dim, n_embd, device, self.action_type)
+            self.actor = Actor(obs_shape, action_dim, n_embd, device, self.action_type)
 
         # self.value_entropy_weight = torch.nn.Parameter(torch.ones(1)/2)
    
@@ -224,6 +302,4 @@ class PPO(nn.Module):
         obs = check(obs).to(**self.tpdv)
         v_tot = self.critic(obs)
         return v_tot
-
-
 
