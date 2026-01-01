@@ -20,3 +20,4 @@ ppo/isaac_files/
 *.npy
 *.wandb
 
+/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files

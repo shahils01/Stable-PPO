@@ -46,8 +46,11 @@ apptainer exec --nv ${BINDINGS} ${SIF_FILE} /bin/bash -c " \
       --episode_length 200 \
       --num_quants 64 \
       --n_training_threads 32 \
-      --num_mini_batch 4 \
+      --num_mini_batch 1 \
       --num_env_steps 200000000 \
+      --use_wandb True \
+      --wandb_name "xxx" \
+      --user_name "shahil-shaik7-clemson-university" \
       --headless; \
 "
 echo "Training command finished."
