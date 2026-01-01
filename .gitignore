@@ -18,4 +18,5 @@ ppo/isaac_files/
 # Large binary artifacts
 *.bin
 *.npy
+*.wandb
 
