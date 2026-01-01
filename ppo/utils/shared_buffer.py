@@ -41,16 +41,23 @@ class SharedReplayBuffer(object):
         self.num_quants = args.num_quants
         self.dgae_epsilon = args.dgae_epsilon
         self.use_value_entropy = args.use_value_entropy
+        self.use_image = args.use_image
         
-        obs_shape = get_shape_from_obs_space(obs_space)
+        obs_shape, obs_img_shape = get_shape_from_obs_space(obs_space)
 
         if type(obs_shape[-1]) == list:
             obs_shape = obs_shape[:1]
 
         if env_name == 'IsaacLab':
             obs_shape = (obs_shape[-1],)
+            if obs_img_shape is not None:
+                obs_img_shape = obs_img_shape[1:]
 
         self.obs = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_shape), dtype=np.float32)
+
+        if obs_img_shape is not None and self.use_image:
+            self.obs_img = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_img_shape), dtype=np.float32)
+        
         self.value_preds = np.zeros(
             (self.episode_length + 1, self.n_rollout_threads, 1, self.num_quants), dtype=np.float32)
         self.returns = np.zeros_like(self.value_preds)
@@ -85,7 +92,7 @@ class SharedReplayBuffer(object):
         if self.num_quants > 1:
             self.quantile_spacing = 1.0 / (self.num_quants - 1)
 
-    def insert(self, obs, actions, action_log_probs, value_preds, rewards, masks, bad_masks=None, active_masks=None):
+    def insert(self, obs, actions, action_log_probs, value_preds, rewards, masks, bad_masks=None, active_masks=None, obs_img=None):
         """
         Insert data into the buffer.
         :param share_obs: (argparse.Namespace) arguments containing relevant model, policy, and env information.
@@ -111,6 +118,8 @@ class SharedReplayBuffer(object):
             self.bad_masks[self.step + 1] = np.expand_dims(bad_masks, axis=1).copy()
         if active_masks is not None:
             self.active_masks[self.step + 1] = np.expand_dims(active_masks, axis=1).copy()
+        if obs_img is not None and self.use_image:
+            self.obs_img[self.step + 1] = np.expand_dims(obs_img, axis=1).copy()
         
         self.step = (self.step + 1) % self.episode_length
 
@@ -222,6 +231,10 @@ class SharedReplayBuffer(object):
         next_obs = self.obs[1:].reshape(-1, *self.obs.shape[2:])
         next_obs = next_obs[rows, cols]
 
+        if self.use_image:
+            obs_img = self.obs_img[:-1].reshape(-1, *self.obs_img.shape[2:])
+            obs_img = obs_img[rows, cols]
+
         actions = self.actions.reshape(-1, *self.actions.shape[2:])
         actions = actions[rows, cols]
 
@@ -243,6 +256,9 @@ class SharedReplayBuffer(object):
             obs_batch = obs[indices].reshape(-1, *self.obs.shape[2:])
             next_obs_batch = next_obs[indices].reshape(-1, *self.obs.shape[2:])
 
+            if self.use_image:
+                obs_img_batch = obs_img[indices].reshape(-1, *self.obs_img.shape[2:])
+
             actions_batch = actions[indices].reshape(-1, *actions.shape[2:])
 
             value_preds_batch = value_preds[indices].reshape(-1, *value_preds.shape[2:])
@@ -255,5 +271,9 @@ class SharedReplayBuffer(object):
             else:
                 adv_targ = advantages[indices].reshape(-1, *advantages.shape[2:])
 
-            yield obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch,\
-                   active_masks_batch, old_action_log_probs_batch, adv_targ, next_obs_batch
+            if self.use_image:
+                yield obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch,\
+                    active_masks_batch, old_action_log_probs_batch, adv_targ, next_obs_batch, obs_img_batch
+            else:
+                yield obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch,\
+                    active_masks_batch, old_action_log_probs_batch, adv_targ, next_obs_batch

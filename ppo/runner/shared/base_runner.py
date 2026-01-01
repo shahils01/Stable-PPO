@@ -40,6 +40,7 @@ class Runner(object):
         self.use_wandb = self.all_args.use_wandb
         self.use_render = self.all_args.use_render
         self.n_embd = self.all_args.n_embd
+        self.use_image = self.all_args.use_image
 
         act_space = self.envs.action_space
 
@@ -49,7 +50,10 @@ class Runner(object):
             self.action_type = 'Discrete'
 
         if self.env_name == 'IsaacLab':
-            self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[-1]
+            self.obs_dim, self.obs_image_dim = get_shape_from_obs_space(self.envs.observation_space)
+            self.obs_dim = self.obs_dim[-1]
+            if self.obs_image_dim is not None:
+                self.obs_image_dim = self.obs_image_dim[1:]
         else:
             self.obs_dim = get_shape_from_obs_space(self.envs.observation_space)[0]
             
@@ -59,7 +63,7 @@ class Runner(object):
         #     self.act_dim = act_space.n
         # else:
         #     self.act_dim = act_space.shape[0]
-        
+
         # interval
         self.save_interval = self.all_args.save_interval
         self.use_eval = self.all_args.use_eval
@@ -124,7 +128,12 @@ class Runner(object):
     def compute(self):
         """Calculate returns for the collected data."""
         self.trainer.prep_rollout()
-        next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
+        if self.obs_image_dim is not None and self.use_image:
+            next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
+                                                     np.concatenate(self.buffer.masks[-1]),
+                                                     np.concatenate(self.buffer.obs_img[-1]))
+        else:
+            next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
                                                      np.concatenate(self.buffer.masks[-1]))
         
         next_values = _t2n(next_values)

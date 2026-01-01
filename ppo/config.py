@@ -289,4 +289,6 @@ def get_config():
     parser.add_argument("--moe_policy", action='store_true', default=False)
     parser.add_argument("--num_experts", type=int, default=3)
 
+    parser.add_argument("--use_image", action='store_true', default=False)
+
     return parser

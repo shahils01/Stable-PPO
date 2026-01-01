@@ -40,6 +40,7 @@ class PPOTrainer:
         self._use_valuenorm = args.use_valuenorm
         self._use_value_active_masks = args.use_value_active_masks
         self._use_policy_active_masks = args.use_policy_active_masks
+        self.use_image = args.use_image
         
         if self._use_valuenorm:
             self.value_normalizer = ValueNorm(self.num_quants, device=self.device)
@@ -101,8 +102,14 @@ class PPOTrainer:
         :return actor_grad_norm: (torch.Tensor) gradient norm from actor update.
         :return imp_weights: (torch.Tensor) importance sampling weights.
         """
-        obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch, active_masks_batch, \
-        old_action_log_probs_batch, adv_targ, next_obs_batch = sample
+        if self.use_image:
+            obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch, active_masks_batch, \
+            old_action_log_probs_batch, adv_targ, next_obs_batch, obs_image_batch = sample
+        else:
+            obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch, active_masks_batch, \
+            old_action_log_probs_batch, adv_targ, next_obs_batch = sample
+            
+            obs_image_batch = None
 
         old_action_log_probs_batch = check(old_action_log_probs_batch).to(**self.tpdv)
         adv_targ = check(adv_targ).to(**self.tpdv)
@@ -114,7 +121,8 @@ class PPOTrainer:
         values, action_log_probs, dist_entropy, gate_entropy  = self.policy.evaluate_actions(obs_batch, 
                                                                               actions_batch, 
                                                                               masks_batch, 
-                                                                              active_masks_batch)
+                                                                              active_masks_batch,
+                                                                              obs_image=obs_image_batch)
         # actor update
         imp_weights = torch.exp(action_log_probs - old_action_log_probs_batch)
 

@@ -26,6 +26,7 @@ class PPO_Policy:
         self.weight_decay = args.weight_decay
         self._use_policy_active_masks = args.use_policy_active_masks
         self.n_embd = args.n_embd
+        self.use_image = args.use_image
         
         if act_space.__class__.__name__ == 'Box':
             self.action_type = 'Continuous'
@@ -33,7 +34,10 @@ class PPO_Policy:
             self.action_type = 'Discrete'
 
         if args.env_name == 'IsaacLab':
-            self.obs_dim = get_shape_from_obs_space(obs_space)[-1]
+            self.obs_dim, self.obs_image_dim = get_shape_from_obs_space(obs_space)
+            self.obs_dim = self.obs_dim[-1]
+            if self.obs_image_dim is not None:
+                self.obs_image_dim = self.obs_image_dim[1:]
         else:
             self.obs_dim = get_shape_from_obs_space(obs_space)[0]
 
@@ -58,7 +62,8 @@ class PPO_Policy:
                                device=device,
                                action_type=self.action_type,
                                num_experts=args.num_experts,
-                               num_quants=num_quants)
+                               num_quants=num_quants,
+                               use_image=self.use_image)
 
         self.optimizer = torch.optim.Adam(self.transformer.parameters(),
                                           lr=self.lr, eps=self.opti_eps,
@@ -72,7 +77,7 @@ class PPO_Policy:
         """
         update_linear_schedule(self.optimizer, episode, episodes, self.lr)
 
-    def get_actions(self, obs, masks):
+    def get_actions(self, obs, masks, obs_image=None):
         """
         Compute actions and value function predictions for the given inputs.
         :param cent_obs (np.ndarray): centralized input to the critic.
@@ -92,6 +97,9 @@ class PPO_Policy:
         """
         obs = obs.reshape(-1, self.obs_dim)
 
+        if obs_image is not None:
+            obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+
         actions, action_log_probs, values = self.transformer.get_actions(obs)
         actions = actions.view(-1, self.act_num)        
         action_log_probs = action_log_probs.view(-1, self.act_num)
@@ -99,7 +107,7 @@ class PPO_Policy:
     
         return values, actions, action_log_probs
 
-    def get_values(self, obs, masks):
+    def get_values(self, obs, masks, obs_image=None):
         """
         Get value function predictions.
         :param cent_obs (np.ndarray): centralized input to the critic.
@@ -110,12 +118,15 @@ class PPO_Policy:
         """
         obs = obs.reshape(-1, self.obs_dim)
 
+        if obs_image is not None:
+            obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+
         values = self.transformer.get_values(obs)
         values = values.view(-1, self.num_quants)
 
         return values
 
-    def evaluate_actions(self, obs, actions, masks, active_masks=None):
+    def evaluate_actions(self, obs, actions, masks, active_masks=None, obs_image=None):
         """
         Get action logprobs / entropy and value function predictions for actor update.
         :param cent_obs (np.ndarray): centralized input to the critic.
@@ -135,6 +146,9 @@ class PPO_Policy:
         obs = obs.reshape(-1, self.obs_dim)
         actions = actions.reshape(-1, self.act_num)
 
+        if obs_image is not None:
+            obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+
         action_log_probs, values, entropy, gate_entropy = self.transformer(obs, actions)
 
         action_log_probs = action_log_probs.view(-1, self.act_num)
@@ -151,7 +165,7 @@ class PPO_Policy:
         else:
             return values, action_log_probs, entropy, gate_entropy
 
-    def act(self, obs, masks):
+    def act(self, obs, masks, obs_image=None):
         """
         Compute actions using the given inputs.
         :param obs (np.ndarray): local agent inputs to the actor.
@@ -163,7 +177,7 @@ class PPO_Policy:
         """
 
         # this function is just a wrapper for compatibility
-        _, actions, _ = self.get_actions(obs, masks)
+        _, actions, _ = self.get_actions(obs, masks, obs_image)
 
         return actions
 

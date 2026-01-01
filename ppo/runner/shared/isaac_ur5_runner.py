@@ -55,7 +55,7 @@ class IsaacRunner_UR5(Runner):
                 obs = obs["state"]
 
                 obs = _t2n(obs)
-                obs_img = _t2n(obs_img).reshape(-1, *self.obs_img_dim)
+                obs_img = _t2n(obs_img).reshape(-1, *self.obs_image_dim)
                 actions = _t2n(actions)
                 rewards = _t2n(rewards).reshape(-1, 1)
                 dones = _t2n(terminated).reshape(-1, 1)
@@ -130,14 +130,14 @@ class IsaacRunner_UR5(Runner):
         obs = self.envs.reset()
         self.buffer.obs[0] = np.expand_dims(_t2n(obs["state"]), axis=1).copy()
         
-        if self.obs_img_dim is not None and self.use_image:
+        if self.obs_image_dim is not None and self.use_image:
             self.buffer.obs_img[0] = np.expand_dims(_t2n(obs["image"].permute(0, 2, 3, 1)), axis=1).copy()
 
     @torch.no_grad()
     def collect(self, step):
         self.trainer.prep_rollout()
 
-        if self.obs_img_dim is not None and self.use_image:
+        if self.obs_image_dim is not None and self.use_image:
             value, actions, action_log_prob \
                 = self.trainer.policy.get_actions(np.concatenate(self.buffer.obs[step]),
                                                 np.concatenate(self.buffer.masks[step]),

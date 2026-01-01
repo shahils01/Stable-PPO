@@ -153,7 +153,7 @@ class MoE_GaussianPolicies(nn.Module):
 
 class PPO(nn.Module):
 
-    def __init__(self, obs_dim, action_dim, n_embd, moe_policy, device=torch.device("cpu"), action_type='Discrete', num_experts=5, num_quants=1):
+    def __init__(self, obs_dim, action_dim, n_embd, moe_policy, device=torch.device("cpu"), action_type='Discrete', num_experts=5, num_quants=1, use_image=False):
         super(PPO, self).__init__()
 
         self.action_dim = action_dim
@@ -180,13 +180,16 @@ class PPO(nn.Module):
         if self.action_type != 'Discrete':
             self.actor.zero_std(self.device)
 
-    def forward(self, obs, action, gate_entropy=None):
+    def forward(self, obs, action, gate_entropy=None, obs_image=None):
         # state: (batch, n_agent, state_dim)
         # obs: (batch, n_agent, obs_dim)
         # action: (batch, n_agent, 1)
         # available_actions: (batch, n_agent, act_dim)
         obs = check(obs).to(**self.tpdv)
         action = check(action).to(**self.tpdv)
+
+        if obs_image is not None:
+            obs_image = check(obs).to(**self.tpdv)
 
         v_loc = self.critic(obs)
 
@@ -203,9 +206,12 @@ class PPO(nn.Module):
 
         return action_log, v_loc, entropy, gate_entropy
 
-    def get_actions(self, obs):
+    def get_actions(self, obs, obs_image=None):
         obs = check(obs).to(**self.tpdv)
         batch_size = np.shape(obs)[0]  
+
+        if obs_image is not None:
+            obs_image = check(obs).to(**self.tpdv)
 
         v_loc = self.critic(obs)
         
@@ -220,8 +226,12 @@ class PPO(nn.Module):
 
         return output_action, output_action_log, v_loc
 
-    def get_values(self, obs):
+    def get_values(self, obs, obs_image=None):
         obs = check(obs).to(**self.tpdv)
+
+        if obs_image is not None:
+            obs_image = check(obs).to(**self.tpdv)
+
         v_tot = self.critic(obs)
         return v_tot
 
