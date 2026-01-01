@@ -14,3 +14,24 @@ ppo/__pycache__
 
 ppo/isaac_files/
 ppo/scripts/ppo_training.npy
+
+# Python cache
+**/__pycache__/
+**/*.pyc
+
+# Jupyter
+**/.ipynb_checkpoints/
+
+# Training outputs / results
+ppo/scripts/results/
+
+# Isaac Sim / Omniverse generated data (DO NOT VERSION)
+ppo/isaac_files/
+**/kit_cache/
+**/nv_shadercache/
+**/GLCache/
+
+# Large binary artifacts
+*.bin
+*.npy
+
