@@ -62,8 +62,8 @@ def discrete_parallel_act(decoder, obs_rep, obs, action, batch_size, n_agent, ac
 
 
 def continuous_autoregreesive_act(decoder, obs, batch_size, action_dim, tpdv,
-                                  deterministic=False):
-    act_mean = decoder(obs)
+                                  deterministic=False, obs_image=None):
+    act_mean = decoder(obs, obs_image)
     action_std = torch.sigmoid(decoder.log_std) * 0.5
 
     distri = Normal(act_mean, action_std)
@@ -73,8 +73,8 @@ def continuous_autoregreesive_act(decoder, obs, batch_size, action_dim, tpdv,
     return action, action_log
 
 
-def continuous_parallel_act(decoder, obs, action, batch_size, action_dim, tpdv):
-    act_mean = decoder(obs) 
+def continuous_parallel_act(decoder, obs, action, batch_size, action_dim, tpdv, obs_image=None):
+    act_mean = decoder(obs, obs_image)
     action_std = torch.sigmoid(decoder.log_std) * 0.5
     
     distri = Normal(act_mean, action_std)

@@ -89,7 +89,7 @@ class PPOTrainer:
 
         return value_loss
 
-    def ppo_update(self, sample, obs_dim=None):
+    def ppo_update(self, sample, obs_dim=None, obs_image_dim=None):
         """
         Update actor and critic networks.
         :param sample: (Tuple) contains data batch with which to update networks.
@@ -140,8 +140,14 @@ class PPOTrainer:
         value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
 
         obs_batch = obs_batch.reshape(-1, obs_dim)
-        obs_batch = check(obs_batch).to(**self.tpdv)
         next_obs_batch = next_obs_batch.reshape(-1, obs_dim)
+
+        if obs_image_batch is not None and obs_image_dim is not None:
+            obs_image_batch = obs_image_batch.reshape(-1, *obs_image_dim)
+        else:
+            obs_image_batch = None
+
+        obs_batch = check(obs_batch).to(**self.tpdv)
         next_obs_batch = check(next_obs_batch).to(**self.tpdv)
         masks_batch = masks_batch.reshape(-1, 1)
         masks_batch = check(masks_batch).to(**self.tpdv)
@@ -164,7 +170,7 @@ class PPOTrainer:
 
         return value_loss, grad_norm, policy_loss, dist_entropy, grad_norm, imp_weights
 
-    def train(self, buffer, obs_dim=None):
+    def train(self, buffer, obs_dim=None, obs_image_dim=None):
         """
         Perform a training update using minibatch GD.
         :param buffer: (SharedReplayBuffer) buffer containing training data.
@@ -193,7 +199,7 @@ class PPOTrainer:
             for sample in data_generator:
 
                 value_loss, critic_grad_norm, policy_loss, dist_entropy, actor_grad_norm, imp_weights \
-                    = self.ppo_update(sample, obs_dim)
+                    = self.ppo_update(sample, obs_dim, obs_image_dim)
 
                 train_info['value_loss'] += value_loss.item()
                 train_info['policy_loss'] += policy_loss.item()

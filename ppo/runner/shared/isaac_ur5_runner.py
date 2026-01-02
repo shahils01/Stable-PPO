@@ -131,7 +131,7 @@ class IsaacRunner_UR5(Runner):
         self.buffer.obs[0] = np.expand_dims(_t2n(obs["state"]), axis=1).copy()
         
         if self.obs_image_dim is not None and self.use_image:
-            self.buffer.obs_img[0] = np.expand_dims(_t2n(obs["image"].permute(0, 2, 3, 1)), axis=1).copy()
+            self.buffer.obs_img[0] = np.expand_dims(_t2n(obs["image"]), axis=1).copy()
 
     @torch.no_grad()
     def collect(self, step):

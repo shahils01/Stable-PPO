@@ -33,13 +33,9 @@ class PPO_Policy:
         else:
             self.action_type = 'Discrete'
 
-        if args.env_name == 'IsaacLab':
-            self.obs_dim, self.obs_image_dim = get_shape_from_obs_space(obs_space)
-            self.obs_dim = self.obs_dim[-1]
-            if self.obs_image_dim is not None:
-                self.obs_image_dim = self.obs_image_dim[1:]
-        else:
-            self.obs_dim = get_shape_from_obs_space(obs_space)[0]
+        obs_shape, obs_image_shape = get_shape_from_obs_space(obs_space)
+        self.obs_dim = obs_shape[-1] if isinstance(obs_shape, (list, tuple)) else obs_shape
+        self.obs_image_dim = obs_image_shape[1:] if obs_image_shape is not None else None
 
         self.act_dim = get_shape_from_act_space(act_space)
 
@@ -63,7 +59,8 @@ class PPO_Policy:
                                action_type=self.action_type,
                                num_experts=args.num_experts,
                                num_quants=num_quants,
-                               use_image=self.use_image)
+                               use_image=self.use_image,
+                               obs_image_shape=self.obs_image_dim)
 
         self.optimizer = torch.optim.Adam(self.transformer.parameters(),
                                           lr=self.lr, eps=self.opti_eps,
@@ -97,10 +94,12 @@ class PPO_Policy:
         """
         obs = obs.reshape(-1, self.obs_dim)
 
-        if obs_image is not None:
+        if obs_image is not None and self.obs_image_dim is not None:
             obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+        else:
+            obs_image = None
 
-        actions, action_log_probs, values = self.transformer.get_actions(obs)
+        actions, action_log_probs, values = self.transformer.get_actions(obs, obs_image)
         actions = actions.view(-1, self.act_num)        
         action_log_probs = action_log_probs.view(-1, self.act_num)
         values = values.view(-1, self.num_quants)
@@ -118,10 +117,12 @@ class PPO_Policy:
         """
         obs = obs.reshape(-1, self.obs_dim)
 
-        if obs_image is not None:
+        if obs_image is not None and self.obs_image_dim is not None:
             obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+        else:
+            obs_image = None
 
-        values = self.transformer.get_values(obs)
+        values = self.transformer.get_values(obs, obs_image)
         values = values.view(-1, self.num_quants)
 
         return values
@@ -146,10 +147,12 @@ class PPO_Policy:
         obs = obs.reshape(-1, self.obs_dim)
         actions = actions.reshape(-1, self.act_num)
 
-        if obs_image is not None:
+        if obs_image is not None and self.obs_image_dim is not None:
             obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+        else:
+            obs_image = None
 
-        action_log_probs, values, entropy, gate_entropy = self.transformer(obs, actions)
+        action_log_probs, values, entropy, gate_entropy = self.transformer(obs, actions, obs_image=obs_image)
 
         action_log_probs = action_log_probs.view(-1, self.act_num)
         values = values.view(-1, self.num_quants)
@@ -194,4 +197,3 @@ class PPO_Policy:
 
     def eval(self):
         self.transformer.eval()
-
