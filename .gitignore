@@ -21,3 +21,4 @@ ppo/isaac_files/
 *.wandb
 
 /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files
+ppo/scripts/visualize_camera_images
