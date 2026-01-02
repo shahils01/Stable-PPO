@@ -10,7 +10,6 @@
 ppo/scripts/results/
 
 # Isaac Sim / Omniverse generated data (DO NOT VERSION)
-ppo/isaac_files/
 **/kit_cache/
 **/nv_shadercache/
 **/GLCache/
@@ -20,5 +19,4 @@ ppo/isaac_files/
 *.npy
 *.wandb
 
-/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files
 ppo/scripts/visualize_camera_images
