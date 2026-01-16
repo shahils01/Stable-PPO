@@ -50,6 +50,7 @@ class MujocoRunner(Runner):
 
                 # Obser reward and next obs
                 obs, rewards, terminated, truncated, infos = self.envs.step(actions)
+                # self.envs.render()
                 rewards = rewards.reshape(-1, 1)
                 dones = terminated.reshape(-1, 1)
                 truncated = truncated.reshape(-1, 1)
@@ -181,6 +182,8 @@ class MujocoRunner(Runner):
 
             # Obser reward and next obs
             eval_obs, eval_rewards, eval_terminated, eval_truncated, eval_infos = self.eval_envs.step(eval_actions)
+            # self.eval_envs.render()
+
             eval_rewards = eval_rewards.reshape(-1, 1)
             eval_dones = eval_terminated or eval_truncated
             eval_dones = eval_dones.reshape(-1,1)

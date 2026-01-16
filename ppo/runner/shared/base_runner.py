@@ -138,6 +138,7 @@ class Runner(object):
 
     def save(self, episode):
         """Save policy's actor and critic networks."""
+        print("Saving models at episode {}...".format(episode))
         self.policy.save(self.save_dir, episode)
 
     def restore(self, model_dir):

@@ -230,12 +230,22 @@ class SubprocVecEnv(ShareVecEnv):
             p.join()
         self.closed = True
 
+    def get_images(self):
+        for remote in self.remotes:
+            remote.send(('render', "rgb_array"))
+        return [remote.recv() for remote in self.remotes]
+
     def render(self, mode="rgb_array"):
         for remote in self.remotes:
             remote.send(('render', mode))
         if mode == "rgb_array":   
             frame = [remote.recv() for remote in self.remotes]
             return np.stack(frame) 
+
+    def get_images(self):
+        for remote in self.remotes:
+            remote.send(('render', "rgb_array"))
+        return [remote.recv() for remote in self.remotes]
 
 
 def shareworker(remote, parent_remote, env_fn_wrapper):
@@ -339,6 +349,18 @@ class ShareSubprocVecEnv(ShareVecEnv):
             p.join()
         self.closed = True
 
+    def render(self, mode="human"):
+        for remote in self.remotes:
+            remote.send(('render', mode))
+        if mode == "rgb_array":
+            frame = [remote.recv() for remote in self.remotes]
+            return np.stack(frame)
+
+    def get_images(self):
+        for remote in self.remotes:
+            remote.send(('render', "rgb_array"))
+        return [remote.recv() for remote in self.remotes]
+
 
 def choosesimpleworker(remote, parent_remote, env_fn_wrapper):
     parent_remote.close()
@@ -415,6 +437,11 @@ class ChooseSimpleSubprocVecEnv(ShareVecEnv):
             frame = [remote.recv() for remote in self.remotes]
             return np.stack(frame)
 
+    def get_images(self):
+        for remote in self.remotes:
+            remote.send(('render', "rgb_array"))
+        return [remote.recv() for remote in self.remotes]
+
     def reset_task(self):
         for remote in self.remotes:
             remote.send(('reset_task', None))
@@ -469,12 +496,30 @@ class DummyVecEnv(ShareVecEnv):
 
     def render(self, mode="human"):
         if mode == "rgb_array":
-            return np.array([env.render(mode=mode) for env in self.envs])
+            frames = []
+            for env in self.envs:
+                try:
+                    frames.append(env.render(mode=mode))
+                except TypeError:
+                    frames.append(env.render())
+            return np.array(frames)
         elif mode == "human":
             for env in self.envs:
-                env.render(mode=mode)
+                try:
+                    env.render(mode=mode)
+                except TypeError:
+                    env.render()
         else:
             raise NotImplementedError
+
+    def get_images(self):
+        frames = []
+        for env in self.envs:
+            try:
+                frames.append(env.render(mode="rgb_array"))
+            except TypeError:
+                frames.append(env.render())
+        return frames
 
 
 
@@ -522,9 +567,27 @@ class ShareDummyVecEnv(ShareVecEnv):
     
     def render(self, mode="human"):
         if mode == "rgb_array":
-            return np.array([env.render(mode=mode) for env in self.envs])
+            frames = []
+            for env in self.envs:
+                try:
+                    frames.append(env.render(mode=mode))
+                except TypeError:
+                    frames.append(env.render())
+            return np.array(frames)
         elif mode == "human":
             for env in self.envs:
-                env.render(mode=mode)
+                try:
+                    env.render(mode=mode)
+                except TypeError:
+                    env.render()
         else:
             raise NotImplementedError
+
+    def get_images(self):
+        frames = []
+        for env in self.envs:
+            try:
+                frames.append(env.render(mode="rgb_array"))
+            except TypeError:
+                frames.append(env.render())
+        return frames
