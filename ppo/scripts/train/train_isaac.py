@@ -34,6 +34,8 @@ import torch
 import isaaclab.envs
 from isaaclab_tasks.utils import parse_env_cfg
 
+import dppo
+
 sys.path.append("../../")
 from ppo.config import get_config
 from ppo.envs.isaac_wrapper import IsaacLabVecEnvWrapper

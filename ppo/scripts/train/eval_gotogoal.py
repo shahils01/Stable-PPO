@@ -138,11 +138,13 @@ def main(args):
 
     runner = Runner(config)
 
-    for i in range(1000):
+    for i in range(100):
         runner.eval(i)
 
     # post process
     envs.close()
+    eval_envs.close()
+
     if all_args.use_eval and eval_envs is not envs:
         eval_envs.close()
 
