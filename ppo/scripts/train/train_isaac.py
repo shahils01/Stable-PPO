@@ -39,6 +39,8 @@ from ppo.config import get_config
 from ppo.envs.isaac_wrapper import IsaacLabVecEnvWrapper
 from ppo.runner.shared.isaac_runner import IsaacRunner as Runner
 
+import dppo  # Ensure DPPO is imported for custom envs
+
 # 3. UPDATE PARSE_ARGS TO ACCEPT THE 'EXTRAS' LIST
 def parse_ppo_args(extra_args, parser):
     parser.add_argument('--scenario', type=str, default='Isaac-Ant-v0', help="Which task to run on")

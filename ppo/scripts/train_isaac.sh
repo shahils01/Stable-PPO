@@ -1,18 +1,12 @@
 #!/bin/sh
 env="IsaacLab"
-scenario="Isaac-Ant-v0"
+scenario="offroad_jackal_RL_v0"
 algo="ppo"
 seed=3
 
+# HEADLESS=1
 echo "env is ${env}, scenario is ${scenario}, algo is ${algo}, seed is ${seed}"
-CUDA_VISIBLE_DEVICES=0 HEADLESS=1 apptainer exec --nv \
-  -B /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files/isaac-sim/kit_data:/isaac-sim/kit/data \
-  -B /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files/isaac-sim/kit_cache:/isaac-sim/kit/cache \
-  -B /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files/isaac-sim/ov_data:$HOME/.local/share/ov/data \
-  -B /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files/isaac-sim/logs:$HOME/.nvidia-omniverse/logs \
-  -B /home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/isaac_files/isaac-sim/documents:$HOME/Documents \
- /home/shahils/isaacLab_Apptainer/isaac_lab.sif \
- /opt/IsaacLab/isaaclab.sh -p train/train_isaac.py \
+CUDA_VISIBLE_DEVICES=0 python train/train_isaac.py \
  --seed ${seed} \
  --env_name ${env} \
  --algorithm_name ${algo} \
@@ -26,7 +20,7 @@ CUDA_VISIBLE_DEVICES=0 HEADLESS=1 apptainer exec --nv \
  --gae_lambda 0.95 \
  --max_grad_norm 1.0 \
  --n_training_threads 32 \
- --n_rollout_threads 512 \
+ --n_rollout_threads 1 \
  --num_mini_batch 4 \
  --episode_length 1000 \
  --eval_interval 25 \
@@ -37,6 +31,8 @@ CUDA_VISIBLE_DEVICES=0 HEADLESS=1 apptainer exec --nv \
  --use_state_agent \
  --use_value_active_masks \
  --use_policy_active_masks \
+ --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260119_115613-ehkut4lg/files/transformer_3100.pt" \
+
 #  --use_wandb True \
 #  --wandb_name "xxx" \
 #  --user_name "shahil-shaik7-clemson-university" \
