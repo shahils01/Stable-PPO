@@ -15,7 +15,7 @@ python train/eval_gotogoal.py \
  --true_integration True \
  --critic_lr 5e-4 \
  --lr 5e-4 \
- --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260119_115613-ehkut4lg/files/transformer_3100.pt" \
+ --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260128_151423-4uw4k0cx/files/transformer_200.pt" \
  --entropy_coef 0.01 \
  --gamma 0.99 \
  --gae_lambda 0.95 \

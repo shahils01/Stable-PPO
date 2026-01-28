@@ -11,7 +11,6 @@ python train/train_gotogoal.py \
  --algorithm_name ${algo} \
  --experiment_name ${exp} \
  --scenario ${scenario} \
- --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260119_111344-diq56rgs/files/transformer_200.pt" \
  --use_value_entropy True \
  --true_integration True \
  --critic_lr 5e-4 \
@@ -39,3 +38,5 @@ python train/train_gotogoal.py \
  --wandb_name "xxx" \
  --user_name "shahil-shaik7-clemson-university" \
 #  --moe_policy True
+
+#  --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260119_111344-diq56rgs/files/transformer_200.pt" \
