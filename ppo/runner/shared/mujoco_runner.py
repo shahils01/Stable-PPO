@@ -183,7 +183,7 @@ class MujocoRunner(Runner):
             # Obser reward and next obs
             eval_obs, eval_rewards, eval_terminated, eval_truncated, eval_infos = self.eval_envs.step(eval_actions)
 
-            print('eval_obs=', eval_obs)
+            # print('eval_obs=', eval_obs)
             if self.all_args.use_render:
                 self.eval_envs.render()
 
