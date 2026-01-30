@@ -131,14 +131,15 @@ class PPOTrainer:
         # critic update
         value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
 
-        if obs_shape is not None:
-            obs_batch = obs_batch.reshape(-1, *obs_shape)
-            next_obs_batch = next_obs_batch.reshape(-1, *obs_shape)
-        else:
-            obs_batch = obs_batch.reshape(obs_batch.shape[0], -1)
-            next_obs_batch = next_obs_batch.reshape(next_obs_batch.shape[0], -1)
-        obs_batch = check(obs_batch).to(**self.tpdv)
-        next_obs_batch = check(next_obs_batch).to(**self.tpdv)
+        if not isinstance(obs_batch, dict):
+            if obs_shape is not None:
+                obs_batch = obs_batch.reshape(-1, *obs_shape)
+                next_obs_batch = next_obs_batch.reshape(-1, *obs_shape)
+            else:
+                obs_batch = obs_batch.reshape(obs_batch.shape[0], -1)
+                next_obs_batch = next_obs_batch.reshape(next_obs_batch.shape[0], -1)
+            obs_batch = check(obs_batch).to(**self.tpdv)
+            next_obs_batch = check(next_obs_batch).to(**self.tpdv)
         masks_batch = masks_batch.reshape(-1, 1)
         masks_batch = check(masks_batch).to(**self.tpdv)
         

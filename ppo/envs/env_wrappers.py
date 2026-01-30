@@ -7,6 +7,20 @@ from multiprocessing import Process, Pipe
 from abc import ABC, abstractmethod
 from ppo.utils.util import tile_images
 
+def _stack_obs(obs_list):
+    if len(obs_list) == 0:
+        return np.array([])
+    if isinstance(obs_list[0], dict):
+        return {k: np.stack([o[k] for o in obs_list]) for k in obs_list[0].keys()}
+    return np.stack(obs_list)
+
+def _assign_obs(obs, idx, new_obs):
+    if isinstance(obs, dict):
+        for k in obs.keys():
+            obs[k][idx] = new_obs[k]
+    else:
+        obs[idx] = new_obs
+
 class CloudpickleWrapper(object):
     """
     Uses cloudpickle to serialize contents (otherwise multiprocessing tries to use pickle)
@@ -204,19 +218,19 @@ class SubprocVecEnv(ShareVecEnv):
         results = [remote.recv() for remote in self.remotes]
         self.waiting = False
         obs, rews, dones, infos = zip(*results)
-        return np.stack(obs), np.stack(rews), np.stack(dones), infos
+        return _stack_obs(list(obs)), np.stack(rews), np.stack(dones), infos
 
     def reset(self):
         for remote in self.remotes:
             remote.send(('reset', None))
         obs = [remote.recv() for remote in self.remotes]
-        return np.stack(obs)
+        return _stack_obs(obs)
 
 
     def reset_task(self):
         for remote in self.remotes:
             remote.send(('reset_task', None))
-        return np.stack([remote.recv() for remote in self.remotes])
+        return _stack_obs([remote.recv() for remote in self.remotes])
 
     def close(self):
         if self.closed:
@@ -257,8 +271,8 @@ def shareworker(remote, parent_remote, env_fn_wrapper):
         if cmd == 'step':
             ob, reward, terminated, truncated, info = env.step(data)
             # Adding noise into the observation
-            noise = np.random.normal(0, noise_scale, size=ob.shape)
-            ob += noise
+            # noise = np.random.normal(0, noise_scale, size=ob.shape)
+            # ob += noise
             done = terminated or truncated
             if 'bool' in done.__class__.__name__:
                 if done:
@@ -324,18 +338,18 @@ class ShareSubprocVecEnv(ShareVecEnv):
         results = [remote.recv() for remote in self.remotes]
         self.waiting = False
         obs, rews, terminated, truncated, infos = zip(*results)   
-        return np.stack(obs), np.stack(rews), np.stack(terminated), np.stack(truncated), infos
+        return _stack_obs(list(obs)), np.stack(rews), np.stack(terminated), np.stack(truncated), infos
 
     def reset(self):
         for remote in self.remotes:
             remote.send(('reset', None))
         results = [remote.recv() for remote in self.remotes]
-        return np.stack(results)  # Directly stack if no transposition needed
+        return _stack_obs(results)
 
     def reset_task(self):
         for remote in self.remotes:
             remote.send(('reset_task', None))
-        return np.stack([remote.recv() for remote in self.remotes])
+        return _stack_obs([remote.recv() for remote in self.remotes])
 
     def close(self):
         if self.closed:
@@ -422,13 +436,13 @@ class ChooseSimpleSubprocVecEnv(ShareVecEnv):
         results = [remote.recv() for remote in self.remotes]
         self.waiting = False
         obs, rews, dones, infos = zip(*results)
-        return np.stack(obs), np.stack(rews), np.stack(dones), infos
+        return _stack_obs(list(obs)), np.stack(rews), np.stack(dones), infos
 
     def reset(self, reset_choose):
         for remote, choose in zip(self.remotes, reset_choose):
             remote.send(('reset', choose))
         obs = [remote.recv() for remote in self.remotes]
-        return np.stack(obs)
+        return _stack_obs(obs)
 
     def render(self, mode="rgb_array"):
         for remote in self.remotes:
@@ -473,22 +487,28 @@ class DummyVecEnv(ShareVecEnv):
 
     def step_wait(self):
         results = [env.step(a) for (a, env) in zip(self.actions, self.envs)]
-        obs, rews, dones, infos = map(np.array, zip(*results))
+        obs, rews, dones, infos = zip(*results)
+        obs = _stack_obs(list(obs))
+        rews = np.array(rews)
+        dones = np.array(dones)
+        infos = np.array(infos)
 
         for (i, done) in enumerate(dones):
             if 'bool' in done.__class__.__name__:
                 if done:
-                    obs[i] = self.envs[i].reset()
+                    new_obs = self.envs[i].reset()
+                    _assign_obs(obs, i, new_obs)
             else:
                 if np.all(done):
-                    obs[i] = self.envs[i].reset()
+                    new_obs = self.envs[i].reset()
+                    _assign_obs(obs, i, new_obs)
 
         self.actions = None
         return obs, rews, dones, infos
 
     def reset(self):
         obs = [env.reset() for env in self.envs]
-        return np.array(obs)
+        return _stack_obs(obs)
 
     def close(self):
         for env in self.envs:
@@ -536,26 +556,32 @@ class ShareDummyVecEnv(ShareVecEnv):
 
     def step_wait(self):
         results = [env.step(a) for (a, env) in zip(self.actions, self.envs)]
-        obs, rews, terminated, truncated, infos = map(
-            np.array, zip(*results))
+        obs, rews, terminated, truncated, infos = zip(*results)
+        obs = _stack_obs(list(obs))
+        rews = np.array(rews)
+        terminated = np.array(terminated)
+        truncated = np.array(truncated)
+        infos = np.array(infos)
 
         dones = terminated or truncated
 
         for (i, done) in enumerate(dones):
             if 'bool' in done.__class__.__name__:
                 if done:
-                    obs[i], _ = self.envs[i].reset()
+                    new_obs, _ = self.envs[i].reset()
+                    _assign_obs(obs, i, new_obs)
             else:
                 if np.all(done):
-                    obs[i], _ = self.envs[i].reset()
+                    new_obs, _ = self.envs[i].reset()
+                    _assign_obs(obs, i, new_obs)
         self.actions = None
 
         return obs, rews, terminated, truncated, infos
 
     def reset(self):
         results = [env.reset() for env in self.envs]
-        obs, _ = map(np.array, zip(*results))
-        return obs
+        obs, _ = zip(*results)
+        return _stack_obs(list(obs))
 
     def close(self):
         for env in self.envs:

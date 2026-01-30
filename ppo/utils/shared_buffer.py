@@ -44,14 +44,21 @@ class SharedReplayBuffer(object):
         self.true_integration = args.true_integration
         
         obs_shape = get_shape_from_obs_space(obs_space)
+        self.obs_is_dict = isinstance(obs_shape, dict)
 
-        if type(obs_shape[-1]) == list:
-            obs_shape = obs_shape[:1]
+        if not self.obs_is_dict:
+            if type(obs_shape[-1]) == list:
+                obs_shape = obs_shape[:1]
 
-        if env_name == 'IsaacLab' and len(obs_shape) == 1:
-            obs_shape = (obs_shape[-1],)
+            if env_name == 'IsaacLab' and len(obs_shape) == 1:
+                obs_shape = (obs_shape[-1],)
 
-        self.obs = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_shape), dtype=np.float32)
+            self.obs = np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *obs_shape), dtype=np.float32)
+        else:
+            self.obs = {
+                k: np.zeros((self.episode_length + 1, self.n_rollout_threads, 1, *shape), dtype=np.float32)
+                for k, shape in obs_shape.items()
+            }
         self.value_preds = np.zeros(
             (self.episode_length + 1, self.n_rollout_threads, 1, self.num_quants), dtype=np.float32)
         self.returns = np.zeros_like(self.value_preds)
@@ -102,7 +109,11 @@ class SharedReplayBuffer(object):
         :param active_masks: (np.ndarray) denotes whether an agent is active or dead in the env.
         :param available_actions: (np.ndarray) actions available to each agent. If None, all actions are available.
         """
-        self.obs[self.step + 1] = np.expand_dims(obs, axis=1).copy()
+        if self.obs_is_dict:
+            for k in self.obs.keys():
+                self.obs[k][self.step + 1] = np.expand_dims(obs[k], axis=1).copy()
+        else:
+            self.obs[self.step + 1] = np.expand_dims(obs, axis=1).copy()
         self.actions[self.step] = np.expand_dims(actions, axis=1).copy()
         self.action_log_probs[self.step] = np.expand_dims(action_log_probs, axis=1).copy()
         self.value_preds[self.step] = np.expand_dims(value_preds, axis=1).copy()
@@ -117,7 +128,11 @@ class SharedReplayBuffer(object):
 
     def after_update(self):
         """Copy last timestep data to first index. Called after update to model."""
-        self.obs[0] = self.obs[-1].copy()
+        if self.obs_is_dict:
+            for k in self.obs.keys():
+                self.obs[k][0] = self.obs[k][-1].copy()
+        else:
+            self.obs[0] = self.obs[-1].copy()
         self.masks[0] = self.masks[-1].copy()
         self.bad_masks[0] = self.bad_masks[-1].copy()
         self.active_masks[0] = self.active_masks[-1].copy()
@@ -219,11 +234,24 @@ class SharedReplayBuffer(object):
         sampler = [rand[i * mini_batch_size:(i + 1) * mini_batch_size] for i in range(num_mini_batch)]
         rows, cols = _shuffle_agent_grid(batch_size, 1)
 
-        obs = self.obs[:-1].reshape(-1, *self.obs.shape[2:])
-        obs = obs[rows, cols]
+        if self.obs_is_dict:
+            obs = {
+                k: self.obs[k][:-1].reshape(-1, *self.obs[k].shape[2:])
+                for k in self.obs.keys()
+            }
+            obs = {k: obs[k][rows, cols] for k in obs.keys()}
 
-        next_obs = self.obs[1:].reshape(-1, *self.obs.shape[2:])
-        next_obs = next_obs[rows, cols]
+            next_obs = {
+                k: self.obs[k][1:].reshape(-1, *self.obs[k].shape[2:])
+                for k in self.obs.keys()
+            }
+            next_obs = {k: next_obs[k][rows, cols] for k in next_obs.keys()}
+        else:
+            obs = self.obs[:-1].reshape(-1, *self.obs.shape[2:])
+            obs = obs[rows, cols]
+
+            next_obs = self.obs[1:].reshape(-1, *self.obs.shape[2:])
+            next_obs = next_obs[rows, cols]
 
         actions = self.actions.reshape(-1, *self.actions.shape[2:])
         actions = actions[rows, cols]
@@ -243,8 +271,18 @@ class SharedReplayBuffer(object):
 
         for indices in sampler:
             # [L,T,N,Dim]-->[L*T,N,Dim]-->[index,N,Dim]-->[index*N, Dim]
-            obs_batch = obs[indices].reshape(-1, *self.obs.shape[2:])
-            next_obs_batch = next_obs[indices].reshape(-1, *self.obs.shape[2:])
+            if self.obs_is_dict:
+                obs_batch = {
+                    k: obs[k][indices].reshape(-1, *self.obs[k].shape[2:])
+                    for k in obs.keys()
+                }
+                next_obs_batch = {
+                    k: next_obs[k][indices].reshape(-1, *self.obs[k].shape[2:])
+                    for k in next_obs.keys()
+                }
+            else:
+                obs_batch = obs[indices].reshape(-1, *self.obs.shape[2:])
+                next_obs_batch = next_obs[indices].reshape(-1, *self.obs.shape[2:])
 
             actions_batch = actions[indices].reshape(-1, *actions.shape[2:])
 
@@ -260,3 +298,15 @@ class SharedReplayBuffer(object):
 
             yield obs_batch, actions_batch, value_preds_batch, return_batch, masks_batch,\
                    active_masks_batch, old_action_log_probs_batch, adv_targ, next_obs_batch
+
+    def get_step_obs(self, step):
+        if self.obs_is_dict:
+            return {k: np.concatenate(self.obs[k][step]) for k in self.obs.keys()}
+        return np.concatenate(self.obs[step])
+
+    def set_step_obs(self, step, obs):
+        if self.obs_is_dict:
+            for k in self.obs.keys():
+                self.obs[k][step] = np.expand_dims(obs[k], axis=1).copy()
+        else:
+            self.obs[step] = np.expand_dims(obs, axis=1).copy()

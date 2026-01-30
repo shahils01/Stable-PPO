@@ -189,6 +189,8 @@ def get_config():
                         default=False, help="Whether to use stacked_frames")
     parser.add_argument("--hidden_size", type=int, default=128,
                         help="Dimension of hidden layers for actor/critic networks") 
+    parser.add_argument("--terrain_map_shape", type=int, nargs=2, default=None,
+                        help="Optional terrain map shape (H W) appended to the observation vector")
     parser.add_argument("--layer_N", type=int, default=2,
                         help="Number of layers for actor/critic networks")
     parser.add_argument("--use_ReLU", action='store_false',

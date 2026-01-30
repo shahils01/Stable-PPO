@@ -49,7 +49,10 @@ class Runner(object):
             self.action_type = 'Discrete'
 
         self.obs_shape = get_shape_from_obs_space(self.envs.observation_space)
-        self.obs_dim = self.obs_shape[0] if len(self.obs_shape) == 1 else None
+        if isinstance(self.obs_shape, dict):
+            self.obs_dim = None
+        else:
+            self.obs_dim = self.obs_shape[0] if len(self.obs_shape) == 1 else None
         
         self.act_dim = get_shape_from_act_space(act_space)
 
@@ -122,7 +125,7 @@ class Runner(object):
     def compute(self):
         """Calculate returns for the collected data."""
         self.trainer.prep_rollout()
-        next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
+        next_values = self.trainer.policy.get_values(self.buffer.get_step_obs(-1),
                                                      np.concatenate(self.buffer.masks[-1]))
         
         next_values = _t2n(next_values)

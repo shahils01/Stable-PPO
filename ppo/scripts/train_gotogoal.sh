@@ -21,7 +21,7 @@ python train/train_gotogoal.py \
  --max_grad_norm 0.8 \
  --eval_episodes 2 \
  --n_training_threads 32 \
- --n_rollout_threads 128 \
+ --n_rollout_threads 32 \
  --num_mini_batch 1 \
  --episode_length 100 \
  --eval_interval 25 \

@@ -6,6 +6,8 @@ from typing import Any, ClassVar, Dict, Optional, Type, TypeVar, Union
 def check(input):
     if type(input) == np.ndarray:
         return torch.from_numpy(input)
+    if isinstance(input, dict):
+        return {k: check(v) for k, v in input.items()}
         
 def get_gard_norm(it):
     sum_grad = 0
@@ -35,14 +37,7 @@ def get_shape_from_obs_space(obs_space):
     elif obs_space.__class__.__name__ == 'list':
         obs_shape = obs_space
     elif obs_space.__class__.__name__ == 'Dict':
-        # Isaac Lab environments typically store the policy observations in the "policy" key
-        if "policy" in obs_space.keys():
-            obs_shape = obs_space["policy"].shape
-        else:
-            # Fallback: Use the first key if "policy" is not found (or raise specific error)
-            key = list(obs_space.keys())[0]
-            print(f"Warning: 'policy' key not found in Dict obs_space. Using key: '{key}'")
-            obs_shape = obs_space[key].shape
+        obs_shape = {key: obs_space[key].shape for key in obs_space.keys()}
     else:
         raise NotImplementedError
     return obs_shape

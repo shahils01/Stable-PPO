@@ -14,5 +14,7 @@ def get_clones(module, N):
     return nn.ModuleList([copy.deepcopy(module) for i in range(N)])
 
 def check(input):
+    if isinstance(input, dict):
+        return {k: check(v) for k, v in input.items()}
     output = torch.from_numpy(input) if type(input) == np.ndarray else input
     return output

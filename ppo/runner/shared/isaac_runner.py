@@ -124,14 +124,17 @@ class IsaacRunner(Runner):
     def warmup(self):
         # reset env
         obs = _t2n(self.envs.reset())
-        print('obs dim = ', obs.shape)
-        self.buffer.obs[0] = np.expand_dims(obs, axis=1).copy()
+        if isinstance(obs, dict):
+            print('obs keys = ', {k: v.shape for k, v in obs.items()})
+        else:
+            print('obs dim = ', obs.shape)
+        self.buffer.set_step_obs(0, obs)
 
     @torch.no_grad()
     def collect(self, step):
         self.trainer.prep_rollout()
         value, actions, action_log_prob \
-            = self.trainer.policy.get_actions(np.concatenate(self.buffer.obs[step]),
+            = self.trainer.policy.get_actions(self.buffer.get_step_obs(step),
                                             np.concatenate(self.buffer.masks[step]))
                 
         values = _t2n(value)
