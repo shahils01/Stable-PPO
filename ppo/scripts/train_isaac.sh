@@ -31,7 +31,7 @@ CUDA_VISIBLE_DEVICES=0 python train/train_isaac.py \
  --use_state_agent \
  --use_value_active_masks \
  --use_policy_active_masks \
- --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260128_151423-4uw4k0cx/files/transformer_900.pt" \
+#  --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260128_151423-4uw4k0cx/files/transformer_900.pt" \
 
 #  --use_wandb True \
 #  --wandb_name "xxx" \
