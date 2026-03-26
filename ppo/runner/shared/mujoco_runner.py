@@ -182,7 +182,7 @@ class MujocoRunner(Runner):
             # Obser reward and next obs
             eval_obs, eval_rewards, eval_terminated, eval_truncated, eval_infos = self.eval_envs.step(eval_actions)
             eval_rewards = eval_rewards.reshape(-1, 1)
-            eval_dones = eval_terminated or eval_truncated
+            eval_dones = eval_terminated | eval_truncated
             eval_dones = eval_dones.reshape(-1,1)
             eval_rewards = np.mean(eval_rewards, axis=1).flatten()
             one_episode_rewards += eval_rewards

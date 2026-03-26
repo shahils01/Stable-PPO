@@ -1,9 +1,7 @@
+import torch.nn as nn
 import numpy as np
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-from torch.distributions import Normal
-from torch.autograd import grad
+
 from ppo.utils.util import get_gard_norm, huber_loss, mse_loss
 from ppo.utils.valuenorm import ValueNorm
 from ppo.algorithms.utils.util import check
@@ -32,7 +30,8 @@ class PPOTrainer:
         self.entropy_coef = args.entropy_coef
         self.max_grad_norm = args.max_grad_norm       
         self.huber_delta = args.huber_delta
-        self.num_quants = args.num_quants
+        self.value_model_type = args.value_model_type
+        self.num_quants = args.flow_num_samples if self.value_model_type == "flow" else args.num_quants
 
         self._use_max_grad_norm = args.use_max_grad_norm
         self._use_clipped_value_loss = args.use_clipped_value_loss
@@ -41,8 +40,11 @@ class PPOTrainer:
         self._use_value_active_masks = args.use_value_active_masks
         self._use_policy_active_masks = args.use_policy_active_masks
         self.use_image = args.use_image
+        self.flow_matching_loss_coef = args.flow_matching_loss_coef
+        self.flow_endpoint_loss_coef = args.flow_endpoint_loss_coef
+        self.flow_monotonicity_coef = args.flow_monotonicity_coef
         
-        if self._use_valuenorm:
+        if self._use_valuenorm and self.value_model_type != "flow":
             self.value_normalizer = ValueNorm(self.num_quants, device=self.device)
         else:
             self.value_normalizer = None
@@ -88,6 +90,24 @@ class PPOTrainer:
             value_loss = value_loss.mean()
 
         return value_loss
+
+    def cal_flow_value_loss(self, obs_batch, return_batch, active_masks_batch, obs_image_batch=None):
+        obs_batch = obs_batch.reshape(-1, obs_batch.shape[-1])
+        return_batch = return_batch.reshape(-1, return_batch.shape[-1])
+        active_masks_batch = active_masks_batch.reshape(-1, active_masks_batch.shape[-1])
+        if obs_image_batch is not None:
+            obs_image_batch = obs_image_batch.reshape(-1, *obs_image_batch.shape[-3:])
+        flow_losses = self.policy.transformer.compute_flow_losses(obs_batch, return_batch, obs_image=obs_image_batch)
+        value_loss = (
+            self.flow_matching_loss_coef * flow_losses["flow_matching_loss"]
+            + self.flow_endpoint_loss_coef * flow_losses["flow_endpoint_loss"]
+            + self.flow_monotonicity_coef * flow_losses["flow_monotonicity_loss"]
+        )
+
+        if self._use_value_active_masks:
+            value_loss = value_loss * (active_masks_batch.sum() / active_masks_batch.sum().clamp_min(1.0))
+
+        return value_loss, flow_losses
 
     def ppo_update(self, sample, obs_dim=None, obs_image_dim=None):
         """
@@ -136,8 +156,11 @@ class PPOTrainer:
         else:
             policy_loss = -torch.sum(torch.min(surr1, surr2), dim=-1, keepdim=True).mean()
 
-        # critic update
-        value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
+        if self.value_model_type == "flow":
+            value_loss, flow_losses = self.cal_flow_value_loss(obs_batch, return_batch, active_masks_batch, obs_image_batch)
+        else:
+            value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
+            flow_losses = None
 
         obs_batch = obs_batch.reshape(-1, obs_dim)
         next_obs_batch = next_obs_batch.reshape(-1, obs_dim)
@@ -168,7 +191,10 @@ class PPOTrainer:
 
         self.policy.optimizer.step()
 
-        return value_loss, grad_norm, policy_loss, dist_entropy, grad_norm, imp_weights
+        if self.value_model_type == "flow":
+            self.policy.update_target_critic()
+
+        return value_loss, grad_norm, policy_loss, dist_entropy, grad_norm, imp_weights, flow_losses
 
     def train(self, buffer, obs_dim=None, obs_image_dim=None):
         """
@@ -192,13 +218,16 @@ class PPOTrainer:
         train_info['actor_grad_norm'] = 0
         train_info['critic_grad_norm'] = 0
         train_info['ratio'] = 0
+        train_info['flow_value_loss'] = 0
+        train_info['flow_endpoint_loss'] = 0
+        train_info['flow_monotonicity_loss'] = 0
 
         for _ in range(self.ppo_epoch):
             data_generator = buffer.feed_forward_generator_transformer(advantages, self.num_mini_batch)
 
             for sample in data_generator:
 
-                value_loss, critic_grad_norm, policy_loss, dist_entropy, actor_grad_norm, imp_weights \
+                value_loss, critic_grad_norm, policy_loss, dist_entropy, actor_grad_norm, imp_weights, flow_losses \
                     = self.ppo_update(sample, obs_dim, obs_image_dim)
 
                 train_info['value_loss'] += value_loss.item()
@@ -207,6 +236,10 @@ class PPOTrainer:
                 train_info['actor_grad_norm'] += actor_grad_norm
                 train_info['critic_grad_norm'] += critic_grad_norm
                 train_info['ratio'] += imp_weights.mean()
+                if flow_losses is not None:
+                    train_info['flow_value_loss'] += flow_losses['flow_matching_loss'].item()
+                    train_info['flow_endpoint_loss'] += flow_losses['flow_endpoint_loss'].item()
+                    train_info['flow_monotonicity_loss'] += flow_losses['flow_monotonicity_loss'].item()
 
         num_updates = self.ppo_epoch * self.num_mini_batch
 

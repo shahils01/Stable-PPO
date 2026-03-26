@@ -27,6 +27,7 @@ class PPO_Policy:
         self._use_policy_active_masks = args.use_policy_active_masks
         self.n_embd = args.n_embd
         self.use_image = args.use_image
+        self.value_model_type = args.value_model_type
         
         if act_space.__class__.__name__ == 'Box':
             self.action_type = 'Continuous'
@@ -49,7 +50,7 @@ class PPO_Policy:
         self.tpdv = dict(dtype=torch.float32, device=device)
         
         self.obs_dim_ = self.obs_dim
-        self.num_quants = num_quants
+        self.num_quants = args.flow_num_samples if self.value_model_type == "flow" else num_quants
 
         self.transformer = PPO(self.obs_dim, 
                                self.act_dim,
@@ -58,9 +59,13 @@ class PPO_Policy:
                                device=device,
                                action_type=self.action_type,
                                num_experts=args.num_experts,
-                               num_quants=num_quants,
+                               num_quants=self.num_quants,
                                use_image=self.use_image,
-                               obs_image_shape=self.obs_image_dim)
+                               obs_image_shape=self.obs_image_dim,
+                               value_model_type=self.value_model_type,
+                               flow_solver_steps=args.flow_solver_steps,
+                               flow_base_dist=args.flow_base_dist,
+                               flow_target_ema=args.flow_target_ema)
 
         self.optimizer = torch.optim.Adam(self.transformer.parameters(),
                                           lr=self.lr, eps=self.opti_eps,
@@ -126,6 +131,37 @@ class PPO_Policy:
         values = values.view(-1, self.num_quants)
 
         return values
+
+    def get_value_distribution(self, obs, masks, obs_image=None, taus=None, use_target_critic=False):
+        obs = obs.reshape(-1, self.obs_dim)
+
+        if obs_image is not None and self.obs_image_dim is not None:
+            obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+        else:
+            obs_image = None
+
+        values = self.transformer.get_value_distribution(obs, obs_image=obs_image, taus=taus, use_target_critic=use_target_critic)
+        return values.view(-1, self.num_quants)
+
+    def get_value_flow_stats(self, obs, masks, obs_image=None, taus=None, use_target_critic=False):
+        obs = obs.reshape(-1, self.obs_dim)
+
+        if obs_image is not None and self.obs_image_dim is not None:
+            obs_image = obs_image.reshape(-1, *self.obs_image_dim)
+        else:
+            obs_image = None
+
+        quantiles, log_jacobian, path_length = self.transformer.get_value_flow_stats(
+            obs,
+            obs_image=obs_image,
+            taus=taus,
+            use_target_critic=use_target_critic,
+        )
+        return (
+            quantiles.view(-1, self.num_quants),
+            log_jacobian.view(-1, self.num_quants),
+            path_length.view(-1, self.num_quants),
+        )
 
     def evaluate_actions(self, obs, actions, masks, active_masks=None, obs_image=None):
         """
@@ -197,3 +233,6 @@ class PPO_Policy:
 
     def eval(self):
         self.transformer.eval()
+
+    def update_target_critic(self):
+        self.transformer.update_target_critic()

@@ -41,6 +41,7 @@ class Runner(object):
         self.use_render = self.all_args.use_render
         self.n_embd = self.all_args.n_embd
         self.use_image = self.all_args.use_image
+        self.value_model_type = self.all_args.value_model_type
 
         act_space = self.envs.action_space
 
@@ -124,22 +125,26 @@ class Runner(object):
     def compute(self):
         """Calculate returns for the collected data."""
         self.trainer.prep_rollout()
-        if self.obs_image_dim is not None and self.use_image:
-            next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
-                                                     np.concatenate(self.buffer.masks[-1]),
-                                                     np.concatenate(self.buffer.obs_img[-1]))
+        if self.value_model_type == "flow":
+            self.buffer.compute_returns_flow(self.trainer.policy, self.trainer.policy, self.trainer.value_normalizer)
         else:
-            next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
-                                                     np.concatenate(self.buffer.masks[-1]))
-        
-        next_values = _t2n(next_values)
-        # next_values = next_values.reshape(self.n_rollout_threads, -1)
-        self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
+            if self.obs_image_dim is not None and self.use_image:
+                next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
+                                                         np.concatenate(self.buffer.masks[-1]),
+                                                         np.concatenate(self.buffer.obs_img[-1]))
+            else:
+                next_values = self.trainer.policy.get_values(np.concatenate(self.buffer.obs[-1]),
+                                                         np.concatenate(self.buffer.masks[-1]))
+            
+            next_values = _t2n(next_values)
+            self.buffer.compute_returns(next_values, self.trainer.value_normalizer)
     
     def train(self):
         """Train policies with data in buffer. """
         self.trainer.prep_training()
         train_infos = self.trainer.train(self.buffer, self.obs_dim, self.obs_image_dim)      
+        if self.buffer.flow_stats:
+            train_infos.update(self.buffer.flow_stats)
         self.buffer.after_update()
         return train_infos
 

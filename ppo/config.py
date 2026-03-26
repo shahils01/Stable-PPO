@@ -282,8 +282,20 @@ def get_config():
 
     # add for distributional citic
     parser.add_argument("--num_quants", type=int, default=64)
+    parser.add_argument("--value_model_type", type=str, default="flow", choices=["quantile", "flow"])
+    parser.add_argument("--flow_base_dist", type=str, default="normal", choices=["normal"])
+    parser.add_argument("--flow_num_samples", type=int, default=64)
+    parser.add_argument("--flow_solver_steps", type=int, default=8)
+    parser.add_argument("--flow_matching_loss_coef", type=float, default=1.0)
+    parser.add_argument("--flow_endpoint_loss_coef", type=float, default=0.25)
+    parser.add_argument("--flow_monotonicity_coef", type=float, default=0.1)
+    parser.add_argument("--flow_target_ema", type=float, default=0.995)
     parser.add_argument("--use_value_entropy", action='store_true', default=False)
     parser.add_argument("--dgae_epsilon", type=float, default=1.0, help=" coefficience of entropy term in Wasserstein-like directional metric.")
+    parser.add_argument("--adv_metric_type", type=str, default="transport_jacobian", choices=["transport_jacobian"])
+    parser.add_argument("--adv_expansion_coef", type=float, default=0.25)
+    parser.add_argument("--adv_magnitude_coef", type=float, default=0.1)
+    parser.add_argument("--adv_use_path_length", action='store_true', default=False)
     
     # add for MoE GMM Policy
     parser.add_argument("--moe_policy", action='store_true', default=False)
