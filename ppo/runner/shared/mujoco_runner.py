@@ -122,10 +122,10 @@ class MujocoRunner(Runner):
     def warmup(self):
         # reset env
         obs = self.envs.reset() 
-        if isinstance(obs, dict):
-            print('obs keys = ', {k: v.shape for k, v in obs.items()})
-        else:
-            print('obs dim = ', obs.shape)
+        # if isinstance(obs, dict):
+        #     print('obs keys = ', {k: v.shape for k, v in obs.items()})
+        # else:
+        #     print('obs dim = ', obs.shape)
         self.buffer.set_step_obs(0, obs)
 
     @torch.no_grad()

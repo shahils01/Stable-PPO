@@ -21,7 +21,7 @@ python train/train_gotogoal.py \
  --max_grad_norm 0.8 \
  --eval_episodes 2 \
  --n_training_threads 32 \
- --n_rollout_threads 32 \
+ --n_rollout_threads 128 \
  --num_mini_batch 1 \
  --episode_length 100 \
  --eval_interval 25 \
@@ -37,6 +37,7 @@ python train/train_gotogoal.py \
  --use_wandb True \
  --wandb_name "xxx" \
  --user_name "shahil-shaik7-clemson-university" \
+#  --model_dir "/home/shahils/Desktop/gitBackupRepo/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260203_141742-tl80w7r9/files/transformer_200.pt" \
 #  --moe_policy True
 
 #  --model_dir "/home/yue6/shahil_ws/Stable-PPO/ppo/scripts/results/mujoco/GoToGoal-v0/ppo/wandb/run-20260119_111344-diq56rgs/files/transformer_200.pt" \
