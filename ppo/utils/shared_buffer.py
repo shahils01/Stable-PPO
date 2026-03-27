@@ -188,22 +188,37 @@ class SharedReplayBuffer(object):
                 use_target_critic=True,
             )
 
+            device = current_q.device if torch.is_tensor(current_q) else torch.device("cpu")
+
             if value_normalizer is not None:
                 current_q = value_normalizer.denormalize(current_q)
                 target_next_q = value_normalizer.denormalize(target_next_q)
                 bootstrap_q = value_normalizer.denormalize(bootstrap_q)
 
             if not torch.is_tensor(current_q):
-                current_q = torch.as_tensor(current_q, dtype=torch.float32)
+                current_q = torch.as_tensor(current_q, dtype=torch.float32, device=device)
+            else:
+                current_q = current_q.to(device=device, dtype=torch.float32)
             if not torch.is_tensor(target_next_q):
                 target_next_q = torch.as_tensor(target_next_q, dtype=torch.float32, device=current_q.device)
+            else:
+                target_next_q = target_next_q.to(device=current_q.device, dtype=torch.float32)
             if not torch.is_tensor(bootstrap_q):
                 bootstrap_q = torch.as_tensor(bootstrap_q, dtype=torch.float32, device=current_q.device)
+            else:
+                bootstrap_q = bootstrap_q.to(device=current_q.device, dtype=torch.float32)
+            if torch.is_tensor(current_log_j):
+                current_log_j = current_log_j.to(device=current_q.device, dtype=torch.float32)
+            if torch.is_tensor(target_log_j):
+                target_log_j = target_log_j.to(device=current_q.device, dtype=torch.float32)
+            if torch.is_tensor(current_path):
+                current_path = current_path.to(device=current_q.device, dtype=torch.float32)
+            if torch.is_tensor(target_path):
+                target_path = target_path.to(device=current_q.device, dtype=torch.float32)
 
-            device = current_q.device
             tensor_dtype = torch.float32
-            rewards_t = torch.as_tensor(rewards, dtype=tensor_dtype, device=device)
-            next_masks_t = torch.as_tensor(next_masks, dtype=tensor_dtype, device=device)
+            rewards_t = torch.as_tensor(rewards, dtype=tensor_dtype, device=current_q.device)
+            next_masks_t = torch.as_tensor(next_masks, dtype=tensor_dtype, device=current_q.device)
 
             target_q = rewards_t + self.gamma * next_masks_t * target_next_q
             target_log_j = target_next_log_j
