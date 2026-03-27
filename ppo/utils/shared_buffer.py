@@ -193,8 +193,17 @@ class SharedReplayBuffer(object):
                 target_next_q = value_normalizer.denormalize(target_next_q)
                 bootstrap_q = value_normalizer.denormalize(bootstrap_q)
 
-            rewards_t = torch.as_tensor(rewards, dtype=current_q.dtype, device=current_q.device)
-            next_masks_t = torch.as_tensor(next_masks, dtype=current_q.dtype, device=current_q.device)
+            if not torch.is_tensor(current_q):
+                current_q = torch.as_tensor(current_q, dtype=torch.float32)
+            if not torch.is_tensor(target_next_q):
+                target_next_q = torch.as_tensor(target_next_q, dtype=torch.float32, device=current_q.device)
+            if not torch.is_tensor(bootstrap_q):
+                bootstrap_q = torch.as_tensor(bootstrap_q, dtype=torch.float32, device=current_q.device)
+
+            device = current_q.device
+            tensor_dtype = torch.float32
+            rewards_t = torch.as_tensor(rewards, dtype=tensor_dtype, device=device)
+            next_masks_t = torch.as_tensor(next_masks, dtype=tensor_dtype, device=device)
 
             target_q = rewards_t + self.gamma * next_masks_t * target_next_q
             target_log_j = target_next_log_j
