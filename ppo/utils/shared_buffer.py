@@ -195,6 +195,9 @@ class SharedReplayBuffer(object):
                 target_next_q = value_normalizer.denormalize(target_next_q)
                 bootstrap_q = value_normalizer.denormalize(bootstrap_q)
 
+            target_log_j = target_next_log_j
+            target_path = target_next_path
+
             if not torch.is_tensor(current_q):
                 current_q = torch.as_tensor(current_q, dtype=torch.float32, device=device)
             else:
@@ -221,8 +224,6 @@ class SharedReplayBuffer(object):
             next_masks_t = torch.as_tensor(next_masks, dtype=tensor_dtype, device=current_q.device)
 
             target_q = rewards_t + self.gamma * next_masks_t * target_next_q
-            target_log_j = target_next_log_j
-            target_path = target_next_path
 
             direction = (target_q - current_q).mean(dim=-1, keepdim=True)
             expansion = (target_log_j - current_log_j).mean(dim=-1, keepdim=True)
