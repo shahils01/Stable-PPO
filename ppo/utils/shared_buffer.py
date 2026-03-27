@@ -161,7 +161,6 @@ class SharedReplayBuffer(object):
                 self.returns[step] = gae + self.value_preds[step]
 
     def compute_returns_flow(self, policy, target_policy, value_normalizer=None):
-        del value_normalizer
         with torch.no_grad():
             obs = self.obs[:-1].reshape(-1, *self.obs.shape[3:])
             next_obs = self.obs[1:].reshape(-1, *self.obs.shape[3:])
@@ -188,6 +187,11 @@ class SharedReplayBuffer(object):
                 obs_image=self.obs_img[-1].reshape(-1, *self.obs_img.shape[3:]) if self.use_image else None,
                 use_target_critic=True,
             )
+
+            if value_normalizer is not None:
+                current_q = value_normalizer.denormalize(current_q)
+                target_next_q = value_normalizer.denormalize(target_next_q)
+                bootstrap_q = value_normalizer.denormalize(bootstrap_q)
 
             rewards_t = torch.as_tensor(rewards, dtype=current_q.dtype, device=current_q.device)
             next_masks_t = torch.as_tensor(next_masks, dtype=current_q.dtype, device=current_q.device)

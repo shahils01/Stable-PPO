@@ -44,7 +44,7 @@ class PPOTrainer:
         self.flow_endpoint_loss_coef = args.flow_endpoint_loss_coef
         self.flow_monotonicity_coef = args.flow_monotonicity_coef
         
-        if self._use_valuenorm and self.value_model_type != "flow":
+        if self._use_valuenorm:
             self.value_normalizer = ValueNorm(self.num_quants, device=self.device)
         else:
             self.value_normalizer = None
@@ -97,7 +97,14 @@ class PPOTrainer:
         active_masks_batch = active_masks_batch.reshape(-1, active_masks_batch.shape[-1])
         if obs_image_batch is not None:
             obs_image_batch = obs_image_batch.reshape(-1, *obs_image_batch.shape[-3:])
-        flow_losses = self.policy.transformer.compute_flow_losses(obs_batch, return_batch, obs_image=obs_image_batch)
+
+        if self.value_normalizer is not None:
+            self.value_normalizer.update(return_batch)
+            target_batch = self.value_normalizer.normalize(return_batch)
+        else:
+            target_batch = return_batch
+
+        flow_losses = self.policy.transformer.compute_flow_losses(obs_batch, target_batch, obs_image=obs_image_batch)
         value_loss = (
             self.flow_matching_loss_coef * flow_losses["flow_matching_loss"]
             + self.flow_endpoint_loss_coef * flow_losses["flow_endpoint_loss"]
