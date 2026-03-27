@@ -91,8 +91,9 @@ class PPOTrainer:
 
         return value_loss
 
-    def cal_flow_value_loss(self, obs_batch, return_batch, active_masks_batch, obs_image_batch=None):
+    def cal_flow_value_loss(self, obs_batch, value_preds_batch, return_batch, active_masks_batch, obs_image_batch=None):
         obs_batch = obs_batch.reshape(-1, obs_batch.shape[-1])
+        value_preds_batch = value_preds_batch.reshape(-1, value_preds_batch.shape[-1])
         return_batch = return_batch.reshape(-1, return_batch.shape[-1])
         active_masks_batch = active_masks_batch.reshape(-1, active_masks_batch.shape[-1])
         if obs_image_batch is not None:
@@ -101,20 +102,34 @@ class PPOTrainer:
         if self.value_normalizer is not None:
             self.value_normalizer.update(return_batch)
             target_batch = self.value_normalizer.normalize(return_batch)
+            old_value_preds = self.value_normalizer.normalize(value_preds_batch)
         else:
             target_batch = return_batch
+            old_value_preds = value_preds_batch
 
         flow_losses = self.policy.transformer.compute_flow_losses(obs_batch, target_batch, obs_image=obs_image_batch)
+        pred_quantiles = flow_losses["pred_quantiles"]
+        pred_quantiles_clipped = old_value_preds + (pred_quantiles - old_value_preds).clamp(-self.clip_param, self.clip_param)
+
+        endpoint_loss_original = (pred_quantiles - target_batch).pow(2)
+        endpoint_loss_clipped = (pred_quantiles_clipped - target_batch).pow(2)
+        endpoint_loss = torch.max(endpoint_loss_original, endpoint_loss_clipped)
+
+        if self._use_value_active_masks:
+            endpoint_loss = (endpoint_loss.mean(dim=-1, keepdim=True) * active_masks_batch).sum() / active_masks_batch.sum().clamp_min(1.0)
+        else:
+            endpoint_loss = endpoint_loss.mean()
+
         value_loss = (
             self.flow_matching_loss_coef * flow_losses["flow_matching_loss"]
-            + self.flow_endpoint_loss_coef * flow_losses["flow_endpoint_loss"]
+            + self.flow_endpoint_loss_coef * endpoint_loss
             + self.flow_monotonicity_coef * flow_losses["flow_monotonicity_loss"]
         )
 
-        if self._use_value_active_masks:
-            value_loss = value_loss * (active_masks_batch.sum() / active_masks_batch.sum().clamp_min(1.0))
-
-        return value_loss, flow_losses
+        return value_loss, {
+            **flow_losses,
+            "flow_endpoint_loss": endpoint_loss,
+        }
 
     def ppo_update(self, sample, obs_dim=None, obs_image_dim=None):
         """
@@ -164,7 +179,13 @@ class PPOTrainer:
             policy_loss = -torch.sum(torch.min(surr1, surr2), dim=-1, keepdim=True).mean()
 
         if self.value_model_type == "flow":
-            value_loss, flow_losses = self.cal_flow_value_loss(obs_batch, return_batch, active_masks_batch, obs_image_batch)
+            value_loss, flow_losses = self.cal_flow_value_loss(
+                obs_batch,
+                value_preds_batch,
+                return_batch,
+                active_masks_batch,
+                obs_image_batch,
+            )
         else:
             value_loss = self.cal_value_loss(values, value_preds_batch, return_batch, active_masks_batch)
             flow_losses = None
