@@ -11,10 +11,10 @@ env_name="mujoco"
 scenario="Humanoid-v5"
 algo="ppo"
 seed=0
-rollout_threads="${ROLLOUT_THREADS:-8}"
-eval_threads="${EVAL_THREADS:-2}"
-flow_samples="${FLOW_SAMPLES:-32}"
-flow_steps="${FLOW_STEPS:-4}"
+rollout_threads="${ROLLOUT_THREADS:-64}"
+eval_threads="${EVAL_THREADS:-1}"
+flow_samples="${FLOW_SAMPLES:-16}"
+flow_steps="${FLOW_STEPS:-8}"
 
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
 
@@ -42,23 +42,26 @@ python ppo/scripts/train/train_mujoco.py \
   --adv_metric_type transport_jacobian \
   --adv_expansion_coef 0.25 \
   --adv_magnitude_coef 0.1 \
-  --critic_lr 3e-5 \
-  --lr 3e-5 \
-  --entropy_coef 0.01 \
+  --critic_lr 1e-4 \
+  --lr 1e-4 \
+  --entropy_coef 0.001 \
   --gamma 0.99 \
   --gae_lambda 0.95 \
-  --max_grad_norm 0.8 \
-  --n_training_threads 8 \
+  --max_grad_norm 1.0 \
+  --n_training_threads 64 \
   --n_rollout_threads "${rollout_threads}" \
   --n_eval_rollout_threads "${eval_threads}" \
-  --num_mini_batch 4 \
-  --episode_length 500 \
+  --num_mini_batch 1 \
+  --episode_length 100 \
   --eval_interval 25 \
   --eval_episodes 2 \
   --num_env_steps 200000000 \
-  --ppo_epoch 20 \
-  --clip_param 0.1 \
-  --num_quants 64 \
+  --ppo_epoch 5 \
+  --clip_param 0.2 \
+  --num_quants 1 \
   --use_eval \
   --use_value_active_masks \
-  --use_policy_active_masks
+  --use_policy_active_masks \
+  --use_wandb True \
+  --wandb_name "xxx" \
+  --user_name "shahil-shaik7-clemson-university" \
